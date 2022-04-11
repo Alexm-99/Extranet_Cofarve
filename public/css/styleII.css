@@ -1,7 +1,7 @@
 .boxPrimary{
     margin: 0;
     background: linear-gradient(180deg, #013871 0%, #E4F2D9 100%);
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #cccccc;
     float: left;
     width: 100%;
 }
@@ -24,7 +24,7 @@
     width: 2%;
     padding-top: 70px;
     float: left;
-    border-left: 1px solid #000;
+    border-left: 1px solid #ccc;
 }
 
 .red{
@@ -45,4 +45,45 @@
 }
 #redes .bxl-telegram{
     color: #00234b;
+}
+
+.carrusel {
+    margin-top: 5px;
+    background-color: #00234b;
+
+    width: 70%;
+    position: relative;
+    float: left;
+}
+.carrusel #demo img{
+    height: 350px;
+}
+.topic h3{
+    margin-left: 20px;
+    text-align: center;
+}
+
+.topic button{
+    margin-left: 20px;
+    width: 300px;
+    margin-top: 1px;
+  text-align:right;
+  color: #00234b;
+  border-color: #00234b;
+  background-color: #e6dddd;
+  border: none;
+}
+.topic button i{
+  margin-inline: 15px 5px;
+}
+
+footer {
+   margin-top: 20px;
+   float: left;
+   background-color: #00234b;
+   color: #fff;
+   bottom: 0;
+  
+   width: 100%;
+
 }
