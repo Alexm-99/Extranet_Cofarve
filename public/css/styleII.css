@@ -1,4 +1,20 @@
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff #00234b;   
+  }
+  nav::-webkit-scrollbar {
+    width: 5px;
+    right: 0;
+  }
+  nav::-webkit-scrollbar-track {
+    background: #f1e5e5;
+    padding: 0;
+  }
+  nav::-webkit-scrollbar-thumb {
+    background-color: #00234b;
+    border-radius: 20px;
 
+  }
 .boxPrimary{
     margin: 0;
     background: linear-gradient(180deg, #ffffff 50%, #00abe5 100%);
@@ -164,6 +180,15 @@
     display: block;
     position: relative;
 }
+
+ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  .hide-dl-submenu>ul {
+    display: none;
+  }
 .cj{
 }
 .youtu{
