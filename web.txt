@@ -5,3 +5,6 @@ https://boxicons.com/
 
 
 https://www.campusmvp.es/recursos/post/como-hacer-un-slider-sencillo-con-html-y-css-sin-javascript.aspx
+
+
+https://webdesign.tutsplus.com/es/tutorials/how-to-customize-an-html-template--cms-25886

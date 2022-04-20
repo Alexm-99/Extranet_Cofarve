@@ -4,184 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Administración COFARVE</title>
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
-   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <style>
-        
-        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    user-select: none;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif
-}
-
-body {
-    background-color: #eee
-}
-
-.btn {
-    position: absolute;
-    top: 10px;
-    left: 45px;
-    height: 37px;
-    width: 37px;
-    text-align: center;
-    background: #1b1b1b;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: left 0.4s ease
-}
-
-.btn.click {
-    left: 260px
-}
-
-.btn span {
-    color: white;
-    font-size: 15px;
-    line-height: 36px
-}
-
-.btn.click span:before {
-    content: '\f00d'
-}
-
-.sidebar {
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    left: -250px;
-    background: #1b1b1b;
-    transition: left 0.4s ease
-}
-
-.sidebar.show {
-    left: 0px
-}
-
-.sidebar .text {
-    color: white;
-    font-size: 19px;
-    font-weight: 600;
-    line-height: 65px;
-    text-align: center;
-    background: #1e1e1e;
-    letter-spacing: 1px
-}
-
-nav ul {
-    background: #1b1b1b;
-    height: 100%;
-    width: 100%;
-    list-style: none;
-    padding-left: 10px
-}
-
-nav ul li {
-    line-height: 50px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1)
-}
-
-nav ul li:last-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05)
-}
-
-nav ul li a {
-    position: relative;
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    padding-left: 14px;
-    font-weight: 500;
-    display: block;
-    width: 100%;
-    border-left: 3px solid transparent
-}
-
-nav ul li.active a {
-    color: #FC5404;
-    background: #1e1e1e;
-    border-left-color: #FC5404
-}
-
-nav ul li a:hover {
-    background: #1e1e1e
-}
-
-.feat-show {
-    transition: all 0.5s
-}
-
-nav ul li.active ul {
-    transition: all 0.5s
-}
-
-nav ul ul {
-    position: static;
-    display: none
-}
-
-nav ul.show {
-    display: block;
-    transition: all 0.5s
-}
-
-nav ul ul li {
-    line-height: 42px;
-    border-top: none
-}
-
-nav ul ul li a {
-    font-size: 12px;
-    color: #e6e6e6
-}
-
-nav ul li.active ul li a {
-    color: #e6e6e6;
-    background: #1b1b1b;
-    border-left-color: transparent
-}
-
-a:hover {
-    color: #FC5404 !important
-}
-
-nav ul ul li a:hover {
-    color: #FC5404 !important;
-    background: #1e1e1e !important
-}
-
-nav ul li a span {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    font-size: 15px;
-    transition: transform 0.4s
-}
-
-nav ul li a span.rotate {
-    transform: translateY(-50%) rotate(-180deg)
-}
-
-.content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #202020;
-    z-index: -1;
-    text-align: center
-}
-    </style>
+   <link rel="stylesheet" href="./css/styleAdmin.css">
 </head>
 <body>
     <div class="btn"> <span class="fas fa-bars"></span> </div>
@@ -207,9 +37,21 @@ nav ul li a span.rotate {
         <li><a href="#">Files</a></li>
     </ul>
 </nav>
-<div class="content">
 
-    
+
+<!-- Contenido principal -->
+<div class="content">
+    <div id="imagenMain-AD">
+        <img src="./img/cofarve.png">
+      </div>
+    <div id="cuerpo">
+
+
+    </div>
+
+
+
+
     <div class="header"> 
         <table class="table">
             <thead class="table-dark">
@@ -218,6 +60,8 @@ nav ul li a span.rotate {
                 <th>Enlace</th>
                 <th>Descripción</th>
                 <th>Estado</th>
+                <th>Actualizar</th>
+                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody>
@@ -226,6 +70,8 @@ nav ul li a span.rotate {
                 <td><input type="text" name="" id=""></td>
                 <td><input type="text" name="" id=""></td>
                 <td> <input type="checkbox" name="" id=""> </td>
+                <td> <a href=""><i class='bx bxs-trash'></i></a></td>
+                <td> <a href=""><i class='bx bxs-trash'></i></a></td>
               </tr>
               <tr>
                 <td>Mary</td>
@@ -263,6 +109,6 @@ $('nav ul li').click(function(){
 $(this).addClass("active").siblings().removeClass("active");
 });
 </script>
-
+<script src="./js/admin.js"></script>
 </body>
 </html>
