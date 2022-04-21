@@ -13,7 +13,16 @@ class link(models.Model):
     def __str__(self):
         return self.id
 
+class linkSecond(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
+    icon = models.CharField(max_length=300)
+    state = models.BooleanField()
+    linkP = models.CharField(max_length=100)
 
+
+    
 class Galeria(models.Model):
     id = models.AutoField(primary_key=True)
     imageX = models.FileField(upload_to='public/static/', max_length=254, blank=True)
