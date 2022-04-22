@@ -38,15 +38,24 @@
       <div> <a href="#" class="nav_logo"> <i class='bx bx-menu nav_logo-icon' id="header-toggle"></i> <span
             class="nav_logo-name">COFARVE </span> </a>
 
+            
 
-            {% if link %}
             {% for enlace in link %}
-        
-                {% csrf_token %}
-                <h1> {{enlace.name}}</h1>
+                
+                 
+            {% for enlace2 in link2 %}
+            <h1> {{enlace.id}}</h1>   
 
-            {% endfor %}
+            {% if enlace.id == enlace2.linkP %}
+            <!-- {% csrf_token %} -->
+        
+            <h1> {{enlace.name}}</h1>   
+                  <p>prueba </p>
             {% endif %}
+         
+              {% endfor %}
+            {% endfor %}
+           
 
         <div class="nav_list">
           <a href="#" class="nav_link" title="Admin"> <i class='bx bxs-lock nav_icon'></i><span  class="nav_name">  Admin</span>
