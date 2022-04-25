@@ -4,8 +4,10 @@ from django.db import models
 
 
 class link(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.CharField (max_length=100 , primary_key=True)
+    linkP1 = models.CharField(max_length=100) # codigo de menu
     name = models.CharField(max_length=100)
+    enlaceP = models.CharField(max_length=500)
     description = models.CharField(max_length=200)
     icon = models.CharField(max_length=300)
     state = models.BooleanField()
@@ -16,10 +18,11 @@ class link(models.Model):
 class linkSecond(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
+    enlaceP = models.CharField(max_length=500)
     description = models.CharField(max_length=200)
     icon = models.CharField(max_length=300)
     state = models.BooleanField()
-    linkP = models.CharField(max_length=100)
+    linkP = models.CharField(max_length=100) # codigo de menu
 
 
     
