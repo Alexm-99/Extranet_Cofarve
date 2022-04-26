@@ -13,3 +13,7 @@ def inicio(request):
     contexto = {'link':enlace , 'link2':enlace2, 'tema':temasimportantes ,
                  'imagen':imagen1,'imagenx2':imagen2, 'imagenx3':imagen3     }
     return render(request, 'index.html', contexto)
+
+
+def administrador(request):
+    return render(request, 'index.html')
