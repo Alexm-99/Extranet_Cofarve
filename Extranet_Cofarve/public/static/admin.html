@@ -25,16 +25,12 @@
             type="text/css" href=
     "https://use.fontawesome.com/releases/v5.6.3/css/all.css">
       
-        <script type="text/javascript">
-            function showHideRow(row) {
-                $("#" + row).toggle();
-            }
-        </script>
+    
     
    <link rel="stylesheet" href="./css/styleAdmin.css">
 </head>
 <body>
-    <div class="btn"> <span class="fas fa-bars"></span> </div>
+    <div class="btn-nav"> <span class="fas fa-bars"></span> </div>
 <nav class="sidebar">
     <div class="text"> Cofarve Admin </div>
     <ul class="main_side">
@@ -69,7 +65,7 @@
 
     </div>
 
-
+<!-- Modal para los iconos  -->
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -85,12 +81,39 @@
         </div>
       </div>
     </div>
+<!-- ------------------------- -->
+
+
+
+<!-- Modal para opciones de guardar-->
+<div class="modal fade" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-primary" onclick="newMenu()" data-dismiss="modal">Nuevo Menu</button>
+        <button type="button" class="btn btn-primary">Nuevo Submenu</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ------------------------------------------- -->
 
     <div class="header"> 
         <table class="table">
             <thead class="table-dark">
               <tr>
                 <th></th>
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Enlace</th>
                 <th>Descripción</th>
@@ -99,28 +122,30 @@
                 <th>Actualizar</th>
                 <th>Eliminar</th>
                  <!-- <th>Guardar</th> -->
-                <th>Submenu</th>
+                <th>Nuevo</th>
                
               </tr>
             </thead>
             <tbody>
-              <tr >
-                <td onclick="showHideRow('hidden_row1');"><i class='bx bxs-chevrons-down'></i></td>
-                <td > <input type="text" name="" id=""></td>
-                <td ><input type="text" name="" id=""></td>
-                <td ><input type="text" name="" id=""></td>
+              <tr class="item-main ">
+                <td onclick="showHideRow('codigo1');"><i class='bx bxs-chevrons-down'></i></td>
+                <td > <input type="text" name="" id="" class="text-id txt-general" ></td>
+                <td><input type="text" name="" id="" class="txt-general"></td></td>
+                <td><input type="text" name="" id="" class="txt-general"></td></td>
+                <td><input type="text" name="" id="" class="txt-general"></td></td>
                 <td ><a href="" data-toggle="modal" data-target=".bd-example-modal-sm"><i class='bx bx-happy' ></i></a></td>
                 <td> <input type="checkbox" name="" id=""> </td>
                 <td> <a href=""><i class='bx bx-rotate-right'></i></i></a></td>
                 <td> <a href =""><i class='bx bxs-trash'></i></a></td>
                 <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
-                <td> <a href=""><i class='bx bxs-add-to-queue'></i></a></td>
+                <td> <a href="" data-toggle="modal" data-target="#ModalMenu" ><i class='bx bxs-add-to-queue'></i></a></td>
               </tr>
-              <tr id="hidden_row1" class="hidden_row table-dark" >
+              <tr class="codigo1 hidden_row " >
                 <td></td>
-                <td><input type="text" name="" id=""></td></td>
-                <td><input type="text" name="" id=""></td></td>
-                <td><input type="text" name="" id=""></td></td>
+                <td > <input type="text" name="" id="" class="text-id txt-general" ></td>
+                <td><input type="text" name="" id="" class="txt-general"></td></td>
+                <td><input type="text" name="" id="" class="txt-general"></td></td>
+                <td><input type="text" name="" id="" class="txt-general"></td></td>
                 <td></td>
                 <td> <input type="checkbox" name="" id=""> </td>
                 <td> <a href=""><i class='bx bx-rotate-right'></i></i></a></td>
@@ -129,20 +154,81 @@
                 <td> </td>
 
             </tr>
+            <tr class="codigo1 hidden_row " >
+              <td></td>
+              <td > <input type="text" name="" id="" class="text-id txt-general" ></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+              <td></td>
+              <td> <input type="checkbox" name="" id=""> </td>
+              <td> <a href=""><i class='bx bx-rotate-right'></i></i></a></td>
+              <td> <a href =""><i class='bx bxs-trash'></i></a></td>
+              <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
+              <td> </td>
+
+          </tr>
+
+          <tr class="item-main">
+            <td onclick="showHideRow('codigo2');"><i class='bx bxs-chevrons-down'></i></td>
+            <td > <input type="text" name="" id="" class="text-id txt-general" ></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+            <td ><a href="" data-toggle="modal" data-target=".bd-example-modal-sm"><i class='bx bx-happy' ></i></a></td>
+            <td> <input type="checkbox" name="" id=""> </td>
+            <td> <a href=""><i class='bx bx-rotate-right'></i></i></a></td>
+            <td> <a href =""><i class='bx bxs-trash'></i></a></td>
+            <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
+            <td> <a href=""><i class='bx bxs-add-to-queue'></i></a></td>
+          </tr>
+          <tr class="codigo2 hidden_row" >
+            <td></td>
+            <td > <input type="text" name="" id="" class="text-id txt-general" ></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+            <td></td>
+            <td> <input type="checkbox" name="" id=""> </td>
+            <td> <a href=""><i class='bx bx-rotate-right'></i></i></a></td>
+            <td> <a href =""><i class='bx bxs-trash'></i></a></td>
+            <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
+            <td> </td>
+
+        </tr>
+        <tr class="codigo2 hidden_row " >
+          <td></td>
+          <td > <input type="text" name="" id="" class="text-id txt-general" ></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td></td>
+          <td> <input type="checkbox" name="" id=""> </td>
+          <td> <a href=""><i class='bx bx-rotate-right'></i></i></a></td>
+          <td> <a href =""><i class='bx bxs-trash'></i></a></td>
+          <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
+          <td> </td>
+
+      </tr>
 
 
-              <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-                <td> <input type="checkbox" name="" id=""> </td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-                <td> <input type="checkbox" name="" id=""> </td>
-              </tr>
+
+
+      <tr class="nuevomenu item-main" id="menuid" >
+      
+          <td onclick="showHideRow('codigonew');"><i class='bx bxs-chevrons-down'></i></td>
+          <td > <input type="text" name="" id="idMenuNew" class="text-id txt-general" ></td>
+        <td><input type="text" name="" id="" class="txt-general"></td></td>
+        <td><input type="text" name="" id="" class="txt-general"></td></td>
+        <td><input type="text" name="" id="" class="txt-general"></td></td>
+          <td ><a href="" data-toggle="modal" data-target=".bd-example-modal-sm"><i class='bx bx-happy' ></i></a></td>
+          <td> <input type="checkbox" name="" id=""> </td>
+          <td> <a href=""><i class='bx bx-rotate-right'></i></i></a></td>
+          <td> <a href =""><i class='bx bxs-trash'></i></a></td>
+          <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
+        <td></td>
+   
+      </tr>
             </tbody>
           </table>    
     </div>
@@ -153,10 +239,9 @@
 
 
 
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $('.btn').click(function(){
+    $('.btn-nav').click(function(){
 $(this).toggleClass("click");
 $('.sidebar').toggleClass("show");
 });
@@ -164,12 +249,12 @@ $('.sidebar').toggleClass("show");
 
 $('.sidebar ul li a').click(function(){
 var id = $(this).attr('id');
-$('nav ul li ul.item-show-'+id).toggleClass("show");
-$('nav ul li #'+id+' span').toggleClass("rotate");
+$('btn-nav ul li ul.item-show-'+id).toggleClass("show");
+$('btn-nav ul li #'+id+' span').toggleClass("rotate");
 
 });
 
-$('nav ul li').click(function(){
+$('btn-nav ul li').click(function(){
 $(this).addClass("active").siblings().removeClass("active");
 });
 </script>

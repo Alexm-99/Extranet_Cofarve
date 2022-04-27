@@ -16,7 +16,7 @@ body {
     background-color: #eee
 }
 
-.btn {
+.btn-nav {
     position: absolute;
     top: 10px;
     left: 45px;
@@ -29,17 +29,17 @@ body {
     transition: left 0.4s ease
 }
 
-.btn.click {
+.btn-nav.click {
     left: 260px
 }
 
-.btn span {
+.btn-nav span {
     color: white;
     font-size: 15px;
     line-height: 36px
 }
 
-.btn.click span:before {
+.btn-nav.click span:before {
     content: '\f00d'
 }
 
@@ -184,40 +184,21 @@ nav ul li a span.rotate {
     margin-inline: auto;
 }
 
-
-
-
-
-
-#wrapper {
-    margin: 0 auto;
-    padding: 0px;
-    text-align: center;
-    width: 995px;
+.text-id{
+    width: 100px;
 }
 
-#wrapper h1 {
-    margin-top: 50px;
-    font-size: 45px;
-    color: #585858;
+.txt-general{
+    background-color: transparent;
+    border: 0.5px solid #969fa1;
+    border-radius: 5px;
+    outline: none;
+    
 }
 
-#wrapper h1 p {
-    font-size: 20px;
+.item-main{
+    background-color: #cac8c8;
 }
-
-#table_detail {
-    width: 500px;
-    text-align: left;
-    border-collapse: collapse;
-    color: #2E2E2E;
-    border: #A4A4A4;
-}
-
-#table_detail tr:hover {
-    background-color: #F2F2F2;
-}
-
-#table_detail .hidden_row {
-    display: none;
+#menuid{
+  visibility: hidden;
 }
