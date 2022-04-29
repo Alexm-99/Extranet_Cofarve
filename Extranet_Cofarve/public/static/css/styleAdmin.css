@@ -201,4 +201,45 @@ nav ul li a span.rotate {
 }
 #menuid{
   visibility: hidden;
+  background-color: #6ac76a;
 }
+#submenuid{
+    display: none;
+    
+    background-color: #6ab9c7;
+  }
+  .icon-item{
+      font-size: 22px;
+      color: rgb(114, 114, 114);
+  }
+  
+  .icon-happy:hover{
+      color: rgb(155, 127, 1);
+  }
+  .icon-update:hover{
+      color: rgb(0, 0, 124);
+  }
+  .icon-delete:hover{
+    color: rgb(179, 1, 1);
+  }
+
+  /* .icon-flecha{
+
+  } */
+
+  .table{
+    width: 80%;
+      margin: 20px auto;
+    
+  }
+  .caja-tabla{
+      margin-top: 30px;
+    
+  }
+ 
+
+  .caja-box{
+      z-index: -1;
+      width: 300px;
+      margin-left: 30px;
+  }
