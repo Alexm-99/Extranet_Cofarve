@@ -16,4 +16,7 @@ def inicio(request):
 
 
 def administrador(request):
-    return render(request, 'index.html')
+    enlace = link.objects.all()
+    enlace2 = linkSecond.objects.all()
+    contexto = {'link':enlace, 'link2':enlace2 }
+    return render(request, 'admin.html', contexto)

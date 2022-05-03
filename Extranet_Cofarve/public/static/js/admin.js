@@ -17,18 +17,16 @@ function principal(){
 
 }
 function showHideRow(row) {
-
-    
-        $('#submenuid').css('display', 'table-row'); 
+         $('#submenuid').css('display', 'none'); 
    
  $("." + row).toggle();
 }
 function newMenu() {
     var x = document.getElementById("menuid");
      
-    if (x.style.visibility != "visible") {
+    if (x.style.display != "table-row") {
        
-        x.style.visibility = "visible";
+        x.style.display = "table-row";
         
     }
 
