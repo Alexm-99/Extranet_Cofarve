@@ -1,53 +1,41 @@
-function principal(){
-    cuerpo = document.getElementById("cuerpo");
-    let addHtml = ``;
-
-    
-
-    addHtml +=` <h1> Hola Mundo </h1>
-    
-    
-    
-    
-    `
 
 
-    cuerpo.innerHTML = addHtml;
 
-
-}
 function showHideRow(row) {
-         $('#submenuid').css('display', 'none'); 
-   
+      
+    
  $("." + row).toggle();
-}
-function newMenu() {
-    var x = document.getElementById("menuid");
+ }
+
+
+
+// function newMenu() {
+//     var x = document.getElementById("menuid");
      
-    if (x.style.display != "table-row") {
+//     if (x.style.display != "table-row") {
        
-        x.style.display = "table-row";
+//         x.style.display = "table-row";
         
-    }
+//     }
 
-   text = document.getElementById("idMenuNew");
+//    text = document.getElementById("idMenuNew");
    
-   text.focus();
-}
+//    text.focus();
+// }
 
-function newSubMenu() {
-    var x = document.getElementById("submenuid");
+// function newSubMenu() {
+//     var x = document.getElementById("submenuid");
      
-    if (x.style.display != "table-row") {
+//     if (x.style.display != "table-row") {
        
-        x.style.display = "table-row";
+//         x.style.display = "table-row";
         
-    }
+//     }
 
-   text = document.getElementById("idSubMenuNew");
+ //  text = document.getElementById("idSubMenuNew");
    
-   text.focus();
-}
+ //  text.focus();
+//}
 
 
 $('#btnSubmenuid').click(function(e) {

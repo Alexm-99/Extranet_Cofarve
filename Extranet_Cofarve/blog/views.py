@@ -20,3 +20,8 @@ def administrador(request):
     enlace2 = linkSecond.objects.all()
     contexto = {'link':enlace, 'link2':enlace2 }
     return render(request, 'admin.html', contexto)
+
+
+
+def galeria(request):
+    return render(request, "galeria.html")

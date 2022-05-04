@@ -1,0 +1,39 @@
+{% extends 'encabezado.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    {% block estilos %} 
+<link rel="stylesheet" href='{% static "./css/GaleriaStyle.css" %}'>
+    {% endblock estilos %}
+    <title>Document</title>
+</head>
+<body>
+    {% block cuerpo %} 
+<h1>Configuración de Galeria <h1>
+<div class="imagenes">
+    <div class="foto">
+         <img src='{% static "./img/cofarve.png" %}'>
+    <button>Cargar</button>
+    </div>
+    <div class="foto">
+        <img src='{% static "./img/cofarve.png" %}'>
+   <button>Cargar</button>
+   </div>
+   <div class="foto">
+    <img src='{% static "./img/cofarve.png" %}'>
+<button>Cargar</button>
+</div>
+   
+</div>
+
+
+
+    {% endblock cuerpo %}
+</body>
+</html>
