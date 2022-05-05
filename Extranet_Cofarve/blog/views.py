@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.db import connection
 from .models import TemasImportantes, link, linkSecond, Galeria
-
+from .forms import PostForm
+from django.shortcuts import redirect
+from django.utils import timezone
 # Create your views here.
 def inicio(request):
     enlace = link.objects.all()
@@ -18,10 +20,25 @@ def inicio(request):
 def administrador(request):
     enlace = link.objects.all()
     enlace2 = linkSecond.objects.all()
-    contexto = {'link':enlace, 'link2':enlace2 }
+    form = PostForm()
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+           
+            return redirect('admin', pk=post.pk)
+    else:
+        form = PostForm()
+
+
+    contexto = {'link':enlace, 'link2':enlace2, 'form': form }
     return render(request, 'admin.html', contexto)
 
 
 
 def galeria(request):
     return render(request, "galeria.html")
+

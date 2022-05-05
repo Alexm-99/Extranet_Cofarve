@@ -8,3 +8,17 @@ https://www.campusmvp.es/recursos/post/como-hacer-un-slider-sencillo-con-html-y-
 
 
 https://webdesign.tutsplus.com/es/tutorials/how-to-customize-an-html-template--cms-25886
+
+
+
+
+#Metodo post
+
+https://tutorial.djangogirls.org/es/django_forms/
+https://es.stackoverflow.com/questions/401505/conservar-datos-del-formulario-sin-volver-a-recargar-p%C3%A1gina-con-ajax-y-django
+
+
+https://es.acervolima.com/envio-de-formulario-de-matraz-sin-recargar-pagina/
+
+
+https://medium.com/@a01208219/forms-de-django-857edcff9307
