@@ -34,8 +34,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <button type="button" data-toggle="modal" data-target="#ModalMenuAdd" class="btn btn-primary" onclick="newMenu()" data-dismiss="modal">Nuevo Área</button>
-            <button type="button" class="btn btn-primary" id="btnSubmenuid" data-dismiss="modal">Nuevo SubÁrea</button>
+            <button type="button" data-toggle="modal" data-target="#ModalMenuAdd" class="btn btn-primary" onclick="newMenu()" data-dismiss="modal">Menu</button>
+            <button type="button" class="btn btn-primary" id="btnSubmenuid" data-dismiss="modal">Submenu</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -62,27 +62,32 @@
         </div>
         <div class="modal-body">
         
-  <form method="POST" class="post-form" id="todo-form">{% csrf_token %}
-    <div class="form-row">
-      <div class="text-danger">
-        {{ form.errors }}
-      </div>
+  <form method="POST"  action="" class="post-form" id="todo-form">{% csrf_token %}
+    
+       <div class="form-row">
+     
       <div class="form-group col-md-6">
-        <label for="">ID</label>
-       <span class="form-control">{{ form.id }}</span> 
+        <label for="">ID</label> 
+
+
+       <input type="text" name="{{ form.id.name }}" class="form-control"> 
+       <div class="text-danger">
+        {{ form.errors.id }}
+      </div>
+       
 
       </div>
       <div class="form-group col-md-6">
         <label for="">Area</label>
-        <span class="form-control">{{ form.name }}</span> 
+        <input type="text" name="{{ form.name.name }}" class="form-control"> 
       </div>
       <div class="form-group col-md-6">
         <label for="">Enlace</label>
-        <span class="form-control">{{ form.enlaceP }}</span> 
+        <input type="text" name="{{ form.enlaceP.name }}" class="form-control"> 
       </div>
       <div class="form-group col-md-6">
         <label for="">Descripción</label>
-        <span class="form-control">{{ form.description }}</span> 
+        <input type="text" name="{{ form.description.name }}" class="form-control"> 
       </div>
       <div class="form-group col-md-6">
         
@@ -163,7 +168,7 @@
 
   <!-- ---------------------------- -->
     <div class="header">
-      <h1>Administración de enlaces por áreas y subareas</h1>
+      <h1>Administración de enlaces por menu y submenus</h1>
       <div class="caja-tabla">
         <div class="caja-box">
 
@@ -175,7 +180,12 @@
             {% endfor %}
             
           </select>
+
         </div>
+        
+          <button type="button" data-toggle="modal" data-target="#ModalMenu" class="btn btn-primary btn-nuevo" >Añadir</button>
+
+    
 
         <table class="table">
           <thead class="table-dark">
@@ -216,7 +226,7 @@
                 </div>  
               </td>
               <td> <a href=""><i class='bx bx-rotate-right icon-item icon-update' id=""></i></i></a></td>
-              <td> <a href=""><i class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
+              <td> <a href=""  onclick="eliminarIdentificador('{{ enlace.id }}')" class="modal-action modal-close waves-effect waves-green btn-flat"><i class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
               <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
                     class='bx bxs-add-to-queue icon-item'></i></a></td>
@@ -266,8 +276,37 @@
 
     </div>
 
+    <!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+      <h3>estas apunto de eliminar {{identificador.clave}}</h3> 
+  </div>
+  <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+      <button onclick="eliminarIdentificador('{{ identificador.id }}')" class="modal-action modal-close waves-effect waves-green btn-flat">Eliminar</a>
+  </div>
+</div>
 
-      <!--Jquery Cdn -->
+<script type="text/javascript">
+  function eliminarIdentificador(identificadorId) {
+      var request = $.ajax({
+          type: "POST",
+          url: "{% url 'admin' %}",
+          data: {
+              "csrfmiddlewaretoken": "{{ csrf_token }}",
+              "id": identificadorId                    
+          },
+      });
+      request.done(function(response) {
+          alert("Identificador eliminado");
+          // Cierra el modal, oculta el identificador eliminado, etc.
+      });
+  }
+</script>
+
+
+<!-- 
+  
   <script src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
@@ -289,7 +328,7 @@ success:function()
 }
 })
 });
-</script>
+</script> -->
     {% endblock cuerpo %}
 
 </body>

@@ -28,7 +28,6 @@ def administrador(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-           
             return redirect('admin', pk=post.pk)
     else:
         form = PostForm()

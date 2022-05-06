@@ -22,3 +22,11 @@ https://es.acervolima.com/envio-de-formulario-de-matraz-sin-recargar-pagina/
 
 
 https://medium.com/@a01208219/forms-de-django-857edcff9307
+
+
+https://binary-coffee.dev/post/3-formas-de-darle-estilos-a-tus-formularios-de-django
+
+
+https://es.stackoverflow.com/questions/7445/c%C3%B3mo-pasarle-la-funci%C3%B3n-para-eliminar-registros-con-una-ventana-modal-en-django
+
+https://steemit.com/utopian-io/@kit.andres/como-enviar-solicitudes-ajax-en-django

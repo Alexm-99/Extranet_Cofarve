@@ -20,8 +20,9 @@ from blog.views import inicio, administrador, galeria
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('',inicio, name= 'index'),
-     path('administrador/',administrador, name= 'admin'),
-      path('galeria/',galeria, name= 'galeria'),
+    path('',inicio, name= 'index'),
+    path('administrador/',administrador, name= 'admin'),
+    path('galeria/',galeria, name= 'galeria'),
 
 ]
+
