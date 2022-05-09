@@ -28,7 +28,7 @@ def administrador(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('admin', pk=post.pk)
+            return redirect('/administrador/send', pk=post.pk)
     else:
         form = PostForm()
 
@@ -41,3 +41,5 @@ def administrador(request):
 def galeria(request):
     return render(request, "galeria.html")
 
+def actualizar(request):
+    return render(request, "edit.html")

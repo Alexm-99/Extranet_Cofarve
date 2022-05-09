@@ -244,6 +244,11 @@ nav ul li a span.rotate {
   }
   .ico-modal{
       font-size: 32px;
+      color: #0d69e0;
+  }
+  .ico-modal:hover{
+      font-size: 34px;
+      color: #6ac76a;
   }
   .addMenu{
       width: 600px;
@@ -255,3 +260,4 @@ nav ul li a span.rotate {
 .submenu{
     display: none;
 }
+
