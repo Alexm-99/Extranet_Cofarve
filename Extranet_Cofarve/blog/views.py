@@ -1,8 +1,10 @@
+#from readline import parse_and_bind
 from django.shortcuts import render
 from django.db import connection
 from .models import TemasImportantes, link, linkSecond, Galeria
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.http import Http404
 from django.utils import timezone
 # Create your views here.
 def inicio(request):
@@ -43,3 +45,12 @@ def galeria(request):
 
 def actualizar(request):
     return render(request, "edit.html")
+
+
+def delete(request, pk):
+    try:
+        record = link.objects.get(id = pk)
+        record.delete()
+        return redirect('actualizar')
+    except:
+        print("Record doesn't exists")

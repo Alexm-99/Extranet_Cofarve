@@ -100,12 +100,16 @@
        
  
          <input type="hidden" name="{{ form.icon.name }}" value="bx bx-happy" id="envio-icon">
-          <span id="icon-post">icono</span><i
+          <span id="icon-post">icono</span> <br><i
           class='bx bx-happy icon-item icon-happy' id="iconoP"></i></a>
       </div>
       <div class="form-group col-md-6">
-        <label for="">estado</label>
-        <input type="text" name="{{ form.state.name }}" class="form-control"> 
+        
+        <div class="form-check form-switch">
+          <label for="che-estado">
+          <input id="che-estado" class="form-check-input" type="checkbox" name="{{ form.state.name }}" > estado</label>
+        </div>
+        
       </div>
     </div>
    
@@ -160,13 +164,13 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="caja-ico">
-      <i class='bx bx-menu ico-modal' onclick="iconclick('bx bx-menu')"></i>
-      <i class='bx bxs-lock ico-modal' onclick="iconclick('bx bxs-lock')"></i>
-      <i class='bx bx-group ico-modal'onclick="iconclick('bx bxs-group')"></i>
-      <i class='bx bxs-cart ico-modal'onclick="iconclick('bx bxs-cart')"></i>
-      <i class='bx bx-store ico-modal'onclick="iconclick('bx bx-store')"></i>
-      <i class='bx bx-credit-card-front ico-modal' onclick="iconclick('bx bx-credit-card-front')"></i>
-      <i class='bx bx-laptop ico-modal' onclick="iconclick('bx bx-laptop')"></i>
+      <i class='bx bx-menu ico-modal' onclick="iconclick('bx bx-menu') " data-dismiss="modal" ></i>
+      <i class='bx bxs-lock ico-modal' onclick="iconclick('bx bxs-lock')" data-dismiss="modal" ></i>
+      <i class='bx bx-group ico-modal'onclick="iconclick('bx bxs-group')" data-dismiss="modal" ></i>
+      <i class='bx bxs-cart ico-modal'onclick="iconclick('bx bxs-cart')" data-dismiss="modal" ></i>
+      <i class='bx bx-store ico-modal'onclick="iconclick('bx bx-store')" data-dismiss="modal" ></i>
+      <i class='bx bx-credit-card-front ico-modal' onclick="iconclick('bx bx-credit-card-front')" data-dismiss="modal" ></i>
+      <i class='bx bx-laptop ico-modal' onclick="iconclick('bx bx-laptop')" data-dismiss="modal" ></i>
 
       </div>
      
@@ -232,14 +236,18 @@
               <td><input type="text" name="" id="" class="form-control txt-general " value="{{enlace.description}}"></td>
               </td>
               <td><a href="" data-toggle="modal" data-target=".bd-example-modal-sm"><i
-                    class='bx bx-happy icon-item icon-happy' id=""></i></a></td>
+                    class='{{enlace.icon}} icon-item icon-happy' id=""></i></a></td>
               <td> 
                 <div class="form-check form-switch">
+                  {% if enlace.state %}
                   <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                  {% else %}
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" >
+                  {% endif %}
                 </div>  
               </td>
               <td> <a href=""><i class='bx bx-rotate-right icon-item icon-update' id=""></i></i></a></td>
-              <td> <a href=""  onclick="eliminarIdentificador('{{ enlace.id }}')" class="modal-action modal-close waves-effect waves-green btn-flat"><i class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
+              <td> <a href="{% url 'delete' enlace.id %}" onclick="return confirm('¿Estas seguro de Eliminar este registro?')" class="modal-action modal-close waves-effect waves-green btn-flat"><i class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
               <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
                     class='bx bxs-add-to-queue icon-item'></i></a></td>

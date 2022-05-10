@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import inicio, administrador, galeria,actualizar
+from blog.views import inicio, administrador, galeria,actualizar, delete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',inicio, name= 'index'),
     path('administrador/',administrador, name= 'admin'),
     path('galeria/',galeria, name= 'galeria'),
-    path('administrador/send/',actualizar, name= 'actualizar')
+    path('administrador/send/',actualizar, name= 'actualizar'),
+    path('delete/<int:pk>', delete, name="delete")
 
 ]
 
