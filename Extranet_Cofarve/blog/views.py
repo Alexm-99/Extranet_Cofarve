@@ -1,7 +1,7 @@
 #from readline import parse_and_bind
 from django.shortcuts import render
 from django.db import connection
-from .models import TemasImportantes, link, linkSecond, Galeria
+from .models import TemasImportantes, link, linkSecond, Galeria, stockIcon
 from .forms import PostForm
 from django.shortcuts import redirect
 from django.http import Http404
@@ -22,6 +22,7 @@ def inicio(request):
 def administrador(request):
     enlace = link.objects.all()
     enlace2 = linkSecond.objects.all()
+    iconos = stockIcon.objects.all()
     form = PostForm()
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -35,7 +36,7 @@ def administrador(request):
         form = PostForm()
 
 
-    contexto = {'link':enlace, 'link2':enlace2, 'form': form }
+    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,  'form': form }
     return render(request, 'admin.html', contexto)
 
 

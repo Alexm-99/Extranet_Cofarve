@@ -44,8 +44,11 @@
                 
             <div id="kode-responsive-navigation" class="dl-menuwrapper">
               <ul class="dl-menu hide-dl-submenu">
-              
-                {% if enlace.enlaceP %}
+                {% if enlace.state == 0 %}  <!--estado de enlace -->
+                <li class="submenu"> <a href="#"  onclick="alert('Elemento bloqueado, comuniquese con el administrador')"  class="nav_link" title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
+                  class="nav_name">{{enlace.name}} </span> </a>
+                {% else %}             
+                {% if enlace.enlaceP %}   <!--1 -->
                 <li class="submenu"> <a href="{{enlace.enlaceP}}" class="nav_link" title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
                       class="nav_name">{{enlace.name}} </span> </a>
 
@@ -53,7 +56,9 @@
                 <li class="submenu"> <a href="#" class="nav_link" title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
                   class="nav_name">{{enlace.name}} </span> </a>
 
-                {% endif %}
+                {% endif %}<!--1 -->
+
+               
             {% for enlace2 in link2 %}
       
 
@@ -70,6 +75,7 @@
             {% endif %}
          
               {% endfor %}
+              {% endif %} <!-- Fin de if de estado-->
             </li>
           </ul>
         </div>

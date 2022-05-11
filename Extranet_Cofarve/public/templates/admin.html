@@ -158,19 +158,20 @@
     </div>
   </div>
 
-  <!-- Modal para los iconos  -->
+  <!-- Modal para los iconos Guardar -->
   <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="caja-ico">
-      <i class='bx bx-menu ico-modal' onclick="iconclick('bx bx-menu') " data-dismiss="modal" ></i>
-      <i class='bx bxs-lock ico-modal' onclick="iconclick('bx bxs-lock')" data-dismiss="modal" ></i>
-      <i class='bx bx-group ico-modal'onclick="iconclick('bx bxs-group')" data-dismiss="modal" ></i>
-      <i class='bx bxs-cart ico-modal'onclick="iconclick('bx bxs-cart')" data-dismiss="modal" ></i>
-      <i class='bx bx-store ico-modal'onclick="iconclick('bx bx-store')" data-dismiss="modal" ></i>
-      <i class='bx bx-credit-card-front ico-modal' onclick="iconclick('bx bx-credit-card-front')" data-dismiss="modal" ></i>
-      <i class='bx bx-laptop ico-modal' onclick="iconclick('bx bx-laptop')" data-dismiss="modal" ></i>
+        {% for icono in icon %}
+        <i class='{{icono.name}} ico-modal' onclick="iconclick('{{icono.name}}') " data-dismiss="modal" ></i>
+     
+        {% if forloop.counter == 10 %}
+            <br>
+        {% endif %}
+        {% endfor %}
+
 
       </div>
      
@@ -180,7 +181,27 @@
 <!-- ------------------------- -->
 
 
+  <!-- Modal para los iconos Actualizar -->
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true" id="ModalUpddate">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="caja-ico">
+        {% for icono in icon %}
+        <i class='{{icono.name}} ico-modal' onclick="iconclickUpdate('{{icono.name}}') " data-dismiss="modal" ></i>
+     
+        {% if forloop.counter == 10 %}
+            <br>
+        {% endif %}
+        {% endfor %}
 
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!-- ------------------------- -->
 
 
   <!-- ---------------------------- -->
@@ -235,8 +256,11 @@
               </td>
               <td><input type="text" name="" id="" class="form-control txt-general " value="{{enlace.description}}"></td>
               </td>
-              <td><a href="" data-toggle="modal" data-target=".bd-example-modal-sm"><i
-                    class='{{enlace.icon}} icon-item icon-happy' id=""></i></a></td>
+              <td>
+               <input type="hidden" name="" id="data-respaldo">
+                <!--Para formulario--><input type="hidden" name="{{enlace.icon}}" value="{{enlace.icon}}" id="envio-icon-{{enlace.id}}">                
+                <a href="" data-toggle="modal" data-target="#ModalUpddate"  onclick="guardarDato('{{enlace.id}}') "><i
+                    class='{{enlace.icon}} icon-item icon-happy' id="iconoP-{{enlace.id}}"></i></a></td>
               <td> 
                 <div class="form-check form-switch">
                   {% if enlace.state %}
