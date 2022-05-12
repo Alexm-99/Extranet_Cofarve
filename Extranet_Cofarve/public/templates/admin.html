@@ -248,7 +248,7 @@
             {% for enlace in link %}
             <tr class="item-main ">
           
-              <td onclick="showHideRow('{{enlace.linkP1}}');"><i class='bx bx-list-ul icon-flecha icon-item'></i></td>
+              <td onclick="showHideRow('{{enlace.linkP1}}');"><i class='bx bx-list-ul icon-flecha icon-item' id="{{enlace.linkP1}}"></i></td>
               <td  > <input type="text" name="" id="" class="text-id form-control txt-general " value="{{enlace.id}}"></td>
               <td><input type="text" name="" id="" class="form-control txt-general " value="{{enlace.name}}"></td>
               </td>
@@ -281,6 +281,7 @@
       
 
             {% if enlace.linkP1 == enlace2.linkP %}
+            
               <tr class="{{enlace2.linkP}} hidden_row submenu">
               <td></td>
               <td> <input type="text" name="" id="" class="text-id form-control txt-general" value="{{enlace2.id}}"></td>
