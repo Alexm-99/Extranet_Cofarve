@@ -210,14 +210,14 @@
       <div class="caja-tabla">
         <div class="caja-box">
 
-
-          <select class="browser-default custom-select combo">
+       
+          <select class="browser-default custom-select combo" onchange="filtroArea()" id="area" >
             <option selected="">Filtrar por area</option>
             {% for area in link %}
-            <option value="1">{{area.name}}</option>
+              <option value="{{area.id}}" class="datosFiltros" id="filtro{{area.id}} "  >{{area.name}}</option>            
             {% endfor %}
             
-          </select>
+         </select>
 
         </div>
         
@@ -245,8 +245,13 @@
           <tbody>
          
 
-            {% for enlace in link %}
-            <tr class="item-main ">
+            
+            {% for enlace in link %} 
+             
+            <form action="/update/{{enlace.id}}" id="FormUpdate">
+            {% csrf_token %} 
+            
+            <tr class="item-main" >
           
               <td onclick="showHideRow('{{enlace.linkP1}}');"><i class='bx bx-list-ul icon-flecha icon-item' id="{{enlace.linkP1}}"></i></td>
               <td  > <input type="text" name="" id="" class="text-id form-control txt-general " value="{{enlace.id}}"></td>
@@ -270,13 +275,14 @@
                   {% endif %}
                 </div>  
               </td>
-              <td> <a href=""><i class='bx bx-rotate-right icon-item icon-update' id=""></i></i></a></td>
+              <td> <a href="" class="Button" onclick="javascript:document.getElementById(`FormUpdate`).submit();
+                return false;" ><i class='bx bx-rotate-right icon-item icon-update' id=""></i></i></a></td>
               <td> <a href="{% url 'delete' enlace.id %}" onclick="return confirm('¿Estas seguro de Eliminar este registro?')" class="modal-action modal-close waves-effect waves-green btn-flat"><i class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
               <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
                     class='bx bxs-add-to-queue icon-item'></i></a></td>
             </tr>
-
+          </form>
             {% for enlace2 in link2 %}
       
 

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import inicio, administrador, galeria,actualizar, delete
+from blog.views import inicio, administrador, galeria,actualizar, delete, update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +24,8 @@ urlpatterns = [
     path('administrador/',administrador, name= 'admin'),
     path('galeria/',galeria, name= 'galeria'),
     path('administrador/send/',actualizar, name= 'actualizar'),
-    path('delete/<int:pk>', delete, name="delete")
+    path('delete/<int:pk>', delete, name="delete"),
+    path('update/<int:id>', update, name="update"), 
 
 ]
 

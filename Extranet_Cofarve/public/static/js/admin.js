@@ -84,3 +84,11 @@ function guardarDato(dato){
      
     
       }
+
+
+      function filtroArea(){
+        //var idArea = document.getElementById("GuardarId");
+        var area = document.getElementById("area").value;
+        alert(area);
+       // $(idArea).attr('value', area);
+      }

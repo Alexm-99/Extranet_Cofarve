@@ -23,6 +23,7 @@ def administrador(request):
     enlace = link.objects.all()
     enlace2 = linkSecond.objects.all()
     iconos = stockIcon.objects.all()
+  
     form = PostForm()
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -36,7 +37,7 @@ def administrador(request):
         form = PostForm()
 
 
-    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,  'form': form }
+    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form }
     return render(request, 'admin.html', contexto)
 
 
@@ -55,3 +56,11 @@ def delete(request, pk):
         return redirect('actualizar')
     except:
         print("Record doesn't exists")
+
+def update(request, id):  
+    area = link.objects.get(id=id)  
+    form = PostForm(request.POST, instance = area)  
+    if form.is_valid():  
+        form.save()  
+        return redirect("/")  
+    return render(request, 'edit.html', {'areaUpdate': area})  
