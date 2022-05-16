@@ -25,7 +25,7 @@ urlpatterns = [
     path('galeria/',galeria, name= 'galeria'),
     path('administrador/send/',actualizar, name= 'actualizar'),
     path('delete/<int:pk>', delete, name="delete"),
-    path('update/<int:id>', update, name="update"), 
+    path('administrador/update/<int:pk>', update, name="update"), 
 
 ]
 

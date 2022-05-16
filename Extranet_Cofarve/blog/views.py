@@ -1,9 +1,11 @@
 #from readline import parse_and_bind
+from multiprocessing import context
 from django.shortcuts import render
 from django.db import connection
 from .models import TemasImportantes, link, linkSecond, Galeria, stockIcon
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404
 from django.http import Http404
 from django.utils import timezone
 # Create your views here.
@@ -29,8 +31,6 @@ def administrador(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
             post.save()
             return redirect('/administrador/send', pk=post.pk)
     else:
@@ -57,10 +57,40 @@ def delete(request, pk):
     except:
         print("Record doesn't exists")
 
-def update(request, id):  
-    area = link.objects.get(id=id)  
-    form = PostForm(request.POST, instance = area)  
-    if form.is_valid():  
-        form.save()  
-        return redirect("/")  
-    return render(request, 'edit.html', {'areaUpdate': area})  
+def update(request, pk):  
+    enlace = get_object_or_404(link, pk=pk)  
+    if request.method == "POST":
+        form = PostForm(request.POST, instance = enlace)  
+        if form.is_valid():
+            enlace = form.save(commit=False)
+            enlace.author = request.user
+            enlace.save()
+            
+            return redirect('actualizar')
+    else:
+        form = PostForm(instance=enlace)
+        return redirect('actualizar')
+    contexto = {'form': form }
+    return render(request, 'admin.html', contexto)
+
+
+  
+
+
+    
+    
+    
+    
+    # post = get_object_or_404(request.POST, pk=id)
+    # if request.method == "POST":
+    #     form = PostForm(request.POST, instance=post)
+    #     if form.is_valid():
+    #         post = form.save(commit=False)
+    #         post.name = request.name
+    #         post.enlaceP=request.enlaceP
+    #         post.published_date = timezone.now()
+    #         post.save()
+    #         return redirect('post_detail', pk=post.pk)
+    # else:
+    #     form = PostForm(instance=post)
+    # return render(request, 'blog/post_edit.html', {'form': form})
