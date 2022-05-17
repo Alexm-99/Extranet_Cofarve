@@ -21,7 +21,6 @@ class linkSecond(models.Model):
     name = models.CharField(max_length=100)
     enlaceP = models.CharField(max_length=500)
     description = models.CharField(max_length=200)
-    icon = models.CharField(max_length=300)
     state = models.BooleanField()
     linkP = models.CharField(max_length=100) # codigo de menu
 

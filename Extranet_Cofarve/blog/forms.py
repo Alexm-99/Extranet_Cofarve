@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import link
+from .models import link,linkSecond
 
 class PostForm(forms.ModelForm):
 
@@ -9,4 +9,8 @@ class PostForm(forms.ModelForm):
         fields = ('id', 'linkP1', 'name', 'enlaceP','description','icon', 'state', )
 
         #id = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-        
+class PostSubmenu(forms.ModelForm):
+
+    class Meta:
+        model = linkSecond
+        fields = ('id', 'name', 'enlaceP','description','state', 'linkP', )
