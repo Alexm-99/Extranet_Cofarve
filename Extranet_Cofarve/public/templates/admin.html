@@ -403,8 +403,16 @@
             <td></td>
             <td>
               <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                {% if enlace2.state %}
+                <input class="form-check-input" name="{{form2.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
+                  checked>
+                {% else %}
+                <input class="form-check-input" name="{{form2.state.name}}" type="checkbox"
+                  id="flexSwitchCheckChecked">
+                {% endif %}
               </div>
+
+              
             </td>
             <td> <a href=""><i class='bx bx-rotate-right icon-item icon-update'></i></i></a></td>
             <td> <a href="{% url 'delete2' enlace2.id %}" onclick="return confirm('¿Estas seguro de Eliminar este registro?')"><i class='bx bxs-trash icon-item icon-delete'></i></a></td>
