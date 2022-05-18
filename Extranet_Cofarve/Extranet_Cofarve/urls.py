@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from blog.views import inicio, administrador, galeria,actualizar, delete, update
+from blog.views import inicio, administrador, galeria,actualizar, delete, update, delete2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,7 @@ urlpatterns = [
     path('administrador/send/',actualizar, name= 'actualizar'),
     path('delete/<int:pk>', delete, name="delete"),
     path('administrador/update/<int:pk>', update, name="update"), 
+    path('deleteSubmenu/<int:pk>', delete2, name='delete2',)
 
 ]
 
