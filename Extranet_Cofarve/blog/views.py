@@ -33,48 +33,49 @@ def postLink(request):
         form = PostForm()
         return form
 
-def postLink2(request):
-    form2 = PostSubmenu()
-    if request.method == "POST":
-        form2 = PostSubmenu(request.POST)
-        if form2.is_valid():
-            post = form2.save(commit=False)
-            post.save()
-            return redirect('/administrador/send', pk=post.pk)
-    else:
-        form2 = PostSubmenu()
-        return form2
+# def postLink2(request):
+#     form2 = PostSubmenu()
+#     if request.method == "POST":
+#         form2 = PostSubmenu(request.POST)
+#         if form2.is_valid():
+#             post = form2.save(commit=False)
+#             post.save()
+#             return redirect('/administrador/send', pk=post.pk)
+#     else:
+#         form2 = PostSubmenu()
+#         return form2
 
 
 def administrador(request):
     enlace = link.objects.all()
     enlace2 = linkSecond.objects.all()
     iconos = stockIcon.objects.all()
+
+    form2 = PostSubmenu()
     form = PostForm()
     if request.method == "POST":
         form = PostForm(request.POST)
-        if form.is_valid():
+        form2 = PostSubmenu(request.POST)
+        if form.is_valid() :
             post = form.save(commit=False)
             post.save()
             return redirect('/administrador/send', pk=post.pk)
+        if form2.is_valid():
+            post2 = form2.save(commit=False)
+            post2.save()
+            return redirect('/administrador/send', pk=post2.pk)
+
     else:
         form = PostForm()
+        form2 = PostSubmenu()
 
 
-    # form2 = PostSubmenu()
-    # if request.method == "POST":
-    #     form2 = PostSubmenu(request.POST)
-    #     if form2.is_valid():
-    #         post = form2.save(commit=False)
-    #         post.save()
-    #         return redirect('/administrador/send', pk=post.pk)
-    # else:
-    #     form2 = PostSubmenu()
-    #     return form2
+  
+        
 
     
     #form2 = postLink2(request)
-    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form }
+    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form, 'form2':form2 }
     return render(request, 'admin.html', contexto)
 
 
@@ -89,6 +90,14 @@ def actualizar(request):
 def delete(request, pk):
     try:
         record = link.objects.get(id = pk)
+        record.delete()
+        return redirect('actualizar')
+    except:
+        print("Record doesn't exists")
+
+def delete2(request, pk):
+    try:
+        record = linkSecond.objects.get(id = pk)
         record.delete()
         return redirect('actualizar')
     except:

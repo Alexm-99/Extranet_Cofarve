@@ -87,8 +87,8 @@ function guardarDato(dato){
 
 
       function filtroArea(){
-        //var idArea = document.getElementById("GuardarId");
+      var idArea = document.getElementById("GuardarIdS");
         var area = document.getElementById("area").value;
         alert(area);
-       // $(idArea).attr('value', area);
+       $(idArea).attr('value', area);
       }
