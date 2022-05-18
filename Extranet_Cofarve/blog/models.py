@@ -5,7 +5,7 @@ from django.db import models
 
 
 class link(models.Model):
-    id = models.CharField (max_length=100 , primary_key=True)
+    id = models.AutoField( primary_key=True)
     linkP1 = models.CharField(max_length=100) # codigo de menu
     name = models.CharField(max_length=100)
     enlaceP = models.CharField(max_length=500)

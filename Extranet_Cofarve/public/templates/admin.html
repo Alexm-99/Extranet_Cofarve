@@ -69,18 +69,11 @@
 
             <div class="form-row">
 
+              
               <div class="form-group col-md-6">
-                <label for="">ID</label>
-
-
-                <input type="text" name="{{ form.id.name }}" class="form-control">
                 <div class="text-danger">
                   {{ form.errors }}
                 </div>
-
-
-              </div>
-              <div class="form-group col-md-6">
                 <label for="">cod</label>
                 <input type="text" name="{{ form.linkP1.name }}" class="form-control">
               </div>
@@ -108,7 +101,7 @@
 
                 <div class="form-check form-switch">
                   <label for="che-estado">
-                    <input id="che-estado" class="form-check-input" type="checkbox" name="{{ form.state.name }}">
+                    <input id="che-estado" class="form-check-input" type="checkbox" name="{{ form.state.name }}" checked>
                     estado</label>
                 </div>
 
@@ -177,19 +170,10 @@
           <form method="POST" action="" class="post-form" id="todo-form">{% csrf_token %}
 
             <div class="form-row">
-
               <div class="form-group col-md-6">
-                <label for="">ID</label>
-
-
-                <input type="text" name="{{ form2.id.name }}" class="form-control">
                 <div class="text-danger">
                   {{ form2.errors }}
                 </div>
-
-
-              </div>
-              <div class="form-group col-md-6">
                 <label for="">Subárea</label>
                 <input type="text" name="{{ form2.name.name }}" class="form-control">
               </div>
@@ -293,7 +277,7 @@
 
   <!-- ---------------------------- -->
   <div class="header">
-    <h1>Administración de enlaces por menu y submenus</h1>
+    <h3 class="encabezado">Administración de enlaces por menu y submenus</h3>
     <div class="caja-tabla">
       <div class="caja-box">
 
@@ -332,11 +316,9 @@
         </thead>
         <tbody>
 
-          <h1>error: {{form.errors}}</h1>
 
 
           {% for enlace in link %}
-
 
           <form action="" method="post" class="post-form" id="FormUpdate">
             {% csrf_token %}
@@ -345,7 +327,7 @@
               <td onclick="showHideRow('{{enlace.linkP1}}');"><i class='bx bx-list-ul icon-flecha icon-item'
                   id="{{enlace.linkP1}}"></i></td>
               <td> <input type="text" name="{{form.id.name}}" id="" class="text-id form-control txt-general "
-                  value="{{enlace.id}}"></td>
+                  value="{{enlace.id}}" readonly></td>
               <td><input type="text" name="{{form.name.name}}" id="" class="form-control txt-general "
                   value="{{enlace.name}}"></td>
               </td>
@@ -376,14 +358,14 @@
               <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();
                 return false;"  -->
               <td> <a href="{% url 'update' enlace.id %}" class="Button"><i
-                    class='bx bx-rotate-right icon-item icon-update' id=""></i></i></a></td>
+                    class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
               <td> <a href="{% url 'delete' enlace.id %}"
                   onclick="return confirm('¿Estas seguro de Eliminar este registro?')"
-                  class="modal-action modal-close waves-effect waves-green btn-flat"><i
+                  class="modal-action modal-close waves-effect waves-green btn-flat "><i
                     class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
               <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
-                    class='bx bxs-add-to-queue icon-item'></i></a></td>
+                    class='bx bxs-add-to-queue icon-item icon-nuevo'></i></a></td>
             </tr>
           </form>
           {% for enlace2 in link2 %}
@@ -393,14 +375,16 @@
 
           <tr class="{{enlace2.linkP}} hidden_row submenu">
             <td></td>
-            <td> <input type="text" name="" id="" class="text-id form-control txt-general" value="{{enlace2.id}}"></td>
+            <td> <input readonly type="text" name="" id="" class="text-id form-control txt-general" value="{{enlace2.id}}"></td>
             <td><input type="text" name="" id="" class="form-control txt-general" value="{{enlace2.name}}"></td>
             </td>
             <td><input type="text" name="" id="" class="form-control txt-general" value="{{enlace.enlaceP}}"></td>
             </td>
             <td><input type="text" name="" id="" class="form-control txt-general" value="{{enlace.description}}"></td>
             </td>
-            <td></td>
+            <td>
+              
+            </td>
             <td>
               <div class="form-check form-switch">
                 {% if enlace2.state %}
@@ -414,7 +398,7 @@
 
               
             </td>
-            <td> <a href=""><i class='bx bx-rotate-right icon-item icon-update'></i></i></a></td>
+            <td> <a href=""><i class='bx bxs-save icon-item icon-update'></i></i></a></td>
             <td> <a href="{% url 'delete2' enlace2.id %}" onclick="return confirm('¿Estas seguro de Eliminar este registro?')"><i class='bx bxs-trash icon-item icon-delete'></i></a></td>
             <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
             <td> </td>
