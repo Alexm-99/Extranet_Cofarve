@@ -46,3 +46,4 @@ https://www.youtube.com/watch?v=vo4VF3neyrs&ab_channel=Init
 
 Ajax:
 https://djangocentral.com/django-ajax-with-jquery/
+https://www.tutorialspoint.com/django/django_ajax.htm
