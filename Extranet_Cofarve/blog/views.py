@@ -1,5 +1,6 @@
 #from readline import parse_and_bind
 from multiprocessing import context
+from traceback import format_stack
 from urllib.request import Request
 from django.shortcuts import render
 from django.db import connection
@@ -9,6 +10,16 @@ from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.http import Http404
 from django.utils import timezone
+
+from django.views.generic.edit import FormView
+from django.http import JsonResponse,HttpResponse
+
+import json
+# pon el import de la librerías mas arriba junto a tus otros imports
+# ...
+
+
+
 # Create your views here.
 def inicio(request):
     enlace = link.objects.all()
@@ -58,8 +69,13 @@ def administrador(request):
         form2 = PostSubmenu(request.POST)
         if form.is_valid() :
             post = form.save(commit=False)
+            name = form.cleaned_data['name']
             post.save()
-            return redirect('/administrador/send', pk=post.pk)
+            data = json.dumps({'status': 'OK'})
+            return HttpResponse(data, content_type="application/json", status=200)
+            #return JsonResponse({"name": name}, status=200)
+        
+        
         if form2.is_valid():
             post2 = form2.save(commit=False)
             post2.save()
@@ -103,13 +119,27 @@ def delete2(request, pk):
     except:
         print("Record doesn't exists")
 
-def update(request, pk):  
-    instance = link.objects.get(id=id)
-    form = PostForm(request.POST or None, instance=instance)
+
+#@login_required
+def update(request, id):
+    obj= get_object_or_404(Post, id=id)
+        
+    form = PostForm(request.POST or None, instance= obj)
+    context= {'form': form}
+       
     if form.is_valid():
-          form.save()
-          return redirect('next_view')
-    return render(request, 'edit.html', {'form': form})  
+        obj= form.save(commit= False)
+        obj.save()
+        messages.success(request, "You successfully updated the post")
+        context= {'form': form}
+        return render(request, 'edit.html', context)
+
+    else:
+        context= {'form': form,
+                           'error': 'The form was not updated successfully. Please enter in a title and content'}
+        return render(request,'edit.html' , context)
+
+
 
 
     # enlace = link.objects.get(pk=pk)
@@ -126,21 +156,6 @@ def update(request, pk):
 
 
 
-
-    # enlace = get_object_or_404(link, pk=pk)  
-    # if request.method == "POST":
-    #     form = PostForm(request.POST, instance = enlace)  
-    #     if form.is_valid():
-    #         enlace = form.save(commit=False)
-    #         enlace.author = request.user
-    #         enlace.save()
-            
-    #         return redirect('actualizar')
-    # else:
-    #     form = PostForm(instance=enlace)
-    #     return redirect('actualizar')
-    # contexto = {'form': form }
-    # return render(request, 'admin.html', contexto)
 
 
   
