@@ -47,3 +47,9 @@ https://www.youtube.com/watch?v=vo4VF3neyrs&ab_channel=Init
 Ajax:
 https://djangocentral.com/django-ajax-with-jquery/
 https://www.tutorialspoint.com/django/django_ajax.htm
+
+
+https://codigofacilito.com/articles/17
+
+
+https://www.dariobf.com/centrar-verticalmente-con-css-6-formas-diferentes-de-lograrlo/

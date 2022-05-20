@@ -88,10 +88,19 @@ def administrador(request):
 
   
         
+    try:
+        variable = request.POST['buscando']
+        print(variable)
+        with connection.cursor() as cursor: 
+            cursor.execute("SELECT file FROM blog_link WHERE id = '"+ variable +"'")
+            filtroId = cursor.fetchone()
+    except:
+        filtroId= ['public/static/articulospdf/intro.pdf']
+        print(filtroId)
 
     
     #form2 = postLink2(request)
-    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form, 'form2':form2 }
+    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form, 'form2':form2, 'filtroId':filtroId }
     return render(request, 'admin.html', contexto)
 
 

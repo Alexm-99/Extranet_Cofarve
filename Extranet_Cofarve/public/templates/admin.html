@@ -265,10 +265,7 @@
           <br>
           {% endif %}
           {% endfor %}
-
-
-        </div>
-
+       </div>
       </div>
     </div>
   </div>
@@ -281,15 +278,19 @@
     <div class="caja-tabla">
       <div class="caja-box">
 
-
-        <select class="browser-default custom-select combo" onchange="filtroArea()" id="area">
-          <option selected="">Filtrar por area</option>
+        <form action="" method="post">
+          {% csrf_token %}
+           <select class="browser-default custom-select combo" onchange="filtroArea()" id="area">
+          <option selected="" >Filtrar por area</option>
           {% for area in link %}
-          <option value="{{area.id}}" class="datosFiltros" id="filtro{{area.id}} ">{{area.name}}</option>
+          <option name="buscando" onchange="" value="{{area.id}}" class="datosFiltros" id="filtro{{area.id}} ">{{area.name}}</option>          
           {% endfor %}
 
         </select>
-
+     
+        </form>
+       
+     
       </div>
 
       <button type="button" data-toggle="modal" data-target="#ModalMenu"
@@ -455,6 +456,10 @@
 
 {% block javascript %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    
+
 
     <script>
         $(document).ready(function () {

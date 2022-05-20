@@ -17,18 +17,51 @@
     {% block cuerpo %} 
 <h1>Configuración de Galeria <h1>
 <div class="imagenes">
+
     <div class="foto">
+        <form action="" method="post">
+
+
+            <div class="form-group col-md-12">
+               <label for="galeriaId" class="labelD">ID</label >
+                <input type="text" id="galeriaId" name="" class="form-control texto">
+             
+        
+                <label for="galeriaName" class="labelD">Nombre</label>
+                 <input type="text" id="galeriaName" name="" class="form-control texto">
+             
+           
+                <label for="galeriaDetalle" class="labelD">Detalle</label>
+                 <input type="text" id="galeriaDetalle" name="" class="form-control texto" >
+                </div>
+        </form>
+          <div>
          <img src='{% static "./img/cofarve.png" %}'>
-    <button>Cargar</button>
+       <div>
+           <button class="btn btn-secondary">Cargar Foto</button> 
+       </div>
+                
+         </div>
+         <div class="cambiosLista">
+              <h4>Cambios realizados</h4>
+         <ul class="list-group ListaCambios">
+             <li class="list-group-item 
+             list-group-item-primary">
+     
+      <input class="form-check-input" type="checkbox" name="" value="nom" id="id1"> <label class="form-check-label" for="id1">WEB</label>
+  </li>
+             <li class="list-group-item 
+             list-group-item-primary ">
+     
+      <input class="form-check-input" type="checkbox" name="" value="nom" id="id2"> <label class="form-check-label" for="id2">WEB</label>
+  </li>
+             
+         </ul>
+         </div>
+        
+
     </div>
-    <div class="foto">
-        <img src='{% static "./img/cofarve.png" %}'>
-   <button>Cargar</button>
-   </div>
-   <div class="foto">
-    <img src='{% static "./img/cofarve.png" %}'>
-<button>Cargar</button>
-</div>
+    <button class="btn btn-secondary">Guardar</button> 
    
 </div>
 
