@@ -135,12 +135,14 @@ def update(request, id):
     nombre = request.POST['name']
     descripcion = request.POST['description']
     icono = request.POST['icon']
-    estado = request.POST['state']
+    estado = bool(request.POST['state'])
     enlace = request.POST['enlaceP']
-   
+    
+        
+
     #nombre = 'admin'
     with connection.cursor() as cursor: 
-        cursor.execute("UPDATE blog_link SET name = '{name}', description= '{descripcion}', icon = '{icono}', state = {estado}, enlaceP = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, icono=icono, estado =bool(estado), enlace = enlace))
+        cursor.execute("UPDATE blog_link SET name = '{name}', description= '{descripcion}', icon = '{icono}', state = {estado}, enlaceP = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, icono=icono, estado = estado, enlace = enlace))
         valor = cursor.fetchone()
         print(valor)
     contexto = {'valor':valor}
