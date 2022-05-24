@@ -85,7 +85,7 @@ function guardarDato(dato){
     
       }
 
-
+//Filtro en submenu
       function filtroArea(){
       var idArea = document.getElementById("GuardarIdS");
         var area = document.getElementById("area").value;
@@ -93,6 +93,28 @@ function guardarDato(dato){
        $(idArea).attr('value', area);
       }
 
+//filtro en principal
+function filtroAreaP(){
+  var idArea = document.getElementById("GuardarIdS");
+    var area = document.getElementById("areaP").value;
+    var contenido = document.getElementById("contenidoMenu"+area);
+    var todoContenido = document.getElementById("todoFiltro").value;
+   //alert(area);
+
+   //$('contenidoMenu').css('background-color', 'blue');
+    if (area == "TFiltro"){
+      $('.filtroSubmenu').css('display', 'none');
+      $('.contenidoMenu').css('display', 'table-row');
+    }else{
+      $('.filtroSubmenu').css('display', 'none');
+      $('.contenidoMenu').css('display', 'none');
+   $('#contenidoMenu'+area).css('display', 'table-row');
+    }
+        
+   
+
+
+  }
 
 
       $("element").on("event", function(e) {
@@ -141,3 +163,33 @@ function guardarDato(dato){
         });
     
     });
+
+
+
+
+    function confirmarUpdate(id){
+
+      let confirmAction = confirm("¿Estas seguro de actualizar este registro?");
+        if (confirmAction) {
+         
+          document.getElementById(id).submit()
+           
+        } else {
+          alert("Actualización cancelada");
+        }
+      
+
+    }
+    function confirmarUpdate2(id){
+
+      let confirmAction = confirm("¿Estas seguro de actualizar este registro?");
+        if (confirmAction) {
+         
+          document.getElementById(id).submit()
+           
+        } else {
+          alert("Actualización cancelada");
+        }
+      
+
+    }

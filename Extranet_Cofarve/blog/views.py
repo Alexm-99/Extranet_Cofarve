@@ -13,7 +13,7 @@ from django.utils import timezone
 
 from django.views.generic.edit import FormView
 from django.http import JsonResponse,HttpResponse
-
+from django.utils.datastructures import MultiValueDictKeyError
 
 import json
 # pon el import de la librerías mas arriba junto a tus otros imports
@@ -135,74 +135,39 @@ def update(request, id):
     nombre = request.POST['name']
     descripcion = request.POST['description']
     icono = request.POST['icon']
-    estado = bool(request.POST['state'])
+    # estado = bool(request.POST['state'])
     enlace = request.POST['enlaceP']
-    
-        
+
+    try:
+        estado = bool(request.POST['state'])
+    except MultiValueDictKeyError:
+        estado= False
+
 
     #nombre = 'admin'
     with connection.cursor() as cursor: 
         cursor.execute("UPDATE blog_link SET name = '{name}', description= '{descripcion}', icon = '{icono}', state = {estado}, enlaceP = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, icono=icono, estado = estado, enlace = enlace))
         valor = cursor.fetchone()
-        print(valor)
+
     contexto = {'valor':valor}
     return render(request,'edit.html' , contexto)
 
 
-    
-    # obj= get_object_or_404(Post, id=id)
-        
-    # form = PostForm(request.POST or None, instance= obj)
-    # context= {'form': form}
-       
-    # if form.is_valid()
-    #     obj= form.save(commit= False)
-    #     obj.save()
-    #     messages.success(request, "You success fully updated the post")
-    #     context= {'form': form}
-    #     return render(request, 'edit.html', context)
+def update2(request, id):
+    nombre = request.POST['name']
+    descripcion = request.POST['description']
+    #icono = request.POST['icon']
+    # estado = bool(request.POST['state'])
+    enlace = request.POST['enlaceP']
+    try:
+        estado = bool(request.POST['state'])
+    except MultiValueDictKeyError:
+        estado= False
+    #nombre = 'admin'
+    with connection.cursor() as cursor: 
+        cursor.execute("UPDATE blog_linkSecond SET name = '{name}', description= '{descripcion}', state = {estado}, enlaceP = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, estado = estado, enlace = enlace))
+        valor = cursor.fetchone()
+    contexto = {'valor':valor}
+    return render(request,'edit.html' , contexto)
 
-    # else:
-    #     context= {'form': form,
-    #                        'error': 'The form was not updated successfully. Please enter in a title and content'}
-    #     return render(request,'edit.html' , context)
-
-
-
-
-    # enlace = link.objects.get(pk=pk)
-    # form = PostForm(instance=enlace)
-    # #form = PostForm(Request.POST, instance=enlace)
-    # contexto={
-    #     'form':form
-    # }
-    # if form.is_valid():
-    #     form.save()
-    #     return redirect('administrador')
-    # return render(request, 'edit.html', contexto)
-
-
-
-
-
-
-  
-
-
-    
-    
-    
-    
-    # post = get_object_or_404(request.POST, pk=id)
-    # if request.method == "POST":
-    #     form = PostForm(request.POST, instance=post)
-    #     if form.is_valid():
-    #         post = form.save(commit=False)
-    #         post.name = request.name
-    #         post.enlaceP=request.enlaceP
-    #         post.published_date = timezone.now()
-    #         post.save()
-    #         return redirect('post_detail', pk=post.pk)
-    # else:
-    #     form = PostForm(instance=post)
-    # return render(request, 'blog/post_edit.html', {'form': form})
+   
