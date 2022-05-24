@@ -14,6 +14,7 @@ from django.utils import timezone
 from django.views.generic.edit import FormView
 from django.http import JsonResponse,HttpResponse
 
+
 import json
 # pon el import de la librerías mas arriba junto a tus otros imports
 # ...
@@ -69,10 +70,10 @@ def administrador(request):
         form2 = PostSubmenu(request.POST)
         if form.is_valid() :
             post = form.save(commit=False)
-            name = form.cleaned_data['name']
             post.save()
-            data = json.dumps({'status': 'OK'})
-            return HttpResponse(data, content_type="application/json", status=200)
+            return redirect('/administrador/send', pk=post.pk)
+            #data = json.dumps({'status': 'OK'})
+            #return HttpResponse(data, content_type="application/json", status=200)
             #return JsonResponse({"name": name}, status=200)
         
         
@@ -131,22 +132,38 @@ def delete2(request, pk):
 
 #@login_required
 def update(request, id):
-    obj= get_object_or_404(Post, id=id)
-        
-    form = PostForm(request.POST or None, instance= obj)
-    context= {'form': form}
-       
-    if form.is_valid():
-        obj= form.save(commit= False)
-        obj.save()
-        messages.success(request, "You successfully updated the post")
-        context= {'form': form}
-        return render(request, 'edit.html', context)
+    nombre = request.POST['name']
+    descripcion = request.POST['description']
+    icono = request.POST['icon']
+    estado = request.POST['state']
+    enlace = request.POST['enlaceP']
+   
+    #nombre = 'admin'
+    with connection.cursor() as cursor: 
+        cursor.execute("UPDATE blog_link SET name = '{name}', description= '{descripcion}', icon = '{icono}', state = {estado}, enlaceP = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, icono=icono, estado =bool(estado), enlace = enlace))
+        valor = cursor.fetchone()
+        print(valor)
+    contexto = {'valor':valor}
+    return render(request,'edit.html' , contexto)
 
-    else:
-        context= {'form': form,
-                           'error': 'The form was not updated successfully. Please enter in a title and content'}
-        return render(request,'edit.html' , context)
+
+    
+    # obj= get_object_or_404(Post, id=id)
+        
+    # form = PostForm(request.POST or None, instance= obj)
+    # context= {'form': form}
+       
+    # if form.is_valid()
+    #     obj= form.save(commit= False)
+    #     obj.save()
+    #     messages.success(request, "You success fully updated the post")
+    #     context= {'form': form}
+    #     return render(request, 'edit.html', context)
+
+    # else:
+    #     context= {'form': form,
+    #                        'error': 'The form was not updated successfully. Please enter in a title and content'}
+    #     return render(request,'edit.html' , context)
 
 
 

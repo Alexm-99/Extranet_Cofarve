@@ -321,7 +321,7 @@
 
           {% for enlace in link %}
 
-          <form action="" method="post" class="post-form" id="FormUpdate">
+          <form action="{% url 'update' enlace.id %}" method="post" class="post-form" id="FormUpdate{{enlace.id}}">
             {% csrf_token %}
 
             <tr class="item-main">
@@ -358,10 +358,10 @@
               </td>
               <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();
                 return false;"  -->
-              <td> <a href="{% url 'update' enlace.id %}" class="Button"><i
+              <td> <a href="" onclick="javascript:document.getElementById(`FormUpdate{{enlace.id}}`).submit(); return false;" class="Button"><i
                     class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
               <td> <a href="{% url 'delete' enlace.id %}"
-                  onclick="return confirm('¿Estas seguro de Eliminar este registro?')"
+                  onclick="confirm('¿Estas seguro de Eliminar este registro?')"
                   class="modal-action modal-close waves-effect waves-green btn-flat "><i
                     class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
@@ -400,7 +400,7 @@
               
             </td>
             <td> <a href=""><i class='bx bxs-save icon-item icon-update'></i></i></a></td>
-            <td> <a href="{% url 'delete2' enlace2.id %}" onclick="return confirm('¿Estas seguro de Eliminar este registro?')"><i class='bx bxs-trash icon-item icon-delete'></i></a></td>
+            <td> <a href="{% url 'delete2' enlace2.id %}" onclick="confirm('¿Estas seguro de Eliminar este registro?')"><i class='bx bxs-trash icon-item icon-delete'></i></a></td>
             <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
             <td> </td>
 
@@ -436,22 +436,7 @@
     </div>
   </div>
 
-  <script type="text/javascript">
-    function eliminarIdentificador(identificadorId) {
-      var request = $.ajax({
-        type: "POST",
-        url: "{% url 'admin' %}",
-        data: {
-          "csrfmiddlewaretoken": "{{ csrf_token }}",
-          "id": identificadorId
-        },
-      });
-      request.done(function (response) {
-        alert("Identificador eliminado");
-        // Cierra el modal, oculta el identificador eliminado, etc.
-      });
-    }
-  </script>
+ 
 
 
 {% block javascript %}
@@ -464,15 +449,15 @@
     <script>
         $(document).ready(function () {
             // catch the form's submit event
-            $('#todo-form').submit(function () {
+            $('#xd').submit(function () {
                 // create an AJAX call
                 $.ajax({
                     data: $(this).serialize(), // get the form data
                     type: $(this).attr('POST'), // GET or POST
-                    url: "{% url 'actualizar' %}",
+                    url: "{% url 'admin' %}",
                     // on success
                     success: function (response) {
-                        alert("Thankyou for reaching us out " + response.name);
+                      alert("Thankyou for reaching us out " + response.name);
                     },
                     // on error
                     error: function (response) {

@@ -62,7 +62,7 @@ $('#btnSubmenuid').click(function(e) {
    $(valor3).attr('class', `${icono} icon-item icon-happy`);
     //valor2.innerHTML= `<input type="text" name="${icono}" value=${icono} class="form-control"> `
     valor.innerHTML = icono; //Mostar nombre del icono
-  
+    
     }
 
 function guardarDato(dato){
@@ -77,7 +77,7 @@ function guardarDato(dato){
       var valor2 = document.getElementById("envio-icon-"+id); //Llamando a elemento de formulario
 
       var valor3 = document.getElementById("iconoP-"+id);// llamando al elemento a mostrar
-  
+      
     $(valor2).attr('value', icono); //Cambiando valor del elemento del formulario
      $(valor3).attr('class', `${icono}  icon-item icon-happy`); //Cambiando valor a mostrar
     

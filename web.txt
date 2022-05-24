@@ -53,3 +53,8 @@ https://codigofacilito.com/articles/17
 
 
 https://www.dariobf.com/centrar-verticalmente-con-css-6-formas-diferentes-de-lograrlo/
+
+
+
+$ pip install django_dajax
+$ easy_install django_dajax
