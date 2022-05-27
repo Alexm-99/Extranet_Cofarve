@@ -13,21 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-
+from django.contrib import admin,auth
+from django.urls import path,include
+from django.views.generic.base import TemplateView # new
 from blog.views import inicio, administrador, galeria,actualizar, delete, update, delete2, update2
-
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.decorators import login_required
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),  # new
+
     path('',inicio, name= 'index'),
-    path('administrador/',administrador, name= 'admin'),
-    path('galeria/',galeria, name= 'galeria'),
-    path('administrador/send/',actualizar, name= 'actualizar'),
-    path('delete/<int:pk>', delete, name="delete"),
-    path('administrador/update/<int:id>', update, name="update"), 
-    path('administrador/update2/<int:id>', update2, name="update2"),
-    path('deleteSubmenu/<int:pk>', delete2, name='delete2',)
+    path('administrador/',login_required(administrador), name= 'admin'),
+    path('galeria/',login_required(galeria), name= 'galeria'), 
+
+    path('administrador/send/',login_required(actualizar), name= 'actualizar'),
+    path('delete/<int:pk>', login_required(delete), name="delete"),
+    path('administrador/update/<int:id>', login_required(update), name="update"), 
+    path('administrador/update2/<int:id>', login_required(update2), name="update2"),
+    path('deleteSubmenu/<int:pk>',login_required(delete2), name='delete2',)
 
 ]
 

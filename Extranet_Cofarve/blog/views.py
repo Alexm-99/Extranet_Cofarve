@@ -22,6 +22,9 @@ import json
 
 
 # Create your views here.
+
+
+
 def inicio(request):
     enlace = link.objects.all()
     enlace2 = linkSecond.objects.all()

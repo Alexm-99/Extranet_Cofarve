@@ -58,3 +58,14 @@ https://www.dariobf.com/centrar-verticalmente-con-css-6-formas-diferentes-de-log
 
 $ pip install django_dajax
 $ easy_install django_dajax
+
+
+
+
+LOGIN django
+https://learndjango.com/tutorials/django-login-and-logout-tutorial
+
+https://learndjango.com/tutorials/django-password-reset-tutorial
+
+https://learndjango.com/
+https://bootsnipp.com/
