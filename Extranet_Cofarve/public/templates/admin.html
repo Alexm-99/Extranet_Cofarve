@@ -1,4 +1,4 @@
-{% extends 'encabezado.html' %}
+{% extends 'encabezado2.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@
 
   {% block estilos %}
   <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
+
 
   {% endblock estilos %}
 </head>
@@ -343,7 +344,8 @@
                 <!--Para formulario--><input type="hidden" name="{{form.icon.name}}" value="{{enlace.icon}}"
                   id="envio-icon-{{enlace.id}}">
                 <a href="" data-toggle="modal" data-target="#ModalUpddate" onclick="guardarDato('{{enlace.id}}') "><i
-                    class='{{enlace.icon}} icon-item icon-happy' id="iconoP-{{enlace.id}}"></i></a>
+                    class="{{enlace.icon}} icon-item icon-happy" id="iconoP-{{enlace.id}}"></i></a>
+                 
               </td>
               <td>
                 <div class="form-check form-switch">
@@ -360,9 +362,7 @@
                 return false;"  -->
               <td> <a href="" onclick="confirmarUpdate(`FormUpdate{{enlace.id}}`); return false;" class="Button"><i
                     class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
-              <td> <a href="{% url 'delete' enlace.id %}"
-                  onclick="confirm('¿Estas seguro de Eliminar este registro?')"
-                  class="modal-action modal-close waves-effect waves-green btn-flat "><i
+              <td> <a href="{% url 'delete' enlace.id %}" onclick="confirm('¿Estas seguro de Eliminar este registro?'); return false;" class="modal-action modal-close waves-effect waves-green btn-flat "><i
                     class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
               <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
@@ -401,7 +401,7 @@
               
             </td>
             <td> <a href="" onclick="confirmarUpdate2(`FormUpdate2{{enlace2.id}}`); return false;"><i class='bx bxs-save icon-item icon-update'></i></i></a></td>
-            <td> <a href="{% url 'delete2' enlace2.id %}" onclick="confirm('¿Estas seguro de Eliminar este registro?')"><i class='bx bxs-trash icon-item icon-delete'></i></a></td>
+            <td> <a href="{% url 'delete2' enlace2.id %}" onclick="confirm('¿Estas seguro de Eliminar este registro?'); return false;"><i class='bx bxs-trash icon-item icon-delete'></i></a></td>
             <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
             <td> </td>
 

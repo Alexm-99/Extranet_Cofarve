@@ -1,3 +1,4 @@
+{% load static %}
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -11,15 +12,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Sidebar template</title>
+    <title>Administración COFARVE</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
  
-    <link rel="stylesheet" href="./../static/css/encabezado2.css">
+    <link rel="stylesheet" href='{% static "./../static/css/encabezado2.css" %}'>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+    <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  {% block estilos %} 
+
+  {% endblock estilos %}
 </head>
 
 <body>
+
+
+    <!-- Modal para opciones de salir-->
+    <div class="modal fade" id="ModalSalir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cerrar sesión</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <a href="{% url 'logout' %}" class="btn btn-danger" >Salir</a>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <!-- ------------------------------------------- -->
 <div class="page-wrapper chiller-theme toggled">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
     <i class="fas fa-bars"></i>
@@ -34,7 +64,7 @@
       </div>
       <div class="sidebar-header">
         <div class="user-pic">
-          <img class="img-responsive img-rounded" src="./../static/img/cofarve.png" alt="User picture">
+          <img class="img-responsive img-rounded" src='{% static "./../static/img/cofarve.png" %}'  alt="User picture">
         </div>
         <div class="user-info">
           <span class="user-name">Jhon
@@ -54,112 +84,44 @@
           <li class="header-menu">
             <span>General</span>
           </li>
-          <li class="sidebar-dropdown">
-            <a href="#">
-              <i class="fa fa-tachometer-alt"></i>
-              <span>Dashboard</span>
-              <span class="badge badge-pill badge-warning">New</span>
+          <li>
+            <a href="/administrador">
+              <i class="fa fa-link"></i>
+              <span>Enlace</span>
+      
             </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="#">Dashboard 1
-                    <span class="badge badge-pill badge-success">Pro</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Dashboard 2</a>
-                </li>
-                <li>
-                  <a href="#">Dashboard 3</a>
-                </li>
-              </ul>
-            </div>
+            
           </li>
-          <li class="sidebar-dropdown">
-            <a href="#">
-              <i class="fa fa-shopping-cart"></i>
-              <span>E-commerce</span>
-              <span class="badge badge-pill badge-danger">3</span>
+          <li >
+            <a href="/galeria">
+              <i class="fa fa-images"></i>
+              <span>Galeria</span>
+              
             </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="#">Products
+           
+          </li>
+          <li class="">
+            <a href="#">
+              <i class="fa fa-heart"></i>
+              <span>Redes Sociales</span>
+            </a>
+        
+          </li>
+          <li class="">
+            <a href="#">
+              <i class="fa fa-bookmark"></i>
+              <span>Temas Importantes</span>
+            </a>
+         
+          </li>
 
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Orders</a>
-                </li>
-                <li>
-                  <a href="#">Credit cart</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="sidebar-dropdown">
+          <!-- <li class="sidebar-dropdown"> -->
+          <li class="">
             <a href="#">
-              <i class="far fa-gem"></i>
-              <span>Components</span>
+              <i class="fa fa-tv"></i>
+              <span>Noticias</span>
             </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="#">General</a>
-                </li>
-                <li>
-                  <a href="#">Panels</a>
-                </li>
-                <li>
-                  <a href="#">Tables</a>
-                </li>
-                <li>
-                  <a href="#">Icons</a>
-                </li>
-                <li>
-                  <a href="#">Forms</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="sidebar-dropdown">
-            <a href="#">
-              <i class="fa fa-chart-line"></i>
-              <span>Charts</span>
-            </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="#">Pie chart</a>
-                </li>
-                <li>
-                  <a href="#">Line chart</a>
-                </li>
-                <li>
-                  <a href="#">Bar chart</a>
-                </li>
-                <li>
-                  <a href="#">Histogram</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="sidebar-dropdown">
-            <a href="#">
-              <i class="fa fa-globe"></i>
-              <span>Maps</span>
-            </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="#">Google maps</a>
-                </li>
-                <li>
-                  <a href="#">Open street map</a>
-                </li>
-              </ul>
-            </div>
+          
           </li>
           <li class="header-menu">
             <span>Extra</span>
@@ -167,20 +129,20 @@
           <li>
             <a href="#">
               <i class="fa fa-book"></i>
-              <span>Documentation</span>
+              <span>Iconos</span>
               <span class="badge badge-pill badge-primary">Beta</span>
             </a>
           </li>
           <li>
             <a href="#">
               <i class="fa fa-calendar"></i>
-              <span>Calendar</span>
+              <span>Eliminar</span>
             </a>
           </li>
           <li>
             <a href="#">
               <i class="fa fa-folder"></i>
-              <span>Examples</span>
+              <span>Backup</span>
             </a>
           </li>
         </ul>
@@ -189,26 +151,33 @@
     </div>
     <!-- sidebar-content  -->
     <div class="sidebar-footer">
-      <a href="#">
+      <!-- <a href="#">
         <i class="fa fa-bell"></i>
         <span class="badge badge-pill badge-warning notification">3</span>
+      </a> -->
+      <a href="/" target="_blank">
+        <i class="fa fa-tv"> </i>
+    Extranet
       </a>
-      <a href="#">
-        <i class="fa fa-envelope"></i>
-        <span class="badge badge-pill badge-success notification">7</span>
-      </a>
-      <a href="#">
+      <a href="#" >
         <i class="fa fa-cog"></i>
-        <span class="badge-sonar"></span>
+         Configuración
       </a>
-      <a href="#">
-        <i class="fa fa-power-off"></i>
+      <a href=""  data-toggle="modal" data-target="#ModalSalir"
+      id="btnSubmenuid"  >
+        <i class="fa fa-power-off"> </i>salir
       </a>
     </div>
   </nav>
   <!-- sidebar-wrapper  -->
   <main class="page-content">
-   
+    <div class="content">
+      <div id="imagenMain-AD">
+        <img src='{% static "./img/cofarve.png" %}'>
+      </div>
+    {% block cuerpo %} 
+
+    {% endblock cuerpo %}
   </main>
   <!-- page-content" -->
 </div>
@@ -218,7 +187,8 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="./../static/js/encabezado2.js"></script>
+    <script src='{% static "./../static/js/encabezado2.js" %}'></script>
+    <script src='{% static "./js/admin.js" %}'></script>
 </body>
 
 </html>

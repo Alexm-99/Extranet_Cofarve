@@ -83,7 +83,7 @@
   
   @media screen and (min-width: 768px) {
     .page-wrapper.toggled .page-content {
-      padding-left: 300px;
+      padding-left: 270px;
     }
   }
   /*----------------show sidebar button----------------*/
@@ -310,8 +310,8 @@
   .sidebar-footer > a {
     flex-grow: 1;
     text-align: center;
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
     position: relative;
   }
   
@@ -352,9 +352,9 @@
     padding-top: 20px;
   }
   
-  .page-wrapper .page-content > div {
+  /* .page-wrapper .page-content > div {
     padding: 20px 40px;
-  }
+  } */
   
   .page-wrapper .page-content {
     overflow-x: hidden;
