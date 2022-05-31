@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin,auth
 from django.urls import path,include
 from django.views.generic.base import TemplateView # new
-from blog.views import inicio, administrador, galeria,actualizar, delete, update, delete2, update2
+from blog.views import inicio, administrador, galeria,actualizar, delete, update, delete2, update2,galeriaConfi
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required
 urlpatterns = [
@@ -25,7 +25,7 @@ urlpatterns = [
 
     path('',inicio, name= 'index'),
     path('administrador/',login_required(administrador), name= 'admin'),
-    path('galeria/',login_required(galeria), name= 'galeria'), 
+    path('galeria/',login_required(galeriaConfi), name= 'galeria'), 
 
     path('administrador/send/',login_required(actualizar), name= 'actualizar'),
     path('delete/<int:pk>', login_required(delete), name="delete"),

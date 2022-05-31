@@ -5,7 +5,7 @@ from urllib.request import Request
 from django.shortcuts import render
 from django.db import connection
 from .models import TemasImportantes, link, linkSecond, Galeria, stockIcon
-from .forms import PostForm, PostSubmenu
+from .forms import PostForm, PostSubmenu,PostGaleria
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.http import Http404
@@ -151,7 +151,7 @@ def update(request, id):
     with connection.cursor() as cursor: 
         cursor.execute("UPDATE blog_link SET name = '{name}', description= '{descripcion}', icon = '{icono}', state = {estado}, enlaceP = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, icono=icono, estado = estado, enlace = enlace))
         valor = cursor.fetchone()
-
+        
     contexto = {'valor':valor}
     return render(request,'edit.html' , contexto)
 
@@ -173,4 +173,17 @@ def update2(request, id):
     contexto = {'valor':valor}
     return render(request,'edit.html' , contexto)
 
-   
+def galeriaConfi(request): 
+  
+    if request.method == 'POST': 
+        form = PostGaleria(request.POST, request.FILES) 
+  
+        if form.is_valid(): 
+            form.save() 
+            return render(request,'edit.html' , {'form' : form})
+
+    else: 
+        form = PostGaleria() 
+    return render(request, 'galeria.html', {'form' : form}) 
+  
+  

@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import link,linkSecond
+from .models import link,linkSecond,Galeria
 
 class PostForm(forms.ModelForm):
 
@@ -13,3 +13,8 @@ class PostSubmenu(forms.ModelForm):
     class Meta:
         model = linkSecond
         fields = ('id', 'name', 'enlaceP','description','state', 'linkP', )
+class PostGaleria(forms.ModelForm):
+
+    class Meta:
+        model = Galeria
+        fields = ('id', 'imageX', 'descripcion' )

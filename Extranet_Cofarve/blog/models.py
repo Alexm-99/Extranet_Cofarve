@@ -28,8 +28,8 @@ class linkSecond(models.Model):
     
 class Galeria(models.Model):
     id = models.AutoField(primary_key=True)
-    imageX = models.FileField(upload_to='public/static/', max_length=254, blank=True)
-   
+    imageX = models.FileField(upload_to='media', max_length=254, blank=True)
+    descripcion= models.CharField(max_length=300)
 
     def __str__(self):
         return self.id
