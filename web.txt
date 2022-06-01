@@ -69,3 +69,9 @@ https://learndjango.com/tutorials/django-password-reset-tutorial
 
 https://learndjango.com/
 https://bootsnipp.com/
+
+
+
+
+tutoriales MDCODE
+https://es.acervolima.com/

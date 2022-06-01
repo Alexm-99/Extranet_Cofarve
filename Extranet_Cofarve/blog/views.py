@@ -1,4 +1,6 @@
 #from readline import parse_and_bind
+import os
+from django.conf import settings
 from multiprocessing import context
 from traceback import format_stack
 from urllib.request import Request
@@ -180,10 +182,26 @@ def galeriaConfi(request):
   
         if form.is_valid(): 
             form.save() 
-            return render(request,'edit.html' , {'form' : form})
+            return render(request,'edit.html' )
 
     else: 
         form = PostGaleria() 
     return render(request, 'galeria.html', {'form' : form}) 
   
-  
+def updateimage(request, id):  #this function is called when update data
+    old_image = Galeria.objects.get(id=id)
+    form = PostGaleria(request.POST, request.FILES, instance=old_image)
+
+    if form.is_valid():
+
+        # deleting old uploaded image.
+        image_path = old_image.image_document.path
+        if os.path.exists(image_path):
+            os.remove(image_path)
+
+        # the `form.save` will also update your newest image & path.
+        form.save()
+        return redirect("actualizar")
+    else:
+        context = {'singleimagedata': old_image, 'form': form}
+        return render(request, 'edit.html', context)

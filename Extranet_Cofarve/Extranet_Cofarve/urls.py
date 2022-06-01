@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin,auth
 from django.urls import path,include
 from django.views.generic.base import TemplateView # new
-from blog.views import inicio, administrador, galeria,actualizar, delete, update, delete2, update2,galeriaConfi
+from blog.views import *
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required
+from django.conf import settings 
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path("accounts/", include("django.contrib.auth.urls")),  # new
 
     path('',inicio, name= 'index'),
@@ -33,5 +37,9 @@ urlpatterns = [
     path('administrador/update2/<int:id>', login_required(update2), name="update2"),
     path('deleteSubmenu/<int:pk>',login_required(delete2), name='delete2',)
 
+
 ]
+if settings.DEBUG: 
+    urlpatterns += static(settings.MEDIA_URL, 
+                              document_root=settings.MEDIA_ROOT) 
 
