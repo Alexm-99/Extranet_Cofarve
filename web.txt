@@ -72,6 +72,6 @@ https://bootsnipp.com/
 
 
 
-
+https://www.pluralsight.com/guides/work-with-ajax-django
 tutoriales MDCODE
 https://es.acervolima.com/
