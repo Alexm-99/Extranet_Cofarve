@@ -12,7 +12,7 @@ from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.http import Http404
 from django.utils import timezone
-
+from django.core import serializers
 from django.views.generic.edit import FormView
 from django.http import JsonResponse,HttpResponse
 from django.utils.datastructures import MultiValueDictKeyError
@@ -76,10 +76,13 @@ def administrador(request):
         if form.is_valid() :
             post = form.save(commit=False)
             post.save()
-            return redirect('/administrador/send', pk=post.pk)
+            ser_instance = serializers.serialize('json', [ post, ])
+            # send to client side.
+            return JsonResponse({"instance": ser_instance}, status=200)
+            #return redirect('/administrador/send', pk=post.pk)
             #data = json.dumps({'status': 'OK'})
             #return HttpResponse(data, content_type="application/json", status=200)
-            #return JsonResponse({"name": name}, status=200)
+            #return JsonResponse({"name": data}, status=200)
         
         
         if form2.is_valid():
