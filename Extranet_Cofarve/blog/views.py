@@ -38,29 +38,6 @@ def inicio(request):
                  'imagen':imagen1,'imagenx2':imagen2, 'imagenx3':imagen3     }
     return render(request, 'index.html', contexto)
 
-def postLink(request):
-    form = PostForm()
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('/administrador/send', pk=post.pk)
-    else:
-        form = PostForm()
-        return form
-
-# def postLink2(request):
-#     form2 = PostSubmenu()
-#     if request.method == "POST":
-#         form2 = PostSubmenu(request.POST)
-#         if form2.is_valid():
-#             post = form2.save(commit=False)
-#             post.save()
-#             return redirect('/administrador/send', pk=post.pk)
-#     else:
-#         form2 = PostSubmenu()
-#         return form2
 
 
 def administrador(request):
@@ -88,7 +65,8 @@ def administrador(request):
         if form2.is_valid():
             post2 = form2.save(commit=False)
             post2.save()
-            return redirect('/administrador/send', pk=post2.pk)
+            ser_instance = serializers.serialize('json', [ post2, ])
+            return JsonResponse({"instance": ser_instance}, status=200)
 
     else:
         form = PostForm()
@@ -115,7 +93,7 @@ def delete(request, pk):
     try:
         record = link.objects.get(id = pk)
         record.delete()
-        return redirect('actualizar')
+        return redirect('admin')
     except:
         print("Record doesn't exists")
 
@@ -184,18 +162,15 @@ def galeriaConfi(request):
 def updateimage(request, id):  #this function is called when update data
     old_image = Galeria.objects.get(id=id)
     form = PostGaleria(request.POST, request.FILES, instance=old_image)
-    # with connection.cursor() as cursor: 
-    #     cursor.execute("UPDATE blog_Galeria SET description= '{descripcion}', icon = '{icono}', state = {estado}, enlaceP = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, icono=icono, estado = estado, enlace = enlace))
-    #     valor = cursor.fetchone()
-    if form.is_valid():
+    descripcion = request.POST['description']
+    with connection.cursor() as cursor: 
+         cursor.execute("UPDATE blog_Galeria SET description= '{descripcion}' WHERE id = {id}".format(id=id,descripcion=descripcion))
+         valor = cursor.fetchone()
+           # deleting old uploaded image.
+    image_path = old_image.image_document.path
+    if os.path.exists(image_path):
+        os.remove(image_path)
 
-        # deleting old uploaded image.
-        image_path = old_image.image_document.path
-        if os.path.exists(image_path):
-            os.remove(image_path)
-
-        # the `form.save` will also update your newest image & path.
-        form.save()
         return redirect("actualizar")
     else:
         context = {'singleimagedata': old_image, 'form': form}

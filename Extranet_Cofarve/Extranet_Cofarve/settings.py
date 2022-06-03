@@ -75,25 +75,26 @@ WSGI_APPLICATION = 'Extranet_Cofarve.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#  'default': {
-#  'ENGINE': 'django.db.backends.mysql',
-#  'NAME': 'presentacion_data_wion',
-#  'USER': 'presentacion_wio',
-#  'PASSWORD': 'wion1234@',
-#  'HOST': '204.93.216.11',
-#  'PORT': '3306',
-#  }
-# }
-
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+ 'default': {
+ 'ENGINE': 'django.db.backends.mysql',
+ 'NAME': 'bdExtranet',
+ 'USER': 'root',
+ 'PASSWORD': 'C0farv3-2021base',
+ 'HOST': '10.26.0.245',
+ 'PORT': '3306',
+ 
+ }
 }
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
