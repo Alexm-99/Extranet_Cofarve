@@ -35,11 +35,12 @@ urlpatterns = [
     path('delete/<int:pk>', login_required(delete), name="delete"),
     path('administrador/update/<int:id>', login_required(update), name="update"), 
     path('administrador/update2/<int:id>', login_required(update2), name="update2"),
-    path('deleteSubmenu/<int:pk>',login_required(delete2), name='delete2',)
+    path('deleteSubmenu/<int:pk>',login_required(delete2), name='delete2'),
+     path('galeria/update/<int:id>', login_required(updateimage), name="updateimg"), 
 
 
 ]
 if settings.DEBUG: 
-    urlpatterns += static(settings.MEDIA_URL, 
-                              document_root=settings.MEDIA_ROOT) 
+     urlpatterns += static(settings.MEDIA_URL, 
+                               document_root=settings.MEDIA_ROOT) 
 
