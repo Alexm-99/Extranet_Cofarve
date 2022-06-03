@@ -69,7 +69,9 @@ body {
       font-size: 25px;
       color: rgb(114, 114, 114);
   }
-  
+  #tablaT .fa{
+      font-size: 22px;
+  }
   .icon-happy:hover{
       color: rgb(192, 159, 14);
   }
@@ -115,12 +117,22 @@ color: #006400;
   }
   .ico-modal{
       font-size: 32px;
-      color: #0d69e0;
+      color: #e0af0d;
   }
   .ico-modal:hover{
       font-size: 34px;
-      color: #6ac76a;
+      color: #0d69e0;
   }
+  .caja-ico .fa{
+    font-size: 25px;
+    color: #e0af0d;
+}
+.caja-ico .fa:hover{
+    font-size: 27px;
+    color: #0d69e0;
+}
+
+
   .addMenu{
       width: 600px;
       background-color: #1b1b1b83;
@@ -130,4 +142,10 @@ color: #006400;
 
 .submenu{
     display: none;
+}
+#table-head{
+    background-color: #16bdf5;
+}
+#tablaT{
+    text-align: center;
 }

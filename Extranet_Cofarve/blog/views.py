@@ -96,20 +96,10 @@ def administrador(request):
 
 
   
-        
-    try:
-        variable = request.POST['buscando']
-        print(variable)
-        with connection.cursor() as cursor: 
-            cursor.execute("SELECT file FROM blog_link WHERE id = '"+ variable +"'")
-            filtroId = cursor.fetchone()
-    except:
-        filtroId= ['public/static/articulospdf/intro.pdf']
-        print(filtroId)
-
+ 
     
     #form2 = postLink2(request)
-    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form, 'form2':form2, 'filtroId':filtroId }
+    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form, 'form2':form2, }
     return render(request, 'admin.html', contexto)
 
 
@@ -194,7 +184,9 @@ def galeriaConfi(request):
 def updateimage(request, id):  #this function is called when update data
     old_image = Galeria.objects.get(id=id)
     form = PostGaleria(request.POST, request.FILES, instance=old_image)
-
+    # with connection.cursor() as cursor: 
+    #     cursor.execute("UPDATE blog_Galeria SET description= '{descripcion}', icon = '{icono}', state = {estado}, enlaceP = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, icono=icono, estado = estado, enlace = enlace))
+    #     valor = cursor.fetchone()
     if form.is_valid():
 
         # deleting old uploaded image.
