@@ -44,6 +44,8 @@ def administrador(request):
     enlace = link.objects.all()
     enlace2 = linkSecond.objects.all()
     iconos = stockIcon.objects.all()
+    lastValue = link.objects.last()
+
 
     form2 = PostSubmenu()
     form = PostForm()
@@ -77,7 +79,7 @@ def administrador(request):
  
     
     #form2 = postLink2(request)
-    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form, 'form2':form2, }
+    contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form, 'form2':form2, 'lastValue':lastValue}
     return render(request, 'admin.html', contexto)
 
 
@@ -101,7 +103,7 @@ def delete2(request, pk):
     try:
         record = linkSecond.objects.get(id = pk)
         record.delete()
-        return redirect('actualizar')
+        return redirect('admin')
     except:
         print("Record doesn't exists")
 

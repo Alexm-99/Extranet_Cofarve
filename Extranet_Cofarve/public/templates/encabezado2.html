@@ -60,11 +60,13 @@
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
       <div class="sidebar-brand">
-        <a href="#">Administración Cofarve</a>
+        <a href="/administrador">Administración Cofarve</a>
         <div id="close-sidebar">
           <i class="fas fa-times"></i>
         </div>
       </div>
+       <!-- sidebar-content  -->
+   
       <div class="sidebar-header">
         <div class="user-pic">
           <img class="img-responsive img-rounded" src='{% static "./../static/img/cofarve.png" %}'  alt="User picture">
@@ -79,6 +81,27 @@
             <span>Online</span>
           </span>
         </div>
+      </div>
+
+
+      <div class="sidebar-brand2 "> <!-- sidebar-footer  -->
+        <!-- <a href="#">
+          <i class="fa fa-bell"></i>
+          <span class="badge badge-pill badge-warning notification">3</span>
+        </a> -->
+        <a href="/" target="_blank">
+          <i class="fa fa-tv"> </i>
+      Extranet
+        </a>
+        <a href="#" >
+          <i class="fa fa-cog"></i>
+           Configuración
+        </a>
+        <a href=""  data-toggle="modal" data-target="#ModalSalir"
+        id="btnSubmenuid"  >
+          <i class="fa fa-power-off"> </i>
+          salir
+        </a>
       </div>
       <!-- sidebar-header  -->
     
@@ -152,25 +175,7 @@
       </div>
       <!-- sidebar-menu  -->
     </div>
-    <!-- sidebar-content  -->
-    <div class="sidebar-footer">
-      <!-- <a href="#">
-        <i class="fa fa-bell"></i>
-        <span class="badge badge-pill badge-warning notification">3</span>
-      </a> -->
-      <a href="/" target="_blank">
-        <i class="fa fa-tv"> </i>
-    Extranet
-      </a>
-      <a href="#" >
-        <i class="fa fa-cog"></i>
-         Configuración
-      </a>
-      <a href=""  data-toggle="modal" data-target="#ModalSalir"
-      id="btnSubmenuid"  >
-        <i class="fa fa-power-off"> </i>salir
-      </a>
-    </div>
+   
   </nav>
   <!-- sidebar-wrapper  -->
   <main class="page-content">

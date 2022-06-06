@@ -67,7 +67,7 @@ body {
   }
   .icon-item{
       font-size: 25px;
-      color: rgb(114, 114, 114);
+      color: #727272;
   }
   #tablaT .fa{
       font-size: 22px;
@@ -131,8 +131,14 @@ color: #006400;
     font-size: 27px;
     color: #0d69e0;
 }
-
-
+#enlace-icon-id{
+    text-decoration: none;
+    color: #727272 ;
+}
+#enlace-icon-id:hover{
+    text-decoration: none;
+    color: #e0af0d ;
+}
   .addMenu{
       width: 600px;
       background-color: #1b1b1b83;
