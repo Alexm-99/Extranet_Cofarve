@@ -29,7 +29,8 @@ urlpatterns = [
 
     path('',inicio, name= 'index'),
     path('administrador/',login_required(administrador), name= 'admin'),
-    path('galeria/',login_required(galeriaConfi), name= 'galeria'), 
+    path('galeria/',login_required(galeriaConfi), name= 'galeria'),
+     path('redes-sociales/',login_required(redes), name= 'redes'), 
 
     path('administrador/send/',login_required(actualizar), name= 'actualizar'),
     path('delete/<int:pk>', login_required(delete), name="delete"),

@@ -175,3 +175,17 @@ def updateimage(request, id):  #this function is called when update data
     else:
         context = {'singleimagedata': old_image, 'form': form}
         return render(request, 'edit.html', context)
+
+
+def redes(request): 
+  
+    if request.method == 'POST': 
+        form = PostGaleria(request.POST, request.FILES) 
+  
+        if form.is_valid(): 
+            form.save() 
+            return render(request,'edit.html' )
+
+    else: 
+        form = PostGaleria() 
+    return render(request, 'redesSociales.html', {'form' : form}) 

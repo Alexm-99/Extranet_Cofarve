@@ -70,8 +70,8 @@
           <img class="img-responsive img-rounded" src='{% static "./../static/img/cofarve.png" %}'  alt="User picture">
         </div>
         <div class="user-info">
-          <span class="user-name">Jhon
-            <strong>Smith</strong>
+          <span class="user-name">
+            <strong>{{ user.username }}</strong>
           </span>
           <span class="user-role">Administrator</span>
           <span class="user-status">
@@ -104,7 +104,7 @@
            
           </li>
           <li class="">
-            <a href="#">
+            <a href="/redes-sociales">
               <i class="fa fa-heart"></i>
               <span>Redes Sociales</span>
             </a>
