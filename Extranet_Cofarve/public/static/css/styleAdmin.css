@@ -107,13 +107,14 @@ color: #006400;
     
   }
   .caja-tabla{
-      margin-top: 30px;
-    
+      margin: 30px;
+    width: 100%;
   }
   .caja-box{
       z-index: -1;
       width: 300px;
-      margin-left: 30px;
+      margin-inline: auto;
+      margin-bottom: 10px;
   }
   .ico-modal{
       font-size: 32px;

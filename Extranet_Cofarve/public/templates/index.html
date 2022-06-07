@@ -46,10 +46,8 @@
                 
             <div id="kode-responsive-navigation" class="dl-menuwrapper">
               <ul class="dl-menu hide-dl-submenu">
-                {% if enlace.state == 0 %}  <!--estado de enlace -->
-                <li class="submenu"> <a href="#"  onclick="alert('Elemento bloqueado, comuniquese con el administrador')"  class="nav_link" title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
-                  class="nav_name">{{enlace.name}} </span> </a>
-                {% else %}             
+                {% if enlace.state == 1 %}  <!--estado de enlace -->
+                             
                 {% if enlace.enlaceP %}   <!--1 -->
                 <li class="submenu"> <a href="{{enlace.enlaceP}}" class="nav_link" title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
                       class="nav_name">{{enlace.name}} </span> </a>
@@ -67,15 +65,9 @@
             {% if enlace.linkP1 == enlace2.linkP %}
             <!-- {% csrf_token %} -->
 
-            {% if enlace2.state == 0 %}  <!--estado de enlace 2-->
+            {% if enlace2.state == 1 %}  <!--estado de enlace 2-->
          
-              <ul>
-                <li class="final"><a href="{{enlace2.enlaceP }}" class="nav_link " onclick="alert('Elemento bloqueado, comuniquese con el administrador')" ><i class='bx bx-chevrons-right nav_icon'></i></i><span
-                      class="nav_name">{{enlace2.name }}</span>
-                  </a></li>
-              
-              </ul> 
-            {% else %}
+           
             <ul>
               <li class="final"><a href="{{enlace2.enlaceP }}" class="nav_link "><i class='bx bx-chevrons-right nav_icon'></i></i><span
                     class="nav_name">{{enlace2.name }}</span>

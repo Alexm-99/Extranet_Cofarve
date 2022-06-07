@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin,auth
 from django.urls import path,include
 from django.views.generic.base import TemplateView # new
-from blog.views import *
+from blog.views import viewIndex, viewsEnlace,viewGaleria, viewRedes
+
+
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required
 from django.conf import settings 
@@ -27,17 +29,17 @@ urlpatterns = [
     
     path("accounts/", include("django.contrib.auth.urls")),  # new
 
-    path('',inicio, name= 'index'),
-    path('administrador/',login_required(administrador), name= 'admin'),
-    path('galeria/',login_required(galeriaConfi), name= 'galeria'),
-     path('redes-sociales/',login_required(redes), name= 'redes'), 
+    path('', viewIndex.inicio, name= 'index'),
+    path('administrador/',login_required(viewsEnlace.administrador), name= 'admin'),
+    path('galeria/',login_required(viewGaleria.galeriaConfi), name= 'galeria'),
+     path('redes-sociales/',login_required(viewRedes.redes), name= 'redes'), 
 
-    path('administrador/send/',login_required(actualizar), name= 'actualizar'),
-    path('delete/<int:pk>', login_required(delete), name="delete"),
-    path('administrador/update/<int:id>', login_required(update), name="update"), 
-    path('administrador/update2/<int:id>', login_required(update2), name="update2"),
-    path('deleteSubmenu/<int:pk>',login_required(delete2), name='delete2'),
-     path('galeria/update/<int:id>', login_required(updateimage), name="updateimg"), 
+    path('administrador/send/',login_required(viewsEnlace.actualizar), name= 'actualizar'),
+    path('delete/<int:pk>', login_required(viewsEnlace.delete), name="delete"),
+    path('administrador/update/<int:id>', login_required(viewsEnlace.update), name="update"), 
+    path('administrador/update2/<int:id>', login_required(viewsEnlace.update2), name="update2"),
+    path('deleteSubmenu/<int:pk>',login_required(viewsEnlace.delete2), name='delete2'),
+     path('galeria/update/<int:id>', login_required(viewGaleria.updateimage), name="updateimg"), 
 
 
 ]

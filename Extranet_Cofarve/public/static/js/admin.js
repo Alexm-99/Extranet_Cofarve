@@ -167,32 +167,7 @@ function filtroAreaP(){
 
 
 
-    function confirmarUpdate(id){
 
-      let confirmAction = confirm("¿Estas seguro de actualizar este registro?");
-        if (confirmAction) {
-         
-          document.getElementById(id).submit()
-           
-        } else {
-          alert("Actualización cancelada");
-        }
-      
-
-    }
-    function confirmarUpdate2(id){
-
-      let confirmAction = confirm("¿Estas seguro de actualizar este registro?");
-        if (confirmAction) {
-         
-          document.getElementById(id).submit()
-           
-        } else {
-          alert("Actualización cancelada");
-        }
-      
-
-    }
 
     function CodigoMenu(valor){
       var area = document.getElementById("id_name").value;

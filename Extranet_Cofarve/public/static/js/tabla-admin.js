@@ -75,7 +75,7 @@ function PostSubMenu(ruta){
 
 
 function DeleteMenu(ruta, id){
-    let confirmAction = confirm("¿Estas seguro de actualizar este registro?");
+    let confirmAction = confirm("¿Estas seguro de Eliminar este registro?");
     
     if (confirmAction) {
         
@@ -125,3 +125,36 @@ function DeleteMenu(ruta, id){
     
     
 }
+
+function confirmarUpdate(id){
+
+    let confirmAction = confirm("¿Estas seguro de actualizar este registro?");
+      if (confirmAction) {
+       // $(`#${id}`).attr('href',ruta ); //Cambiando valor a mostrar
+       document.getElementById(id).submit()
+
+
+      } else {
+        alert("Actualización cancelada");
+      }
+    
+
+  }
+  function confirmarUpdate2(id){
+
+    let confirmAction = confirm("¿Estas seguro de actualizar este registro?");
+      if (confirmAction) {
+       
+        document.getElementById(id).submit()
+
+
+
+
+
+         
+      } else {
+        alert("Actualización cancelada");
+      }
+    
+
+  }

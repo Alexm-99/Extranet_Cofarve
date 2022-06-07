@@ -22,7 +22,7 @@
   {% block cuerpo %}
 
 
-  {% if user.is_authenticated %}
+
 
   <!-- Modal para opciones de guardar-->
   <div class="modal fade" id="ModalMenu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -278,9 +278,9 @@
 
   <!-- ---------------------------- -->
   <div class="header">
-    <h3 class="encabezado">Administración de enlaces por menu y submenus</h3>
+    <h3 class="encabezado">Administración de enlaces por menú y submenús</h3>
     <div class="caja-tabla">
-      <div class="caja-box">
+      <div class="caja-box ">
 
         <form action="" method="post">
           {% csrf_token %}
@@ -363,7 +363,7 @@
               </td>
               <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();
                 return false;"  -->
-              <td> <a href="" onclick="confirmarUpdate(`FormUpdate{{enlace.id}}`); return false;" class="Button"><i
+              <td> <a id="link2Update{{enlace.id}}" href="" onclick="confirmarUpdate(`FormUpdate{{enlace.id}}`); return false;" class="Button"><i
                     class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
               <td> <a id="linkUpdate{{enlace.id}}" href="#" onclick="DeleteMenu(`{% url 'delete' enlace.id %}`,`linkUpdate{{enlace.id}}`)" class="modal-action modal-close waves-effect waves-green btn-flat "><i
                     class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
@@ -446,11 +446,7 @@
    
     {% endblock javascript %}
 
-{% else %}
 
-<p>You are not logged in</p>
-<a href="{% url 'login' %}">Log In</a>
-{% endif %}
 
   {% endblock cuerpo %}
 
