@@ -25,7 +25,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     
     path("accounts/", include("django.contrib.auth.urls")),  # new
 
@@ -35,12 +35,11 @@ urlpatterns = [
      path('redes-sociales/',login_required(viewRedes.redes), name= 'redes'), 
 
     path('administrador/send/',login_required(viewsEnlace.actualizar), name= 'actualizar'),
-    path('delete/<int:pk>', login_required(viewsEnlace.delete), name="delete"),
+    path('delete/<str:pk>', login_required(viewsEnlace.delete), name="delete"),
     path('administrador/update/<int:id>', login_required(viewsEnlace.update), name="update"), 
     path('administrador/update2/<int:id>', login_required(viewsEnlace.update2), name="update2"),
     path('deleteSubmenu/<int:pk>',login_required(viewsEnlace.delete2), name='delete2'),
      path('galeria/update/<int:id>', login_required(viewGaleria.updateimage), name="updateimg"), 
-
 
 ]
 if settings.DEBUG: 

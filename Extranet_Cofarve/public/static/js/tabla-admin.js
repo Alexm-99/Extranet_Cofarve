@@ -32,6 +32,7 @@ function PostMenu(ruta){
                           alert(response["responseJSON"]["error"]);
                       }
                   });
+                  alert(response["responseJSON"]["error"])
                   return false;
               });
 }
@@ -42,11 +43,12 @@ function PostSubMenu(ruta){
           // catch the form's submit event
           $('#todo-form2').submit(function (e) {
               e.preventDefault();
+            var dataSend=$('#todo-form2').serializeArray(); // obtengo los inputs y sus valores del formulario
         // serialize the data for sending the form data.
         var serializedData = $(this).serialize();
                 // create an AJAX call
                 $.ajax({
-                    data: serializedData, // get the form data
+                    data: dataSend, // get the form data
                     type:'POST', // GET or POST
                     url: ruta,
                     

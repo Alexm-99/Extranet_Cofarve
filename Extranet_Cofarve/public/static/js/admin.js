@@ -87,15 +87,15 @@ function guardarDato(dato){
 
 //Filtro en submenu
       function filtroArea(){
-      var idArea = document.getElementById("GuardarIdS");
+  
         var area = document.getElementById("area").value;
        // alert(area);
-       $(idArea).attr('value', area);
+       $("#GuardarIdS").attr('value', area);
       }
 
 //filtro en principal
 function filtroAreaP(){
-  var idArea = document.getElementById("GuardarIdS");
+  //var idArea = document.getElementById("GuardarIdS");
     var area = document.getElementById("areaP").value;
     var contenido = document.getElementById("contenidoMenu"+area);
     var todoContenido = document.getElementById("todoFiltro").value;
@@ -115,59 +115,6 @@ function filtroAreaP(){
 
 
   }
-
-
-      $("element").on("event", function(e) {
-        // aquí obtienes los datos si es que deseas
-        // enviar esos datos al servidor para que
-        // trabaje con ellos, por ejemplo:
-        var dataToSend = $("#txt-search").val();
-    
-        /**
-         * @description Llamada AJAX al servidor.
-         * url: ruta al archivo del lado del servidor que procesará los datos y/o la acción.
-         * dataType: tipo de datos con los que se trabajará. Esto implica que si se envía por
-         * ejemplo un objeto JSON, se debe retornar también un objeto JSON. De lo contrario, 
-         * aunque del lado del servidor todo esté correcto, jQuery al no poder identificar
-         * la respuesta en formato JSON, lanzará un error 'parse error' y se ejecutará el
-         * método fail en lugar del done().
-         * data: Datos a enviar. Puede ser JSON, texto plano, html, etc. (ver doc.).
-         * type: Tipo de petición: POST o GET.
-         */
-        $.ajax(
-        {
-            url: "accion.py",
-            dataType: "tipo",
-            data: dataToSend,
-            type: "POST o GET"
-        })
-        .done(function (data) {
-            // proceso
-        })
-        /**
-         * jqXHR: Representa a la respuesta enviada del servidor.
-         * textStatus: Texto donde se muestra el mensaje de error enviado del servidor.
-         * errorThrown: Objeto que representa el error lanzado desde el servidor (Exception).
-         */
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            // proceso
-        })
-        /**
-         * jqXHR/data: si no hay error en vez del objeto jqXHR recibe la data enviada del servidor.
-         * textStatus: Siempre será éste parámetro.
-         * erorThrown/jqXHR: Si no hay error recibe el objeto jqXHR. Si hay error recibe errorThrown.
-         * @description Este método se ejecuta haya o no haya error. Puede ser útil a veces.
-         */
-        .always(function (jqXHR, textStatus, errorThrown) {
-            // proceso
-        });
-    
-    });
-
-
-
-
-
 
     function CodigoMenu(valor){
       var area = document.getElementById("id_name").value;
