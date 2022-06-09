@@ -37,8 +37,7 @@ def administrador(request):
     else:
         form = PostForm()
         form2 = PostSubmenu()
-    #form2 = postLink2(request)
-
+    #
     contexto = {'link':enlace, 'link2':enlace2, 'icon':iconos,'form': form, 'form2':form2, 'lastValue':lastValue}
     return render(request, 'admin.html', contexto)
 

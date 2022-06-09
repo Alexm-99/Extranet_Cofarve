@@ -23,7 +23,8 @@ class linkSecond(models.Model):
     description = models.CharField(max_length=200, blank=True)
     state = models.BooleanField()
     linkP = models.CharField(max_length=100) # codigo de menu
-
+    def __str__(self):
+        return self.id
 
     
 class Galeria(models.Model):
