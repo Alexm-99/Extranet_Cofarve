@@ -38,8 +38,8 @@
 
 
 
-      <div> <a href="#" class="nav_logo"> <i class='bx bx-menu nav_logo-icon' id="header-toggle"></i> <span
-            class="nav_logo-name">COFARVE </span> </a>
+      <div> <button class="nav_logo"> <i class='bx bx-menu nav_logo-icon' id="header-toggle"></i> <span
+            class="nav_logo-name">COFARVE </span> </button>
 
             <div class="nav_list">
 
@@ -49,15 +49,11 @@
               <ul class="dl-menu hide-dl-submenu">
                 {% if enlace.state == 1 %}  <!--estado de enlace -->
                              
-                {% if enlace.enlaceP %}   <!--1 -->
-                <li class="submenu"> <a href="{{enlace.enlaceP}}" class="nav_link" title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
-                      class="nav_name">{{enlace.name}} </span> </a>
+              
+                <li class="submenu "> <button class="nav_link " title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
+                  class="nav_name">{{enlace.name}} <i class='bx bx-chevron-down '></i></span>  </button>
 
-                {% else %}
-                <li class="submenu"> <a href="#" class="nav_link" title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
-                  class="nav_name">{{enlace.name}} </span> </a>
-
-                {% endif %}<!--1 -->
+         
 
                
             {% for enlace2 in link2 %}
@@ -72,7 +68,10 @@
             <ul>
               <li class="final"><a href="{{enlace2.enlaceP }}" class="nav_link "><i class='bx bx-chevrons-right nav_icon'></i></i><span
                     class="nav_name">{{enlace2.name }}</span>
-                </a></li>
+                    
+                </a>
+                
+              </li>
             
             </ul> 
             {% endif %} <!-- Fin de if de estado2-->

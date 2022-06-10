@@ -14,6 +14,7 @@ def inicio(request):
                      'imagen':imagen1,'imagenx2':imagen2, 'imagenx3':imagen3     }
         return render(request, 'index.html', contexto)
     except:
+        
         contexto = {'link':enlace , 'link2':enlace2, 'tema':temasimportantes}
         return render(request, 'index.html', contexto)
 

@@ -24,9 +24,10 @@ def galeriaConfi(request):
 def updateimage(request, id):  #this function is called when update data
     old_image = Galeria.objects.get(id=id)
     form = PostGaleria(request.POST, request.FILES, instance=old_image)
-    descripcion = request.POST['description']
+    # descripcion = request.POST['description']
+    ruta = request.POST['imageX']
     with connection.cursor() as cursor: 
-         cursor.execute("UPDATE blog_Galeria SET description= '{descripcion}' WHERE id = {id}".format(id=id,descripcion=descripcion))
+         cursor.execute("UPDATE blog_Galeria SET imageX =  '{ruta}'  WHERE id = {id}".format(id=id, ruta=ruta))
          valor = cursor.fetchone()
            # deleting old uploaded image.
     image_path = old_image.image_document.path

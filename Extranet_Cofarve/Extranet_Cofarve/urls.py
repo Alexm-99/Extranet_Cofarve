@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin,auth
 from django.urls import path,include
-from django.views.generic.base import TemplateView # new
-from blog.views import viewIndex, viewsEnlace,viewGaleria, viewRedes
+from django.views.generic.base import TemplateView
 
+from blog.views import viewIndex, viewsEnlace,viewGaleria, viewRedes, viewTemas, viewNoticias
 
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required
@@ -32,8 +32,9 @@ urlpatterns = [
     path('', viewIndex.inicio, name= 'index'),
     path('administrador/',login_required(viewsEnlace.administrador), name= 'admin'),
     path('galeria/',login_required(viewGaleria.galeriaConfi), name= 'galeria'),
-     path('redes-sociales/',login_required(viewRedes.redes), name= 'redes'), 
-
+    path('redes-sociales/',login_required(viewRedes.redes), name= 'redes'), 
+    path('temas-importantes/',login_required(viewTemas.temasImportantes), name= 'temas'), 
+    path('noticias/',login_required(viewNoticias.noticia), name= 'noticias'), 
     path('administrador/send/',login_required(viewsEnlace.actualizar), name= 'actualizar'),
     path('delete/<str:pk>', login_required(viewsEnlace.delete), name="delete"),
     path('administrador/update/<int:id>', login_required(viewsEnlace.update), name="update"), 

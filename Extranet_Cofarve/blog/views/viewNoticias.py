@@ -1,11 +1,10 @@
-
 from ..forms import PostGaleria
 from ..models import Galeria
 from django.shortcuts import render
 
 
 
-def redes(request): 
+def noticia(request): 
     media = Galeria.objects.all()
     # if request.method == 'POST': 
         
@@ -18,4 +17,4 @@ def redes(request):
     #     form = PostGaleria() 
 
     contexto = {"media":media}
-    return render(request, 'redesSociales.html', contexto) 
+    return render(request, 'noticias.html', contexto) 
