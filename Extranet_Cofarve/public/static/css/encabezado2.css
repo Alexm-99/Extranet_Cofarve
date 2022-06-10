@@ -101,7 +101,7 @@
   /*----------------sidebar-wrapper----------------*/
   
   .sidebar-wrapper {
-    width: 260px;
+    width: 270px;
     height: 100%;
     max-height: 100%;
     position: fixed;
@@ -184,11 +184,11 @@
   }
   
   .sidebar-wrapper .sidebar-header .user-info .user-role {
-    font-size: 12px;
+    font-size: 10px;
   }
   
   .sidebar-wrapper .sidebar-header .user-info .user-status {
-    font-size: 11px;
+    font-size: 10px;
     margin-top: 4px;
   }
   

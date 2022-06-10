@@ -102,8 +102,8 @@ color: #006400;
   } */
 
   .table{
-    width: 80%;
-      margin: 20px auto;
+    width: 92%;
+      margin-block: 20px auto;
     
   }
   .caja-tabla{
