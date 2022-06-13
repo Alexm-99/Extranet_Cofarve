@@ -58,9 +58,9 @@ function PostSubMenu(ruta){
                     
                     // on success
                     success: function (response) {
-                      $("#todo-form2").trigger('reset');
+                      $('#todo-form2').trigger('reset');
                       alert("Guardado Con éxito " );
-                      $("#subarea").focus();
+                      $('#subarea').focus();
                       
               //         var instance = JSON.parse(response["instance"]);
               //         var fields = instance[0]["fields"];
@@ -153,15 +153,9 @@ function confirmarUpdate(id){
       if (confirmAction) {
        
         document.getElementById(id).submit()
-
-
-
-
-
          
       } else {
         alert("Actualización cancelada");
       }
     
-
   }
