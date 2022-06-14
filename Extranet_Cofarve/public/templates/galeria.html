@@ -1,23 +1,13 @@
 {% extends 'encabezado2.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
 
 
 
   {% block estilos %}
-  <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
-
+ 
+ <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
 
   {% endblock estilos %}
-</head>
-
-<body>
-
-
-
 
   {% block cuerpo %}
 
@@ -116,7 +106,7 @@
       <table class="table" id="tablaT">
         <thead class="" id="table-head">
           <tr>
-            <th></th>
+
             <th>ID</th>
             <th>Descripción</th>
             <th>Imagen</th>
@@ -138,14 +128,14 @@
             {% csrf_token %}
 
             <tr class="item-main contenidoMenu" id="contenidoMenu{{image.id}}">
-              <td ><i class='bx bx-list-ul icon-flecha icon-item'
-                  id="{{image.id}}"></i></td>
+             
               <td> {{image.id}}</td>
                  
               <td>{{image.descripcion}}</td>
               
               <td>
-                <img src="" data-image-hd="/media/{{image.imageX}}"  alt="Imagen 1" class="d-block">
+                
+                <img src="/media/{{image.imageX}}" data-image-hd="/media/{{image.imageX}}"  alt="Imagen 1" class="imagen" width="200px">
                 {{image.imageX}}
          
         </td>
@@ -195,21 +185,15 @@
  
 
 
-{% block javascript %}
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-  <script src='{% static "./../static/js/galeria.js" %}'></script>
-    
 
 
    <script src='{% static "./js/tabla-admin.js" %}'></script>
    
-    {% endblock javascript %}
+   <script src='{% static "./js/galeria.js" %}'></script>
 
 
 
   {% endblock cuerpo %}
 
-</body>
-
-</html>

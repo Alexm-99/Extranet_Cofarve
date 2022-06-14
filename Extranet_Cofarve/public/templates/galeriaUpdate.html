@@ -4,43 +4,9 @@
     {% block estilos %} 
 <link rel="stylesheet" href='{% static "./css/GaleriaStyle.css" %}'>
     {% endblock estilos %}
- 
-</head>
-<body>
+
     {% block cuerpo %} 
 <h1>Configuración de Galeria <h1>
-<!-- <div class="imagenes">
-
-    <div class="foto">
-        <form action="" method="post">
-
-
-            <div class="form-group col-md-12">
-               <label for="galeriaId" class="labelD">ID</label >
-                <input type="text" id="galeriaId" name="" class="form-control texto">
-             
-        
-                <label for="galeriaName" class="labelD">Nombre</label>
-                 <input type="text" id="galeriaName" name="" class="form-control texto">
-             
-           
-                <label for="galeriaDetalle" class="labelD">Detalle</label>
-                 <input type="text" id="galeriaDetalle" name="" class="form-control texto" >
-                </div>
-        </form>
-          <div>
-         <img src='{% static "./img/cofarve.png" %}'>
-       <div>
-           <button class="btn btn-secondary">Cargar Foto</button> 
-       </div>
-                
-         </div>
-     
-
-    </div>
-    <button class="btn btn-secondary">Guardar</button> 
-   
-</div> -->
 
 <div class="container">
 
@@ -131,6 +97,6 @@
 
 
 
-<script src='{% static "./../static/js/galeria.js" %}'></script>
+<script src='{% static "./js/galeria.js" %}'></script>
 
     {% endblock cuerpo %}

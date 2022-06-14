@@ -103,19 +103,22 @@ color: #006400;
 
   .table{
     width: 92%;
-      margin-block: 20px auto;
-    
+      margin-block: 20px;
+        margin-inline: auto;
   }
   .caja-tabla{
-      margin: 30px;
+      /* margin: 30px; */
     width: 100%;
   }
   .caja-box{
       z-index: -1;
       width: 300px;
       margin-inline: auto;
-      margin-bottom: 10px;
+      
   }
+.btn-nuevo{
+    margin-top: 20px;
+}
   .ico-modal{
       font-size: 32px;
       color: #e0af0d;
