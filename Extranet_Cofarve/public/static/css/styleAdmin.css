@@ -105,6 +105,12 @@ color: #006400;
     width: 92%;
       margin-block: 20px;
         margin-inline: auto;
+        display: table;
+   height:200px;
+  }
+  .table td{
+    display: table-cell;
+    vertical-align: middle;
   }
   .caja-tabla{
       /* margin: 30px; */

@@ -31,6 +31,7 @@ class Galeria(models.Model):
     id = models.AutoField(primary_key=True)
     imageX = models.FileField(upload_to='imagenes', max_length=254, blank=True)
     descripcion= models.CharField(max_length=300, blank=True)
+    state = models.BooleanField(default=False)
 
     def __str__(self):
         return self.id

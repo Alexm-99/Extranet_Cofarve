@@ -136,7 +136,7 @@
               <td>
                 
                 <img src="/media/{{image.imageX}}" data-image-hd="/media/{{image.imageX}}"  alt="Imagen 1" class="imagen" width="200px">
-                {{image.imageX}}
+               <br><span> {{image.imageX}}</span>
          
         </td>
               
@@ -165,6 +165,15 @@
             </tr>
           </form>
      
+
+          <script>
+            $('input[type=checkbox]').on('change', function (e) {
+    if ($('input[type=checkbox]:checked').length > 3) {
+        $(this).prop('checked', false);
+        alert("Solo puedes seleccionar 3 imagenes");
+    }
+});
+          </script>
 
           {% endfor %}
 

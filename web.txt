@@ -73,5 +73,10 @@ https://bootsnipp.com/
 
 
 https://www.pluralsight.com/guides/work-with-ajax-django
+
+
+
+https://www.mmfilesi.com/blog/sistema-de-rutas-con-javascript/
+
 tutoriales MDCODE
 https://es.acervolima.com/
