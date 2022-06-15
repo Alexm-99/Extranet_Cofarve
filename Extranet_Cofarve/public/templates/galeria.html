@@ -144,13 +144,18 @@
            
               <td>
                 <div class="form-check form-switch">
+                  <form action="{% url 'updateState' image.id %}" method="post" id="formularioG{{image.id}}">
+                    {% csrf_token %}
                   {% if image.state %}
-                  <input class="form-check-input" name="{{form.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
-                    checked>
+                 a <input class="form-check-input" name="{{image.state}}" type="checkbox" id="flexSwitchCheckChecked"
+                    checked onchange="estadoGaleria(`{{image.state}}`, `{% url 'updateState' image.id %}`)">
+               
                   {% else %}
-                  <input class="form-check-input" name="{{form.state.name}}" type="checkbox"
-                    id="flexSwitchCheckChecked">
+                  <input class="form-check-input" name="{{image.state}}" type="checkbox"
+                    id="flexSwitchCheckChecked" onchange="estadoGaleria(`{{image.state}}`, `{% url 'updateState' image.id %}`)">
+               
                   {% endif %}
+                   </form>
                 </div>
               </td>
               <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();

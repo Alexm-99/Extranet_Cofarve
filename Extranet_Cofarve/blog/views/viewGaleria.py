@@ -40,5 +40,20 @@ def updateimage(request, id):  #this function is called when update data
     context = {'form':form}
     return render(request, 'galeriaUpdate.html', context)
 
+def updateState(request, id):
+    #estado = bool(request.POST['state'])
+  
 
+    try:
+        estado = bool(request.POST['state'])
+    except MultiValueDictKeyError:
+        estado= False
+        
+    #nombre = 'admin'
+    with connection.cursor() as cursor: 
+        cursor.execute("UPDATE blog_Galeria SET state = {estado} WHERE id = {id}".format(id=id, estado = estado))
+        valor = cursor.fetchone()
+        
+    contexto = {'valor':valor}
+    return render(request,'edit.html' , contexto)
 

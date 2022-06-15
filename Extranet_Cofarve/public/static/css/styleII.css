@@ -21,6 +21,7 @@
     border-bottom: 1px solid #cccccc;
     float: left;
     width: 100%;
+    height: 100px;
 }
 #caja2{
     text-align: right;
@@ -34,8 +35,9 @@
 }
 #boxSecundary{
      width: 97%;
-    height: 180px;
+     height: 100px;
     float: left;
+
 }
 #imagenMain{
     width: 100%;
@@ -43,31 +45,33 @@
 }
 #imagenMain img{
     
-    margin-inline: 28%;
-    height: 10em;
+    margin-inline: 35%;
+    height: 6em;
     
     
 }
 #redes{
-
+top: 0;
    
-   
+   background-color: #d4d4d4;
+   border-radius: 10px;
     border-left: 1px solid #ccc;
     display: grid;
 
-    grid-gap: 6px;
-    grid-auto-rows: minmax(5px, auto);
+    /* grid-gap: 1px;
+    grid-auto-rows: minmax(5px, auto); */
     
 }
 
 .red{
     text-align: center; 
-    float: left; 
-    font-size: 30px;
-    padding-block: 5px;
+    /* float: left;  */
+    font-size: 25px;
+    padding-block: 1px;
     margin: 0px 0px;
     float: left;
     top: 0;
+    z-index: 1;
 }
 #redes .bxl-facebook-square{
     color: #3b5998;
@@ -83,19 +87,19 @@
     color: #00acee;
 }
 #redes .bxl-telegram{
-    color: #d2dee4;
+    color: #16a8f1;
 }
 
 .carrusel {
     margin-top: 5px;
     background-color: #00234b;
     
-    width: 68%;
+    width: 100%;
     position: relative;
     float: left;
 }
 .carrusel #demo img{
-    height: 390px;
+    height: 500px;
 }
 
 .th3{

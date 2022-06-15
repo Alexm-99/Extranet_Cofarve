@@ -40,7 +40,8 @@ urlpatterns = [
     path('administrador/update/<int:id>', login_required(viewsEnlace.update), name="update"), 
     path('administrador/update2/<int:id>', login_required(viewsEnlace.update2), name="update2"),
     path('deleteSubmenu/<int:pk>',login_required(viewsEnlace.delete2), name='delete2'),
-     path('galeria/update/<int:id>', login_required(viewGaleria.updateimage), name="updateimg"), 
+    path('galeria/update/<int:id>', login_required(viewGaleria.updateimage), name="updateimg"), 
+    path('galeria/update/State/<int:id>', login_required(viewGaleria.updateState), name="updateState"), 
 
 ]
 if settings.DEBUG: 

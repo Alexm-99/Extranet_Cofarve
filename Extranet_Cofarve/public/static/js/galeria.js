@@ -36,3 +36,26 @@
     });
   
   }());
+
+
+  function estadoGaleria(estado, ruta){
+    // alert("xd");
+    // document.getElementById(id).submit()
+    var datos = {
+      "state" : estado, // Dato #1 a enviar
+  };
+  
+
+    $.ajax({
+      data: datos,
+      url: ruta,
+      type: 'post',
+      success:  function (response) {
+          console.log(response); // Imprimir respuesta del archivo
+          
+      },
+      error: function (error) {
+          console.log(error); // Imprimir respuesta de error
+      }
+});
+  }

@@ -18,4 +18,4 @@ class PostGaleria(forms.ModelForm):
 
     class Meta:
         model = Galeria
-        fields = ('id', 'imageX', 'descripcion' )
+        fields = ('id', 'imageX', 'descripcion','state' )
