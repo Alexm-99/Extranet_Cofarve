@@ -28,7 +28,7 @@
   <title>Extranet Cofarve </title>
 </head>
 
-<body id="body-pd">
+<body id="body-pd" class="pdX">
   <header class="header" id="header">
     <!-- <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div> -->
     <!-- <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div> -->
@@ -38,7 +38,7 @@
 
 
 
-      <div> <button class="nav_logo"> <i class='bx bx-menu nav_logo-icon' id="header-toggle"></i> <span
+      <div> <button class="nav_logo" onclick="ocultarP()"> <i class='bx bx-menu nav_logo-icon' id="header-toggle"></i> <span
             class="nav_logo-name">COFARVE </span> </button>
 
             <div class="nav_list">
@@ -50,7 +50,7 @@
                 {% if enlace.state == 1 %}  <!--estado de enlace -->
                              
               
-                <li class="submenu "> <button class="nav_link " title='{{enlace2.name}}'> <i class='{{enlace.icon }} nav_icon'></i> <span
+                <li class="submenu "> <button class="nav_link " title='{{enlace2.name}}' onclick="mostrarP()"> <i class='{{enlace.icon }} nav_icon header-to' id="header-toggle{{enlace.id}}"></i> <span
                   class="nav_name">{{enlace.name}} <i class='bx bx-chevron-down '></i></span>  </button>
 
          
@@ -286,7 +286,7 @@
   <script>
     function openNav() {
       document.getElementById("sidr").style.width = "300px";
-    }
+        }
 
     function closeNav() {
       document.getElementById("sidr").style.width = "0";
