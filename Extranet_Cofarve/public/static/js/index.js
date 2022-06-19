@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
    document.getElementById("header").style.paddingLeft = "216px ";
     panel.style.width = "216px";
   if(panel.style.width == "216px"){
-        tiempo();
+   
         
       } 
 
@@ -93,29 +93,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
       document.getElementById("header").style.paddingLeft = "216px ";
        panel.style.width = "216px";
        toggle.classList.toggle('bx-x');
-       tiempo()
+      
     }
 
   }
-  function tiempo(){
-     setTimeout(function(){
-		
 
-    var panel = document.getElementById("nav-bar");
-    const toggle = document.getElementById('header-toggle');
-    if(panel.style.width == "216px"){
-   
-  document.getElementById("body-pd").style.paddingLeft = "60px ";
-   document.getElementById("header").style.paddingLeft = "60px ";
-  panel.style.width = "60px";
-  toggle.classList.toggle('bx-x');
+// Función para que el panel se cierre cuando el mouse no se mueve --
+ (function(){
+  var moviendo= false;
+  document.onmousemove = function(){
+         moviendo= true;
+  };
+  setInterval (function() {
+     if (!moviendo) {
+         // No ha habido movimiento desde hace un segundo, aquí tu codigo
+         var panel = document.getElementById("nav-bar");
+         const toggle = document.getElementById('header-toggle');
+         if(panel.style.width == "216px"){
+        
+       document.getElementById("body-pd").style.paddingLeft = "60px ";
+        document.getElementById("header").style.paddingLeft = "60px ";
+       panel.style.width = "60px";
+       toggle.classList.toggle('bx-x');
+     
+     
+       $("li.submenu > ul").hide()
+       $('li.submenu').click(function () {
+         $('ul.submenu').not(this).find('ul').hide();
+       });
+     }
+     } else {
+         moviendo=false;
+     }
+  }, 10000); // Cada 10 segundo
+})()
 
-
-  $("li.submenu > ul").hide()
-  $('li.submenu').click(function () {
-    $('ul.submenu').not(this).find('ul').hide();
-  });
-}
-    },10000);
-  }
- 

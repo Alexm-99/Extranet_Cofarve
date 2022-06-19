@@ -147,7 +147,7 @@
                   <form action="{% url 'updateState' image.id %}" method="post" id="formularioG{{image.id}}">
                     {% csrf_token %}
                   {% if image.state %}
-                 a <input class="form-check-input" name="{{image.state}}" type="checkbox" id="flexSwitchCheckChecked"
+                  <input class="form-check-input" name="{{image.state}}" type="checkbox" id="flexSwitchCheckChecked"
                     checked onchange="estadoGaleria(`{{image.state}}`, `{% url 'updateState' image.id %}`)">
                
                   {% else %}

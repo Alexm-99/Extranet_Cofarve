@@ -2,19 +2,20 @@
     scrollbar-width: thin;
     scrollbar-color: #ffffff #00234b;   
   }
-  nav::-webkit-scrollbar {
+  *::-webkit-scrollbar {
     width: 5px;
     right: 0;
   }
-  nav::-webkit-scrollbar-track {
+  *::-webkit-scrollbar-track {
     background: #f1e5e5;
     padding: 0;
   }
-  nav::-webkit-scrollbar-thumb {
+  *::-webkit-scrollbar-thumb {
     background-color: #00234b;
     border-radius: 20px;
 
   }
+  
 .boxPrimary{
     margin: 0;
     background: linear-gradient(180deg, #ffffff 50%, #00abe5 100%);
@@ -34,48 +35,57 @@
     
 }
 #boxSecundary{
-     width: 97%;
+     width: 100%;
      height: 100px;
-    float: left;
+    /* float: left; */
 
 }
 #imagenMain{
-    width: 100%;
-    
+    width: max-content;
+    margin-inline: auto;
 }
 #imagenMain img{
     
-    margin-inline: 35%;
+    
     height: 6em;
     
     
 }
 #redes{
-top: 0;
-   
-   background-color: #d4d4d4;
-   border-radius: 10px;
-    border-left: 1px solid #ccc;
-    display: grid;
-
-    /* grid-gap: 1px;
-    grid-auto-rows: minmax(5px, auto); */
+    /* top: 0; */
+    /* background-color: #d4d4d4; */
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    border-right: 0px solid #ccc;
+    /* display: grid; */
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
     
+  right: 0;
 }
-
+#redes:hover{
+    background-color: #ccc;
+}
 .red{
     text-align: center; 
     /* float: left;  */
-    font-size: 25px;
+    font-size: 35px;
     padding-block: 1px;
-    margin: 0px 0px;
+    margin: 0px 2px;
     float: left;
-    top: 0;
+ 
     z-index: 1;
+
 }
+
 #redes .bxl-facebook-square{
     color: #3b5998;
 }
+#redes .bxl-facebook-square:hover{
+    font-size: 38px;
+}
+
 #redes .bxl-instagram{
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     -webkit-background-clip: text;
@@ -83,15 +93,24 @@ top: 0;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+#redes .bxl-instagram:hover{
+    font-size: 38px;
+}
 #redes .bxl-twitter{
     color: #00acee;
+}
+#redes .bxl-twitter:hover{
+    font-size: 38px;
 }
 #redes .bxl-telegram{
     color: #16a8f1;
 }
+#redes .bxl-telegram:hover{
+    font-size: 38px;
+}
 
 .carrusel {
-    margin-top: 5px;
+    /* margin-top: 5px; */
     background-color: #00234b;
     
     width: 100%;
@@ -101,29 +120,52 @@ top: 0;
 .carrusel #demo img{
     height: 500px;
 }
-
+.CajatemasNoticias{
+  /* justify-content: space-between; */
+  background-color: #ffffff;
+ 
+}
+.topic{
+    float: left;
+    width: 68%;
+    /* justify-content:space-around; */
+   
+  
+}
+.temas{
+    margin-top: 40px;
+     display: flex;
+justify-content: space-around;
+}
 .th3{
-    margin-left: 40px;
-   margin-top: 10px;
-    text-align: center;
+    /* margin-left: 40px; */
+   margin-top: 20px;
+    /* text-align: center; */
     font-family: Helvetica, Arial, sans-serif;
     font-style: italic;
     font-weight: 200;
+    color: rgb(0, 31, 59);
 }
 
-.topic button{
-    margin-left: 20px;
-    width: 300px;
+.topic a{
+    /* float: left; */
+    display: flex;
+   align-items: center;
+    margin-left: 5px;
+    width: 140px;
+    height: 140px;
     margin-top: 1px;
-  text-align:right;
+  text-align:center;
   color: #00234b;
-  border-color: #00234b;
+  border-color: #b3b0b0;
   background-color: #e6dddd;
-  border: none;
+  /* border: none; */
+  border-radius: 50% 1%;
+  
 }
-.topic button i{
-  margin-inline: 15px 5px;
-}
+/* .topic button i{
+  margin-inline: 15px 5px; 
+} */
 
 .noticias{
   

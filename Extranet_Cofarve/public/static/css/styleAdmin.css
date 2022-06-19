@@ -6,14 +6,17 @@
     user-select: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif
+    
 }
 
 :root {
     --color_primario: rgb(58, 206, 211);
+    
 }
 
 body {
     background-color: #eee
+    
 }
 
 
@@ -36,7 +39,7 @@ body {
 
 #imagenMain-AD img {
 
-    width: 400px;
+    width: 300px;
     margin-inline: auto;
 }
 
