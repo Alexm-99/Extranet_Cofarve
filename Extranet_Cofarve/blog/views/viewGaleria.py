@@ -9,6 +9,8 @@ from django.shortcuts import redirect
 from django.db import connection
 from django.utils.datastructures import MultiValueDictKeyError
 import os
+from django.views.decorators.csrf import csrf_exempt
+
 def galeriaConfi(request): 
     picture = Galeria.objects.all()
     if request.method == 'POST': 
@@ -40,6 +42,8 @@ def updateimage(request, id):  #this function is called when update data
     context = {'form':form}
     return render(request, 'galeriaUpdate.html', context)
 
+
+@csrf_exempt
 def updateState(request, id):
     #estado = bool(request.POST['state'])
   
@@ -54,6 +58,11 @@ def updateState(request, id):
         cursor.execute("UPDATE blog_Galeria SET state = {estado} WHERE id = {id}".format(id=id, estado = estado))
         valor = cursor.fetchone()
         
-    contexto = {'valor':valor}
-    return render(request,'edit.html' , contexto)
+    # contexto = {'valor':valor}
+    return render(request,'edit.html')
 
+def deleteGaleria(request, pk):
+    
+    record = Galeria.objects.filter(id = pk)
+    record.delete()
+    return redirect('galeria')

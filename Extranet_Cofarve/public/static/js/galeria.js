@@ -38,18 +38,22 @@
   }());
 
 
-  function estadoGaleria(estado, ruta){
+  function estadoGaleria(estado, ruta, formulario){
     // alert("xd");
     // document.getElementById(id).submit()
+    // e.preventDefault();
+    $(`#${formulario}`).submit(function (e) {
+      var dataSend=$(`#${formulario}`).serializeArray();
     var datos = {
       "state" : estado, // Dato #1 a enviar
   };
-  
-
+  //  var serializedData = $(this).serialize();
+alert(serializedData);
     $.ajax({
-      data: datos,
+      data: dataSend,
       url: ruta,
       type: 'post',
+      // headers: { "X-CSRFToken": getCookie("csrftoken") },
       success:  function (response) {
           console.log(response); // Imprimir respuesta del archivo
           
@@ -58,4 +62,24 @@
           console.log(error); // Imprimir respuesta de error
       }
 });
+    });
   }
+
+
+
+  function DeleteGaleria(ruta, id){
+    let confirmAction = confirm("¿Estas seguro de Eliminar este registro?");
+    
+    if (confirmAction) {
+        
+
+        $(`#${id}`).attr('href',ruta ); //Cambiando valor a mostrar
+         
+      }
+      else{
+       
+          return false;
+      }
+    
+    
+}
