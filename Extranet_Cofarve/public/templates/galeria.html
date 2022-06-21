@@ -147,12 +147,12 @@
                   <form action="{% url 'updateState' image.id %}" method="post" id="formularioG{{image.id}}">
                     {% csrf_token %}
                   {% if image.state %}
-                  <input class="form-check-input" name="{{form.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
-                    checked onchange="estadoGaleria(`{{image.state}}`, `{% url 'updateState' image.id %}`, `formularioG{{image.id}}`)">
+                  <input id="option{{image.id}}" class="form-check-input" name="state" type="checkbox" 
+                    checked onchange="estadoGaleria(`option{{image.id}}`, `{{image.id}}`)">
                
                   {% else %}
-                  <input class="form-check-input" name="{{form.state.name}}" type="checkbox"
-                    id="flexSwitchCheckChecked" onchange="estadoGaleria(`{{image.state}}`, `{% url 'updateState' image.id %}`, `formularioG{{image.id}}`)">
+                  <input id="option{{image.id}}" class="form-check-input" name="state" type="checkbox"
+                  onchange="estadoGaleria(`option{{image.id}}`, `{{image.id}}`)">
                
                   {% endif %}
                   
@@ -162,7 +162,7 @@
               <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();
                 return false;"  -->
               <td> <a id="" href="{% url 'updateimg' image.id %}" class="Button"><i
-                    class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
+                    class='bx bxs-save icon-item icon-update' id=""></i></a></td>
               <td> <a href="" id="foto{{image.id}}" onclick="DeleteGaleria(`{% url 'deleteimagen' image.id %}`,`foto{{image.id}}`)"  class="modal-action modal-close waves-effect waves-green btn-flat "><i
                     class='bx bxs-trash icon-item icon-delete' ></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->

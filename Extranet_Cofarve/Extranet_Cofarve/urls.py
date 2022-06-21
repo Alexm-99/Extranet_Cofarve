@@ -42,6 +42,7 @@ urlpatterns = [
     path('deleteSubmenu/<int:pk>',login_required(viewsEnlace.delete2), name='delete2'),
     path('galeria/update/<int:id>', login_required(viewGaleria.updateimage), name="updateimg"), 
     path('galeria/update/State/<int:id>', login_required(viewGaleria.updateState), name="updateState"), 
+    path('galeria/update/StateF/<int:id>', login_required(viewGaleria.updateStateF), name="updateStateF"), 
     path('deleteimagen/<int:pk>', login_required(viewGaleria.deleteGaleria), name="deleteimagen"),
 ]
 if settings.DEBUG: 

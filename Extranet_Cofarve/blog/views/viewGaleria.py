@@ -10,7 +10,7 @@ from django.db import connection
 from django.utils.datastructures import MultiValueDictKeyError
 import os
 from django.views.decorators.csrf import csrf_exempt
-
+import cgi
 def galeriaConfi(request): 
     picture = Galeria.objects.all()
     if request.method == 'POST': 
@@ -44,12 +44,27 @@ def updateimage(request, id):  #this function is called when update data
 
 
 @csrf_exempt
-def updateState(request, id):
-    #estado = bool(request.POST['state'])
-  
-
+def updateState(request, id): 
     try:
         estado = bool(request.POST['state'])
+        print(estado)
+    except MultiValueDictKeyError:
+        estado= True
+        
+    #nombre = 'admin'
+    with connection.cursor() as cursor: 
+        cursor.execute("UPDATE blog_Galeria SET state = {estado} WHERE id = {id}".format(id=id, estado = estado))
+        valor = cursor.fetchone()
+        
+    # contexto = {'valor':valor}
+    return render(request,'edit.html')
+
+    
+@csrf_exempt
+def updateStateF(request, id): 
+    try:
+        estado = bool(request.POST['state'])
+        print(estado)
     except MultiValueDictKeyError:
         estado= False
         
