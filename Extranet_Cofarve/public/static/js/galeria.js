@@ -40,34 +40,16 @@
 
   function estadoGaleria(id, ruta){
    
-//    var estado = document.getElementById(id).name;
-  
-//     var datos = {
-//       "state" : estado, // Dato #1 a enviar
-//   };
-//  alert(estado) ;
-//     // var serializedData = $(this).serialize();
-// // alert(serializedData);
-//     $.ajax({
-//       data: datos,
-//       url: ruta,
-//       type: 'post',
-//       // headers: { "X-CSRFToken": getCookie("csrftoken") },
-//       success:  function (response) {
-//           console.log(response); // Imprimir respuesta del archivo
-          
-//       },
-//       error: function (error) {
-//           console.log(error); // Imprimir respuesta de error
-//       }
-// });
- 
-
-
     var x = ruta;
     // alert(x);
     var state =document.getElementById(id);
     // alert(state);
+    if ($('input[type=checkbox]:checked').length > 4) {
+      $(state).prop('checked', false);
+      alert("Solo puedes seleccionar 4 imagenes");
+  }else{
+
+
    if(state.checked) {
       $.post(`update/State/${x}`, {},
       function(data, status){
@@ -81,7 +63,7 @@
       });
 
     }
-
+ }
   }
 
 

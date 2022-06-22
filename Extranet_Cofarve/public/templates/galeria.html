@@ -4,8 +4,9 @@
 
 
   {% block estilos %}
- 
+  <link rel="stylesheet" href='{% static "./css/GaleriaStyle.css" %}'>
  <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
+ <link rel="stylesheet" href='{% static "./css/checkbox.css" %}'>
 
   {% endblock estilos %}
 
@@ -96,8 +97,8 @@
   </div>
   <!-- ------------------------- -->
 
-
-
+  <h3 class="encabezado">Administración de Galería</h3>
+  <hr>
       <button type="button" data-toggle="modal" data-target="#ModalRedesAdd"
         class="btn btn-primary btn-nuevo">Añadir</button>
 
@@ -136,24 +137,29 @@
               <td>
                 
                 <img src="/media/{{image.imageX}}" data-image-hd="/media/{{image.imageX}}"  alt="Imagen 1" class="imagen" width="200px">
-               <br><span> {{image.imageX}}</span>
+               <br><span id="ruta-imagen"> {{image.imageX}}</span>
          
         </td>
               
-              
-           
+        
+        
+        
               <td>
-                <div class="form-check form-switch">
+                <div class="form-check form-switch ">
                   <form action="{% url 'updateState' image.id %}" method="post" id="formularioG{{image.id}}">
                     {% csrf_token %}
                   {% if image.state %}
+                  <label class="content-input">                  
                   <input id="option{{image.id}}" class="form-check-input" name="state" type="checkbox" 
                     checked onchange="estadoGaleria(`option{{image.id}}`, `{{image.id}}`)">
-               
+                    <i></i>
+                  </label>
                   {% else %}
+                  <label class="content-input">
                   <input id="option{{image.id}}" class="form-check-input" name="state" type="checkbox"
                   onchange="estadoGaleria(`option{{image.id}}`, `{{image.id}}`)">
-               
+                  <i></i>
+               </label>
                   {% endif %}
                   
                    </form>
@@ -166,19 +172,19 @@
               <td> <a href="" id="foto{{image.id}}" onclick="DeleteGaleria(`{% url 'deleteimagen' image.id %}`,`foto{{image.id}}`)"  class="modal-action modal-close waves-effect waves-green btn-flat "><i
                     class='bx bxs-trash icon-item icon-delete' ></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
-              <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
+              <td> <a href=""  data-toggle="modal" data-target="#ModalRedesAdd"><i
                     class='bx bxs-add-to-queue icon-item icon-nuevo'></i></a></td>
             </tr>
           </form>
      
 
           <script>
-            $('input[type=checkbox]').on('change', function (e) {
-    if ($('input[type=checkbox]:checked').length > 3) {
-        $(this).prop('checked', false);
-        alert("Solo puedes seleccionar 3 imagenes");
-    }
-});
+//             $('input[type=checkbox]').on('change', function (e) {
+//     if ($('input[type=checkbox]:checked').length > 3) {
+//         $(this).prop('checked', false);
+//         alert("Solo puedes seleccionar 3 imagenes");
+//     }
+// });
           </script>
 
           {% endfor %}

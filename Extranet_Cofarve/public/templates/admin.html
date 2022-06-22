@@ -7,7 +7,7 @@
   {% block estilos %}
   <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
 
-
+  <link rel="stylesheet" href='{% static "./css/checkbox.css" %}'>
   {% endblock estilos %}
 
 
@@ -94,9 +94,12 @@
               <div class="form-group col-md-6">
 
                 <div class="form-check form-switch">
-                  <label for="che-estado">
+                  <label for="">estado
+                  <label class="content-input">  
                     <input id="che-estado" class="form-check-input" type="checkbox" name="{{ form.state.name }}" checked>
-                    estado</label>
+                    
+                  <i></i>
+                  </label></label>
                 </div>
 
               </div>
@@ -171,9 +174,13 @@
               <div class="form-group col-md-6">
 
                 <div class="form-check form-switch">
-                  <label for="che-estado">
-                    <input id="che-estado" class="form-check-input" type="checkbox" name="{{ form2.state.name }}" checked>
-                    estado</label>
+                  <label for="che-estado">Estado
+                  <label class="content-input">  
+                   
+                    <input id="che-estado" class="form-check-input" type="checkbox"  name="{{ form2.state.name }}" checked>
+                    
+                  <i></i>
+                  </label></label> 
                 </div>
 
               </div>
@@ -240,6 +247,7 @@
   <!-- ---------------------------- -->
   <div class="header">
     <h3 class="encabezado">Administración de enlaces por menú y submenús</h3>
+    <hr>
     <div class="caja-tabla">
       <div class="caja-box ">
 
@@ -315,11 +323,17 @@
               <td>
                 <div class="form-check form-switch">
                   {% if enlace.state %}
+                  <label class="content-input">  
                   <input class="form-check-input" name="{{form.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
                     checked>
+                    <i></i>
+                  </label>
                   {% else %}
+                  <label class="content-input">  
                   <input class="form-check-input" name="{{form.state.name}}" type="checkbox"
                     id="flexSwitchCheckChecked">
+                    <i></i>
+                  </label>
                   {% endif %}
                 </div>
               </td>
@@ -355,11 +369,17 @@
             <td>
               <div class="form-check form-switch">
                 {% if enlace2.state %}
+                <label class="content-input">  
                 <input class="form-check-input" name="{{form2.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
                   checked>
+                  <i></i>
+                </label>
                 {% else %}
+                <label class="content-input">  
                 <input class="form-check-input" name="{{form2.state.name}}" type="checkbox"
                   id="flexSwitchCheckChecked">
+                  <i></i>
+                </label>
                 {% endif %}
               </div>
 

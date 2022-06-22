@@ -3,7 +3,7 @@
   width: 500px;
     height: 300px;
 }
-.imagen{
+.caja-image .imagen{
     width: 500px;
     height: 300px;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
@@ -41,7 +41,11 @@
     margin: 10px;
     flex-basis: 180px;
   }
-  
+  #ruta-imagen{
+    font-size: 12px;
+    font-style: italic;
+    color: #8d8d8d;
+  }
   @media only screen and (max-width: 480px) {
     .lightbox-gallery {
       flex-direction: column;

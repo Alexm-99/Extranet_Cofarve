@@ -69,7 +69,7 @@ body {
     background-color: #6ab9c7;
   }
   .icon-item{
-      font-size: 25px;
+      font-size: 30px;
       color: #727272;
   }
   #tablaT .fa{
@@ -98,7 +98,7 @@ color: #006400;
     }
 
 .encabezado{
-    margin: 10px;
+    margin-top: 10px;
 }
   /* .icon-flecha{
 
