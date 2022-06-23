@@ -78,5 +78,12 @@ https://www.pluralsight.com/guides/work-with-ajax-django
 
 https://www.mmfilesi.com/blog/sistema-de-rutas-con-javascript/
 
+
+
+https://es.stackoverflow.com/questions/356889/validad-textarea-con-m%C3%A1ximo-de-caracteres-javascript
+
+DELETE IMAGE}
+https://www.web-dev-qa-db-esp.com/es/django/django-borrar-filefield/1072203036/
+
 tutoriales MDCODE
 https://es.acervolima.com/

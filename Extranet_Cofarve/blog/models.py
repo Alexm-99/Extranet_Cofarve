@@ -37,6 +37,7 @@ class Galeria(models.Model):
         return self.id
 
 
+
 class RedeSociales(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)

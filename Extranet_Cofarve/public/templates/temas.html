@@ -10,6 +10,7 @@
   {% block estilos %}
   <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
   <link rel="stylesheet" href='{% static "./css/checkbox.css" %}'>
+  
 
   {% endblock estilos %}
 </head>
@@ -21,102 +22,12 @@
 
   {% block cuerpo %}
 
-  <!-- Modal guardar areas -->
-  <div class="modal fade" id="ModalRedesAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
 
-          <form method="POST" action="" class="post-form" id="todo-form">
-            {% csrf_token %}
-
-            <div class="form-row">
-
-              
-             
-                <div class="text-danger">
-                  {{ form.errors }}
-                </div>
-              
-              <div class="form-group col-md-6">
-                <label for="">Tema</label>
-                <input required type="text" id="id_name" name="{{ form.name.name }}" class="form-control">
-              </div>
-             
-              <div class="form-group col-md-6">
-                <label for="">Descripción</label>
-                <input type="text" name="{{ form.description.name }}" class="form-control">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="">Enlace</label>
-                <input type="text" name="{{ form.enlace.name }}" class="form-control">
-              </div>
-          
-         
-              <div class="form-group col-md-6">
-
-                <div class="form-check form-switch">
-                  <label for="che-estado">Estado
-                    <label class="content-input"> 
-                    <input id="che-estado" class="form-check-input" type="checkbox" name="{{ form.state.name }}" checked>
-                    <i></i>
-                    </label></label>
-                </div>
-
-              </div>
-            </div>
-
-
-   
-            <button class="save btn btn-primary" onclick="PostMenu(`{% url 'temas' %}`)">Guardar</button>
-
-          </form>
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" onclick="location.reload()" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- ----------------------------------------------------------- -->
-
- 
-
-  <!-- Modal para los iconos Guardar -->
-  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="caja-ico">
-        
-        <i class='bx bxl-facebook-square ico-modal' onclick="iconclickRedes('{{icono.name}}') " data-dismiss="modal"></i>
-        <i class='bx-instagram ico-modal' onclick="iconclickRedes('{{icono.name}}') " data-dismiss="modal"></i>
-          
-      
-
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- ------------------------- -->
 
   <h3 class="encabezado">Administración de Temas Importantes</h3>
     <hr>
 
-      <button type="button" data-toggle="modal" data-target="#ModalRedesAdd"
-        class="btn btn-primary btn-nuevo">Añadir</button>
+      
 
 
 
@@ -127,9 +38,9 @@
             <th>ID</th>
             <th>Tema</th>
             <th>Enlace</th>
-        <th>Descripción</th>
-            <th>Estado</th>
-            <th colspan="3">Acciones</th>
+        <th>Mensaje</th>
+            
+            <th>Actualizar</th>
             <!-- <th>Eliminar</th>
              <th>Guardar</th> 
             <th>Nuevo</th> -->
@@ -142,7 +53,7 @@
 
           {% for tema in temas %}
 
-          <form action="{% url 'update' tema.id %}" method="post" class="post-form" id="FormUpdate{{tema.id}}">
+          <form action="{% url 'updateTemas' tema.id %}" method="post" class="post-form" id="FormUpdateG{{tema.id}}">
             {% csrf_token %}
 
             <tr class="item-main contenidoMenu" id="contenidoMenu{{tema.id}}">
@@ -153,39 +64,25 @@
               <td><input type="text" name="{{form.name.name}}" id="" class="form-control txt-general "
                   value="{{tema.name}}"></td>
               
-              <td><input type="text" name="" id="" class="form-control txt-general "
-                  value="{{tema.enlace}}" readonly></td>
-              <td><input type="text" name="" id="" class="form-control txt-general "
-                  value="{{tema.description}}" readonly></td>
+              <td><input type="text" name="{{form.enlace.name}}" id="" class="form-control txt-general "
+                  value="{{tema.enlace}}" ></td>
               
               
-           
-              <td>
-                <div class="form-check form-switch">
-                  {% if tema.state %}
-                  <label class="content-input">  
-                  <input class="form-check-input" name="{{form.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
-                    checked>
-                    <i></i>
-                  </label>
-                  {% else %}
-                  <label class="content-input">  
-                  <input class="form-check-input" name="{{form.state.name}}" type="checkbox"
-                    id="flexSwitchCheckChecked">
-                    <i></i>
-                  </label>
-                  {% endif %}
-                </div>
+                  <td>
+                    
+
+                  <div class="md-form">
+                 
+                    <textarea name="{{form.description.name}}" id="form10" class="md-textarea form-control" rows="3" class="form-control txt-general">{{tema.description}}</textarea>
+   
+                  </div>
               </td>
-              <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();
-                return false;"  -->
-              <td> <a id="link2Update{{tema.id}}" href="" class="Button"><i
-                    class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
-              <td> <a id="linkUpdate{{tema.id}}" href="#"  class="modal-action modal-close waves-effect waves-green btn-flat "><i
-                    class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
-              <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
-              <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
-                    class='bx bxs-add-to-queue icon-item icon-nuevo'></i></a></td>
+           
+       
+              <td> <a id="temaUpdate{{tema.id}}" href="" class="Button"  onclick="confirmarUpdate(`FormUpdateG{{tema.id}}`); return false;"><i
+                    class='bx bxs-save icon-item icon-update' id=""></i></a></td>
+           
+          
             </tr>
           </form>
      

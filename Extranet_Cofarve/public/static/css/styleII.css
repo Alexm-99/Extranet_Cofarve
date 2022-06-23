@@ -149,19 +149,24 @@ justify-content: space-around;
 
 .topic a{
     /* float: left; */
-    display: flex;
-   align-items: center;
+
     margin-left: 5px;
-    width: 140px;
-    height: 140px;
+    width: 30%;
+    
     margin-top: 1px;
   text-align:center;
   color: #00234b;
   border-color: #b3b0b0;
   background-color: #e6dddd;
   /* border: none; */
-  border-radius: 50% 1%;
-  
+border-radius: 10px;
+}
+.topic h5{
+    padding-top: 10px;
+}
+.topic p{
+    text-align: justify;
+    padding: 5px;
 }
 /* .topic button i{
   margin-inline: 15px 5px; 

@@ -11,6 +11,8 @@ from django.utils.datastructures import MultiValueDictKeyError
 import os
 from django.views.decorators.csrf import csrf_exempt
 import cgi
+from django.dispatch import receiver
+
 def galeriaConfi(request): 
     picture = Galeria.objects.all()
     if request.method == 'POST': 
@@ -25,22 +27,7 @@ def galeriaConfi(request):
     contexto = {'form' : form, 'picture' : picture}
     return render(request, 'galeria.html', contexto) 
   
-def updateimage(request, id):  #this function is called when update data
-    form = Galeria.objects.get(id=id)
 
-    if request.method == "POST":
-        if len(request.FILES) != 0:
-            if len(form.imageX) > 0:
-                os.remove(form.imageX.path)
-            form.imageX = request.FILES['imageX']
-        #form.name = request.POST.get('name')
-        form.descripcion = request.POST.get('descripcion')
-        #form.price = request.POST.get('price')
-        form.save()
-        #messages.success(request, "product Updated Successfully")
-        return redirect("actualizar")
-    context = {'form':form}
-    return render(request, 'galeriaUpdate.html', context)
 
 
 @csrf_exempt
@@ -77,7 +64,23 @@ def updateStateF(request, id):
     return render(request,'edit.html')
 
 def deleteGaleria(request, pk):
-    
+    # os.remove()
     record = Galeria.objects.filter(id = pk)
     record.delete()
+
     return redirect('galeria')
+
+
+@receiver(models.signals.post_delete, sender=Galeria)
+def auto_delete_file_on_delete(sender, instance, **kwargs):
+    """
+    Deletes file from filesystem
+    when corresponding `MediaFile` object is deleted.
+    """
+    if instance.imageX:
+        if os.path.isfile(instance.imageX.path):
+            os.remove(instance.imageX.path)
+
+
+
+

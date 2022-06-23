@@ -182,7 +182,14 @@
 
      
     {% for tema in tema %}
-    <a href="{{tema.enlace}}" class="btn btn-outline-primary"> {{tema.name}}  <i class='bx bxs-right-arrow'></i> </a> <br>
+    <a>  <h5>{{tema.name}} </h5> 
+     <p>
+      {{tema.description}}
+    </p>
+    
+    </a> 
+   
+    
     {% endfor %}
     </div>
   </div>

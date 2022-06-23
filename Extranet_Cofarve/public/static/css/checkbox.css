@@ -7,6 +7,7 @@
 }
  
 .content-input input{
+	
 	visibility: hidden;
 	position: absolute;
 	right: 0;
@@ -23,8 +24,8 @@
 /* Estas reglas se aplicarán a todos las elementos i 
 después de cualquier input*/
 .content-input input + i{
-    
-    background: #f0f0f0;
+    transition: all 0.15s ease 0.15s;
+    background: #cf6565;
     border:2px solid rgba(0,0,0,0.2);
     position: absolute; 
     left: 0;
@@ -34,6 +35,7 @@ después de cualquier input*/
 /* Estas reglas se aplicarán a todos los i despues 
 de un input de tipo checkbox*/
 .content-input input[type=checkbox ] + i{
+	
  width: 52px;
  height: 25px;
  border-radius: 15px;
@@ -56,6 +58,7 @@ debemos poner definir este valor.
 	top: 0px;
 	-webkit-box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
 	box-shadow: 3px 0 3px 0 rgba(0,0,0,0.2);
+	transition: all 0.15s ease 0.15s;
 }
 
 .content-input input[type=checkbox]:checked + i:before{
@@ -66,11 +69,12 @@ debemos poner definir este valor.
 }
  
 .content-input input[type=checkbox]:checked + i{
-    
+    transition: all 0.15s ease 0.15s;
  background: #0781e4;
 }
 
 
+/* ON */
 .content-input input[type=checkbox] + i:after{
 	content: 'ON';
 	position: absolute;

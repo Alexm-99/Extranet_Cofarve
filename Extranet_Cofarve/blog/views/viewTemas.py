@@ -3,7 +3,8 @@ from ..models import TemasImportantes
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.core import serializers
-
+from django.shortcuts import render
+from django.db import connection
 
 def temasImportantes(request): 
     temas = TemasImportantes.objects.all()
@@ -21,3 +22,18 @@ def temasImportantes(request):
 
     contexto = {"temas":temas, "form":form}
     return render(request, 'temas.html', contexto) 
+
+
+
+def updateT(request, id):
+    nombre = request.POST['name']
+    descripcion = request.POST['description']
+    enlace = request.POST['enlace']
+
+    #nombre = 'admin'
+    with connection.cursor() as cursor: 
+        cursor.execute("UPDATE blog_TemasImportantes SET name = '{name}', description= '{descripcion}', enlace = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, enlace=enlace))
+        valor = cursor.fetchone()
+        
+    contexto = {'valor':valor}
+    return render(request,'edit.html' , contexto)
