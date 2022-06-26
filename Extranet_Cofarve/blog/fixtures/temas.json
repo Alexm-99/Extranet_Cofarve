@@ -1,0 +1,26 @@
+[
+    {
+      "model": "blog.TemasImportantes",
+      "pk": 1,
+      "fields": {
+        "name": "sin tema",
+        "description": ""
+      }
+    },
+    {
+        "model": "blog.TemasImportantes",
+        "pk": 2,
+        "fields": {
+          "name": "sin tema",
+          "description": ""
+      }
+    },
+    {
+        "model": "blog.TemasImportantes",
+        "pk": 3,
+        "fields": {
+          "name": "sin tema",
+          "description": ""
+      }
+    }
+  ]

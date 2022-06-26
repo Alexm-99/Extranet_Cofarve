@@ -52,7 +52,7 @@
     
 }
 #redes{
-    /* top: 0; */
+     top: 118px; 
     /* background-color: #d4d4d4; */
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -65,7 +65,7 @@
   right: 0;
 }
 #redes:hover{
-    background-color: #ccc;
+    background-color: rgba(204, 204, 204, 0.493);
 }
 .red{
     text-align: center; 
@@ -147,7 +147,7 @@ justify-content: space-around;
     color: rgb(0, 31, 59);
 }
 
-.topic a{
+.topic .card{
     /* float: left; */
 
     margin-left: 5px;
@@ -157,7 +157,7 @@ justify-content: space-around;
   text-align:center;
   color: #00234b;
   border-color: #b3b0b0;
-  background-color: #e6dddd;
+  /* background-color: #e6dddd; */
   /* border: none; */
 border-radius: 10px;
 }

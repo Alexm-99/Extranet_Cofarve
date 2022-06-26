@@ -28,11 +28,11 @@ def temasImportantes(request):
 def updateT(request, id):
     nombre = request.POST['name']
     descripcion = request.POST['description']
-    enlace = request.POST['enlace']
+    #enlace = request.POST['enlace']
 
     #nombre = 'admin'
     with connection.cursor() as cursor: 
-        cursor.execute("UPDATE blog_TemasImportantes SET name = '{name}', description= '{descripcion}', enlace = '{enlace}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion, enlace=enlace))
+        cursor.execute("UPDATE blog_TemasImportantes SET name = '{name}', description= '{descripcion}' WHERE id = {id}".format(id=id, name=nombre, descripcion=descripcion))
         valor = cursor.fetchone()
         
     contexto = {'valor':valor}

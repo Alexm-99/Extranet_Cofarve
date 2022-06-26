@@ -35,12 +35,12 @@
         <thead class="" id="table-head">
           <tr>
             
-            <th>ID</th>
-            <th>Tema</th>
-            <th>Enlace</th>
-        <th>Mensaje</th>
+            <th class="w-1">ID</th>
+            <th class="w-25">Tema</th>
+         
+        <th class="w-75">Mensaje</th>
             
-            <th>Actualizar</th>
+            <th class="w-1">Actualizar</th>
             <!-- <th>Eliminar</th>
              <th>Guardar</th> 
             <th>Nuevo</th> -->
@@ -56,25 +56,30 @@
           <form action="{% url 'updateTemas' tema.id %}" method="post" class="post-form" id="FormUpdateG{{tema.id}}">
             {% csrf_token %}
 
-            <tr class="item-main contenidoMenu" id="contenidoMenu{{tema.id}}">
+            <tr class="item-main contenidoMenu " id="contenidoMenu{{tema.id}}">
               
-              <td> <input type="text" name="{{form.id.name}}" id="" class="text-id form-control txt-general "
+              <td> <input type="text" name="{{form.id.name}}" id="" class="text-id form-control txt-general"
                   value="{{tema.id}}" readonly></td>
                  
-              <td><input type="text" name="{{form.name.name}}" id="" class="form-control txt-general "
-                  value="{{tema.name}}"></td>
+              <td><input type="text" name="{{form.name.name}}" id="" class="form-control txt-general"
+                  value="{{tema.name}}">
+                
+                
+                </td>
               
-              <td><input type="text" name="{{form.enlace.name}}" id="" class="form-control txt-general "
+              <!-- <td><input type="text" name="{{form.enlace.name}}" id="" class="form-control txt-general "
                   value="{{tema.enlace}}" ></td>
-              
+               -->
               
                   <td>
                     
 
                   <div class="md-form">
                  
-                    <textarea name="{{form.description.name}}" id="form10" class="md-textarea form-control" rows="3" class="form-control txt-general">{{tema.description}}</textarea>
-   
+                    <textarea  name="{{form.description.name}}" maxlength="200" rows="3" aria-label="With textarea" id="message{{tema.id}}" class="md-textarea form-control txt-general w-100" >{{tema.description}}</textarea>
+                    <span class="help-block">
+                      <p id="mensaje_ayuda{{tema.id}}" class="help-block">Cuerpo del mensaje de alerta</p>
+                    </span>
                   </div>
               </td>
            
@@ -109,12 +114,15 @@
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     
 
 
    <script src='{% static "./js/tabla-admin.js" %}'></script>
-   
+   <script src='{% static "./js/validaciones.js" %}'></script>
    
 
 

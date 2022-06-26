@@ -175,19 +175,21 @@
   <!-- fin carrusel -->
 <div class="CajatemasNoticias">
     <!-- temas importantes -->
-    <div class="topic">
-    <h3 class="th3"> Temas importantes </h3>
+    <div class="topic ">
+    <h3 class="th3 "> Temas Importantes </h3>
    
       <div class="temas">
 
      
     {% for tema in tema %}
-    <a>  <h5>{{tema.name}} </h5> 
-     <p>
+    
+    <div class="card">  <h5 class="card-header">{{tema.name}} </h5> 
+      <div class="card-body text-dark">
+     <p class="card-text">
       {{tema.description}}
     </p>
-    
-    </a> 
+      </div>
+  </div> 
    
     
     {% endfor %}
@@ -199,7 +201,7 @@
 
   <!-- noticias -->
   <div class="noticias ">
-    <h3 class="th3">noticias</h3>
+    <h3 class="th3">Nuestras Redes</h3>
 
 
     <div class="notiRedes">

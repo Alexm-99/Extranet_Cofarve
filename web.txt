@@ -82,6 +82,11 @@ https://www.mmfilesi.com/blog/sistema-de-rutas-con-javascript/
 
 https://es.stackoverflow.com/questions/356889/validad-textarea-con-m%C3%A1ximo-de-caracteres-javascript
 
+
+
+iniciar datos 
+https://runebook.dev/es/docs/django/howto/initial-data
+
 DELETE IMAGE}
 https://www.web-dev-qa-db-esp.com/es/django/django-borrar-filefield/1072203036/
 

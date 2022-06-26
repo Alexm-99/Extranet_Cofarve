@@ -24,5 +24,5 @@ class PostTemas(forms.ModelForm):
 
     class Meta:
         model = TemasImportantes
-        fields = ('id', 'name', 'description','enlace'  )
+        fields = ('id', 'name', 'description'  )
 

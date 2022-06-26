@@ -9,7 +9,7 @@
 
   {% block estilos %}
   <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
-
+  <link rel="stylesheet" href='{% static "./css/checkbox.css" %}'>
 
   {% endblock estilos %}
 </head>
@@ -67,11 +67,13 @@
               <div class="form-group col-md-6">
 
                 <div class="form-check form-switch">
-                  <label for="che-estado">
+                  <label for="">estado
+                  <label class="content-input">  
                     <input id="che-estado" class="form-check-input" type="checkbox" name="{{ form.state.name }}" checked>
-                    estado</label>
+                    
+                  <i></i>
+                  </label></label>
                 </div>
-
               </div>
             </div>
 
@@ -101,9 +103,23 @@
       <div class="modal-content">
         <div class="caja-ico">
         
-        <i class='bx bxl-facebook-square ico-modal' onclick="iconclickRedes('{{icono.name}}') " data-dismiss="modal"></i>
-        <i class='bx-instagram ico-modal' onclick="iconclickRedes('{{icono.name}}') " data-dismiss="modal"></i>
-          
+        <i class='bx bxl-facebook-square ico-modal' onclick="iconclickRedes('bx bxl-facebook-square ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-instagram ico-modal' onclick="iconclickRedes('bx bxl-instagram ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-twitter ico-modal' onclick="iconclickRedes('bx bxl-twitter ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-Telegram ico-modal' onclick="iconclickRedes('bx bxl-Telegram ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-youtube ico-modal' onclick="iconclickRedes('bx bxl-youtube ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-whatsapp ico-modal' onclick="iconclickRedes('bx bxl-whatsapp ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-linkedin ico-modal' onclick="iconclickRedes('bx bxl-linkedin ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-discord ico-modal' onclick="iconclickRedes('bx bxl-discord ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-blogger ico-modal' onclick="iconclickRedes('bx bxl-blogger ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-skype ico-modal' onclick="iconclickRedes('bx bxl-skype ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-vk ico-modal' onclick="iconclickRedes('bx bxl-vk ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-snapchat ico-modal' onclick="iconclickRedes('bx bxl-snapchat ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bx-planet ico-modal' onclick="iconclickRedes('bx bx-planet ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bx-link ico-modal' onclick="iconclickRedes('bx bx-link ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bx-mobile ico-modal' onclick="iconclickRedes('bx bx-mobile ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxs-map ico-modal' onclick="iconclickRedes('bx bxs-map ico-modal') " data-dismiss="modal"></i>
+        
       
 
 
@@ -170,11 +186,17 @@
               <td>
                 <div class="form-check form-switch">
                   {% if enlace.state %}
+                  <label class="content-input">  
                   <input class="form-check-input" name="{{form.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
                     checked>
+                    <i></i>
+                  </label>
                   {% else %}
+                  <label class="content-input">  
                   <input class="form-check-input" name="{{form.state.name}}" type="checkbox"
                     id="flexSwitchCheckChecked">
+                    <i></i>
+                  </label>
                   {% endif %}
                 </div>
               </td>
