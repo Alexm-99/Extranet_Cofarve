@@ -34,7 +34,8 @@
         </div>
         <div class="modal-body">
 
-          <form method="POST" action="" class="post-form" id="todo-form">{% csrf_token %}
+          <form method="POST" action="" class="post-form" id="todo-form">
+            {% csrf_token %}
 
             <div class="form-row">
 
@@ -44,20 +45,20 @@
                   {{ form.errors }}
                 </div>
                
-                <input type="hidden" name="{{ form.linkP1.name }}" value="" class="form-control" id="codArea">
+               
              
               <div class="form-group col-md-6">
-                <label for="">Area</label>
-                <input required type="text" id="id_name" name="{{ form.name.name }}" class="form-control" oninput="CodigoMenu(`{{lastValue.id}}`)">
+                <label for="">Red Social</label>
+                <input required type="text" id="id_name" name="{{ form.name.name }}" class="form-control">
               </div>
              
               <div class="form-group col-md-6">
-                <label for="">Descripción</label>
-                <input type="text" name="{{ form.description.name }}" class="form-control">
+                <label for="">enlace</label>
+                <input type="text" name="{{ form.enlace.name }}" class="form-control">
               </div>
               <div class="form-group col-md-6">
 
-                <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" id="enlace-icon-id">
+                <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" id="redSocial-icon-id">
 
 
                   <input  type="hidden" name="{{ form.icon.name }}" value="bx bx-happy" id="envio-icon">
@@ -79,7 +80,7 @@
 
 
    
-            <button class="save btn btn-primary" onclick="PostMenu(`{% url 'admin' %}`)">Guardar</button>
+            <button class="save btn btn-primary" onclick="PostMenu(`{% url 'RedesSociales' %}`)">Guardar</button>
 
           </form>
 
@@ -103,22 +104,22 @@
       <div class="modal-content">
         <div class="caja-ico">
         
-        <i class='bx bxl-facebook-square ico-modal' onclick="iconclickRedes('bx bxl-facebook-square ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-instagram ico-modal' onclick="iconclickRedes('bx bxl-instagram ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-twitter ico-modal' onclick="iconclickRedes('bx bxl-twitter ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-Telegram ico-modal' onclick="iconclickRedes('bx bxl-Telegram ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-youtube ico-modal' onclick="iconclickRedes('bx bxl-youtube ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-whatsapp ico-modal' onclick="iconclickRedes('bx bxl-whatsapp ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-linkedin ico-modal' onclick="iconclickRedes('bx bxl-linkedin ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-discord ico-modal' onclick="iconclickRedes('bx bxl-discord ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-blogger ico-modal' onclick="iconclickRedes('bx bxl-blogger ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-skype ico-modal' onclick="iconclickRedes('bx bxl-skype ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-vk ico-modal' onclick="iconclickRedes('bx bxl-vk ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxl-snapchat ico-modal' onclick="iconclickRedes('bx bxl-snapchat ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bx-planet ico-modal' onclick="iconclickRedes('bx bx-planet ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bx-link ico-modal' onclick="iconclickRedes('bx bx-link ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bx-mobile ico-modal' onclick="iconclickRedes('bx bx-mobile ico-modal') " data-dismiss="modal"></i>
-        <i class='bx bxs-map ico-modal' onclick="iconclickRedes('bx bxs-map ico-modal') " data-dismiss="modal"></i>
+        <i class='bx bxl-facebook-square ico-modal' onclick="iconclickRedes('bx bxl-facebook-square',) " data-dismiss="modal"></i>
+        <i class='bx bxl-instagram ico-modal' onclick="iconclickRedes('bx bxl-instagram') " data-dismiss="modal"></i>
+        <i class='bx bxl-twitter ico-modal' onclick="iconclickRedes('bx bxl-twitter') " data-dismiss="modal"></i>
+        <i class='bx bxl-Telegram ico-modal' onclick="iconclickRedes('bx bxl-Telegram') " data-dismiss="modal"></i>
+        <i class='bx bxl-youtube ico-modal' onclick="iconclickRedes('bx bxl-youtube') " data-dismiss="modal"></i>
+        <i class='bx bxl-whatsapp ico-modal' onclick="iconclickRedes('bx bxl-whatsapp') " data-dismiss="modal"></i>
+        <i class='bx bxl-linkedin ico-modal' onclick="iconclickRedes('bx bxl-linkedin') " data-dismiss="modal"></i>
+        <i class='bx bxl-discord ico-modal' onclick="iconclickRedes('bx bxl-discord') " data-dismiss="modal"></i>
+        <i class='bx bxl-blogger ico-modal' onclick="iconclickRedes('bx bxl-blogger') " data-dismiss="modal"></i>
+        <i class='bx bxl-skype ico-modal' onclick="iconclickRedes('bx bxl-skype') " data-dismiss="modal"></i>
+        <i class='bx bxl-vk ico-modal' onclick="iconclickRedes('bx bxl-vk') " data-dismiss="modal"></i>
+        <i class='bx bxl-snapchat ico-modal' onclick="iconclickRedes('bx bxl-snapchat') " data-dismiss="modal"></i>
+        <i class='bx bx-planet ico-modal' onclick="iconclickRedes('bx bx-planet') " data-dismiss="modal"></i>
+        <i class='bx bx-link ico-modal' onclick="iconclickRedes('bx bx-link') " data-dismiss="modal"></i>
+        <i class='bx bx-mobile ico-modal' onclick="iconclickRedes('bx bx-mobile') " data-dismiss="modal"></i>
+        <i class='bx bxs-map ico-modal' onclick="iconclickRedes('bx bxs-map') " data-dismiss="modal"></i>
         
       
 
@@ -140,10 +141,10 @@
       <table class="table" id="tablaT">
         <thead class="" id="table-head">
           <tr>
-            <th></th>
+          
             <th>ID</th>
-            <th>Media</th>
-            <th>Enlace</th>
+            <th>Red Social</th>
+            <th>enlace</th>
             <th>icono</th>
             <th>Estado</th>
             <th colspan="3">Acciones</th>
@@ -157,35 +158,34 @@
 
 
 
-          {% for enlace in media %}
+          {% for redSocial in red %}
 
-          <form action="{% url 'update' enlace.id %}" method="post" class="post-form" id="FormUpdate{{enlace.id}}">
+          <form action="{% url 'update' redSocial.id %}" method="post" class="post-form" id="FormUpdate{{redSocial.id}}">
             {% csrf_token %}
 
-            <tr class="item-main contenidoMenu" id="contenidoMenu{{enlace.id}}">
-              <td onclick="showHideRow('{{enlace.linkP1}}');"><i class='bx bx-list-ul icon-flecha icon-item'
-                  id="{{enlace.linkP1}}"></i></td>
-              <td> <input type="text" name="{{form.id.name}}" id="" class="text-id form-control txt-general "
-                  value="" readonly></td>
+            <tr class="item-main contenidoMenu" id="contenidoMenu{{redSocial.id}}">
+           
+              <td> <input type="text" name="" id="" class="text-id form-control txt-general "
+                  value="{{redSocial.id}}" readonly></td>
                  
               <td><input type="text" name="{{form.name.name}}" id="" class="form-control txt-general "
-                  value="FACEBOOK"></td>
+                  value="{{redSocial.name}}"></td>
               
-              <td><input type="text" name="" id="" class="form-control txt-general "
-                  value="" readonly></td>
+              <td><input type="text" name="{{form.enlace.name}}" id="" class="form-control txt-general "
+                  value="{{redSocial.enlace}}" ></td>
               
               
               <td>
                 <input type="hidden" name="" id="data-respaldo">
-                <!--Para formulario--><input type="hidden" name="{{form.icon.name}}" value="{{enlace.icon}}"
-                  id="envio-icon-{{enlace.id}}">
-                <a href="" data-toggle="modal" data-target="#ModalUpddate" onclick="guardarDato('{{enlace.id}}') "><i
-                    class="{{enlace.icon}} icon-item icon-happy" id="iconoP-{{enlace.id}}"></i></a>
+                <!--Para formulario--><input type="hidden" name="{{form.icon.name}}" value="{{redSocial.icon}}"
+                  id="envio-icon-{{redSocial.id}}">
+                <a href="" data-toggle="modal" data-target="#ModalUpddate" onclick="guardarDato('{{redSocial.id}}') "><i
+                    class="{{redSocial.icon}} icon-item icon-happy" id="iconoP-{{redSocial.id}}"></i></a>
                  
               </td>
               <td>
                 <div class="form-check form-switch">
-                  {% if enlace.state %}
+                  {% if redSocial.state %}
                   <label class="content-input">  
                   <input class="form-check-input" name="{{form.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
                     checked>
@@ -202,9 +202,9 @@
               </td>
               <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();
                 return false;"  -->
-              <td> <a id="link2Update{{enlace.id}}" href="" class="Button"><i
+              <td> <a id="link2Update{{redSocial.id}}" href="" class="Button"><i
                     class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
-              <td> <a id="linkUpdate{{enlace.id}}" href="#"  class="modal-action modal-close waves-effect waves-green btn-flat "><i
+              <td> <a id="linkUpdate{{redSocial.id}}" href="#"  class="modal-action modal-close waves-effect waves-green btn-flat "><i
                     class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
               <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
@@ -240,7 +240,7 @@
 
 
    <script src='{% static "./js/tabla-admin.js" %}'></script>
-   
+   <script src='{% static "./js/redes.js" %}'></script>
     {% endblock javascript %}
 
 

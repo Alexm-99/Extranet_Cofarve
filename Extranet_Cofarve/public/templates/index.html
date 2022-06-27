@@ -130,10 +130,11 @@
       <!-- Indicators/dots -->
       <div class="carousel-indicators">  
         <div id="redes">
-      <a href="#" target="blanket"><i class='bx red bxl-facebook-square'></i> </a>
-      <a href="#" target="blanket"><i class='bx red bxl-instagram'></i> </a>
-      <a href="#" target="blanket"><i class='bx red  bxl-twitter'></i> </a>
-      <a href="#" target="blanket"> <i class='bx red bxl-telegram'></i></a>
+      {% for rede in redes %}  
+      {% if rede.state %}  
+      <a href="{{rede.enlace}}" target="blanket"><i class='bx red {{rede.icon}}'></i> </a>
+      {% endif %}
+      {% endfor %}
     </div>
         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
         {% for image in picture %}

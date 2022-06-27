@@ -52,7 +52,7 @@
     
 }
 #redes{
-     top: 118px; 
+     top: 115px; 
     /* background-color: #d4d4d4; */
     border-radius: 10px;
     border: 1px solid #ccc;
@@ -61,11 +61,12 @@
     position: fixed;
     display: flex;
     justify-content: space-around;
-    
+ 
+    background-color: rgba(6, 198, 247, 0.295);
   right: 0;
 }
 #redes:hover{
-    background-color: rgba(204, 204, 204, 0.493);
+    /* background-color: rgba(204, 204, 204, 0.733); */
 }
 .red{
     text-align: center; 
@@ -79,39 +80,36 @@
 
 }
 
-#redes .bxl-facebook-square{
+/* #redes .bxl-facebook-square{
     color: #3b5998;
-}
-#redes .bxl-facebook-square:hover{
-    font-size: 38px;
-}
+} */
 
-#redes .bxl-instagram{
+
+/* #redes .bxl-instagram{
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     -webkit-background-clip: text;
-    /* Also define standard property for compatibility */
+    //Also define standard property for compatibility
     background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-#redes .bxl-instagram:hover{
-    font-size: 38px;
-}
-#redes .bxl-twitter{
+} */
+
+/* #redes .bxl-twitter{
     color: #00acee;
 }
-#redes .bxl-twitter:hover{
-    font-size: 38px;
-}
+
 #redes .bxl-telegram{
     color: #16a8f1;
+} */
+.red{
+    color: #0577b9;
 }
-#redes .bxl-telegram:hover{
-    font-size: 38px;
+.red:hover{
+    text-shadow: 2px 2px 5px #999;
 }
 
 .carrusel {
     /* margin-top: 5px; */
-    background-color: #00234b;
+    background-color: #003572;
     
     width: 100%;
     position: relative;

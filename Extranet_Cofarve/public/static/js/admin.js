@@ -117,9 +117,17 @@ function filtroAreaP(){
   }
 
     function CodigoMenu(valor){
-      var area = document.getElementById("id_name").value;
-     
-      var valorT = parseInt(valor)+1;
 
-      $(codArea).attr('value',area+valorT ); //Cambiando valor a mostrar
+      /* Función que coloca el codigo del menu en el sub-menu 
+        para que se guarde el submenú
+      */
+      var area = document.getElementById("id_name").value;
+      var valorT = parseInt(valor)+1;
+      // alert(valor);
+      if(valor=== ""){
+        $(codArea).attr('value', 'p1'); //Cambiando valor a mostrar
+
+      }else{
+        $(codArea).attr('value',area+valorT ); //Cambiando valor a mostrar
+      }
     }

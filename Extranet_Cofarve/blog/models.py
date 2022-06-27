@@ -43,6 +43,7 @@ class RedeSociales(models.Model):
     name = models.CharField(max_length=100)
     state = models.BooleanField()
     enlace = models.CharField(max_length=300)
+    icon = models.CharField(max_length=100)
 
 
     def __str__(self):

@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import TemasImportantes, link,linkSecond,Galeria
+from .models import RedeSociales, TemasImportantes, link,linkSecond,Galeria
 
 class PostForm(forms.ModelForm):
 
@@ -26,3 +26,8 @@ class PostTemas(forms.ModelForm):
         model = TemasImportantes
         fields = ('id', 'name', 'description'  )
 
+class PostRedes(forms.ModelForm):
+
+    class Meta:
+        model = RedeSociales
+        fields = ('id', 'name', 'state', 'enlace', 'icon'  )
