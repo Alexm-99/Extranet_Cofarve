@@ -62,7 +62,7 @@
 
 
                   <input  type="hidden" name="{{ form.icon.name }}" value="bx bx-happy" id="envio-icon">
-                  <span id="icon-post">icono</span> <br><i class='bx bx-happy icon-item icon-happy' id="iconoP"></i></a>
+                  <span id="icon-post">icono</span> <br><i class='bx bx-happy icon-item icon-happy' id="iconoR"></i></a>
               </div>
          
               <div class="form-group col-md-6">
@@ -130,7 +130,37 @@
     </div>
   </div>
   <!-- ------------------------- -->
-
+<!-- Modal para los iconos Actualizar -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+aria-hidden="true" id="ModalUpddate">
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+    <div class="caja-ico">
+      <i class='bx bxl-facebook-square ico-modal' onclick="iconclickRedesUpdate('bx bxl-facebook-square') " data-dismiss="modal"></i>
+      <i class='bx bxl-instagram ico-modal' onclick="iconclickRedesUpdate('bx bxl-instagram') " data-dismiss="modal"></i>
+      <i class='bx bxl-twitter ico-modal' onclick="iconclickRedesUpdate('bx bxl-twitter') " data-dismiss="modal"></i>
+      <i class='bx bxl-Telegram ico-modal' onclick="iconclickRedesUpdate('bx bxl-Telegram') " data-dismiss="modal"></i>
+      <i class='bx bxl-youtube ico-modal' onclick="iconclickRedesUpdate('bx bxl-youtube') " data-dismiss="modal"></i>
+      <i class='bx bxl-whatsapp ico-modal' onclick="iconclickRedesUpdate('bx bxl-whatsapp') " data-dismiss="modal"></i>
+      <i class='bx bxl-linkedin ico-modal' onclick="iconclickRedesUpdate('bx bxl-linkedin') " data-dismiss="modal"></i>
+      <i class='bx bxl-discord ico-modal' onclick="iconclickRedesUpdate('bx bxl-discord') " data-dismiss="modal"></i>
+      <i class='bx bxl-blogger ico-modal' onclick="iconclickRedesUpdate('bx bxl-blogger') " data-dismiss="modal"></i>
+      <i class='bx bxl-skype ico-modal' onclick="iconclickRedesUpdate('bx bxl-skype') " data-dismiss="modal"></i>
+      <i class='bx bxl-vk ico-modal' onclick="iconclickRedesUpdate('bx bxl-vk') " data-dismiss="modal"></i>
+      <i class='bx bxl-snapchat ico-modal' onclick="iconclickRedesUpdate('bx bxl-snapchat') " data-dismiss="modal"></i>
+      <i class='bx bx-planet ico-modal' onclick="iconclickRedesUpdate('bx bx-planet') " data-dismiss="modal"></i>
+      <i class='bx bx-link ico-modal' onclick="iconclickRedesUpdate('bx bx-link') " data-dismiss="modal"></i>
+      <i class='bx bx-mobile ico-modal' onclick="iconclickRedesUpdate('bx bx-mobile') " data-dismiss="modal"></i>
+      <i class='bx bxs-map ico-modal' onclick="iconclickRedesUpdate('bx bxs-map') " data-dismiss="modal"></i>
+      
+    
+   </div>
+  </div>
+</div>
+</div>
+<!-- ------------------------- -->
+<h3 class="encabezado">Administración de Redes Sociales</h3>
+<hr>
 
 
       <button type="button" data-toggle="modal" data-target="#ModalRedesAdd"
@@ -160,7 +190,7 @@
 
           {% for redSocial in red %}
 
-          <form action="{% url 'update' redSocial.id %}" method="post" class="post-form" id="FormUpdate{{redSocial.id}}">
+          <form action="{% url 'updateRedes' redSocial.id %}" method="post" class="post-form" id="FormUpdateRedes{{redSocial.id}}">
             {% csrf_token %}
 
             <tr class="item-main contenidoMenu" id="contenidoMenu{{redSocial.id}}">
@@ -176,11 +206,11 @@
               
               
               <td>
-                <input type="hidden" name="" id="data-respaldo">
+                <input type="hidden" name="" id="data-respaldo-redes">
                 <!--Para formulario--><input type="hidden" name="{{form.icon.name}}" value="{{redSocial.icon}}"
                   id="envio-icon-{{redSocial.id}}">
-                <a href="" data-toggle="modal" data-target="#ModalUpddate" onclick="guardarDato('{{redSocial.id}}') "><i
-                    class="{{redSocial.icon}} icon-item icon-happy" id="iconoP-{{redSocial.id}}"></i></a>
+                <a href="" data-toggle="modal" data-target="#ModalUpddate" onclick="guardarDatoRedes('{{redSocial.id}}') "><i
+                    class="{{redSocial.icon}} icon-item icon-happy" id="iconoR-{{redSocial.id}}"></i></a>
                  
               </td>
               <td>
@@ -202,12 +232,17 @@
               </td>
               <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();
                 return false;"  -->
-              <td> <a id="link2Update{{redSocial.id}}" href="" class="Button"><i
-                    class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
-              <td> <a id="linkUpdate{{redSocial.id}}" href="#"  class="modal-action modal-close waves-effect waves-green btn-flat "><i
-                    class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
+              <td> <a id="redUpdate{{redSocial.id}}" href="" onclick="confirmarUpdate(`FormUpdateRedes{{redSocial.id}}`); return false;" class="Button">
+                <i class='bx bxs-save icon-item icon-update' id=""> </i>
+                  </a>
+              </td>
+              <td> 
+                <a id="redesUpdate{{redSocial.id}}" href="#" onclick="DeleteMenu(`{% url 'deleteRedes' redSocial.id %}`,`redesUpdate{{redSocial.id}}`)" class="modal-action modal-close waves-effect waves-green btn-flat "><i
+                    class='bx bxs-trash icon-item icon-delete' id=""></i>
+                  </a>
+                </td>
               <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
-              <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
+              <td> <a href="" data-toggle="modal" data-target="#ModalRedesAdd"><i
                     class='bx bxs-add-to-queue icon-item icon-nuevo'></i></a></td>
             </tr>
           </form>

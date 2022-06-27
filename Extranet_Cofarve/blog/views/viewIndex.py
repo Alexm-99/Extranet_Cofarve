@@ -7,6 +7,9 @@ def inicio(request):
     redes = RedeSociales.objects.all()
     temasimportantes = TemasImportantes.objects.all()
     picture = Galeria.objects.all()
-    contexto = {'link':enlace , 'link2':enlace2, 'tema':temasimportantes , 'picture':picture, 'redes':redes}
+    facebook = Noticias.objects.get(id = 1)
+    youtube = Noticias.objects.get(id = 2)
+
+    contexto = {'link':enlace , 'link2':enlace2, 'tema':temasimportantes , 'picture':picture, 'redes':redes,'facebook':facebook, 'youtube':youtube }
     return render(request, 'index.html', contexto)
    

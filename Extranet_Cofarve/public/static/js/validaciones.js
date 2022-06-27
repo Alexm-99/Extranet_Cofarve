@@ -21,8 +21,8 @@ function validarT() {
 
   var img = new Image();
   img.onload = function dimension() {
-    if (this.width.toFixed(0) != 1301&& this.height.toFixed(0) != 500) {
-      alert('Las medidas deben ser: 1301 x 500');
+    if (this.width.toFixed(0) != 1250&& this.height.toFixed(0) != 500) {
+      alert('Las medidas de imagenes deben ser: 1250 x 500');
     } else {
     //   alert('Imagen correcta ');
     
@@ -49,9 +49,9 @@ function validarT() {
 
 
 // FUNCIÓN CON JQUERY
-$('#mensaje_ayuda1').text('200 carácteres restantes');
+$('#mensaje_ayuda1').text('250 carácteres restantes');
 $('#message1').keydown(function () {
-  var max = 200;
+  var max = 250;
   var len = $(this).val().length;
   if (len >= max) {
       $('#mensaje_ayuda1').text('Has llegado al límite');// Aquí enviamos el mensaje a mostrar          
@@ -69,9 +69,9 @@ $('#message1').keydown(function () {
       // document.getElementById('inputsubmit').disabled = false;            
   }
 });  
-$('#mensaje_ayuda2').text('200 carácteres restantes');
+$('#mensaje_ayuda2').text('250 carácteres restantes');
 $('#message2').keydown(function () {
-  var max = 200;
+  var max = 250;
   var len = $(this).val().length;
   if (len >= max) {
       $('#mensaje_ayuda2').text('Has llegado al límite');// Aquí enviamos el mensaje a mostrar          
@@ -90,9 +90,9 @@ $('#message2').keydown(function () {
   }
 });  
 
-$('#mensaje_ayuda3').text('200 carácteres restantes');
+$('#mensaje_ayuda3').text('250 carácteres restantes');
 $('#message3').keydown(function () {
-  var max = 200;
+  var max = 250;
   var len = $(this).val().length;
   if (len >= max) {
       $('#mensaje_ayuda3').text('Has llegado al límite');// Aquí enviamos el mensaje a mostrar          

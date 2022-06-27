@@ -9,7 +9,8 @@
 
   {% block estilos %}
   <link rel="stylesheet" href='{% static "./css/styleAdmin.css" %}'>
-
+  <link rel="stylesheet" href='{% static "./css/checkbox.css" %}'>
+  
 
   {% endblock estilos %}
 </head>
@@ -21,116 +22,27 @@
 
   {% block cuerpo %}
 
-  <!-- Modal guardar areas -->
-  <div class="modal fade" id="ModalRedesAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-          <form method="POST" action="" class="post-form" id="todo-form">{% csrf_token %}
-
-            <div class="form-row">
-
-              
-             
-                <div class="text-danger">
-                  {{ form.errors }}
-                </div>
-               
-                <input type="hidden" name="{{ form.linkP1.name }}" value="" class="form-control" id="codArea">
-             
-              <div class="form-group col-md-6">
-                <label for="">Area</label>
-                <input required type="text" id="id_name" name="{{ form.name.name }}" class="form-control" oninput="CodigoMenu(`{{lastValue.id}}`)">
-              </div>
-             
-              <div class="form-group col-md-6">
-                <label for="">Descripción</label>
-                <input type="text" name="{{ form.description.name }}" class="form-control">
-              </div>
-              <div class="form-group col-md-6">
-
-                <a href="" data-toggle="modal" data-target=".bd-example-modal-sm" id="enlace-icon-id">
 
 
-                  <input  type="hidden" name="{{ form.icon.name }}" value="bx bx-happy" id="envio-icon">
-                  <span id="icon-post">icono</span> <br><i class='bx bx-happy icon-item icon-happy' id="iconoP"></i></a>
-              </div>
-         
-              <div class="form-group col-md-6">
+  <h3 class="encabezado">Administración de Noticias en Redes</h3>
+    <hr>
 
-                <div class="form-check form-switch">
-                  <label for="che-estado">
-                    <input id="che-estado" class="form-check-input" type="checkbox" name="{{ form.state.name }}" checked>
-                    estado</label>
-                </div>
-
-              </div>
-            </div>
-
-
-   
-            <button class="save btn btn-primary" onclick="PostMenu(`{% url 'admin' %}`)">Guardar</button>
-
-          </form>
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" onclick="location.reload()" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- ----------------------------------------------------------- -->
-
- 
-
-  <!-- Modal para los iconos Guardar -->
-  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="caja-ico">
-        
-        <i class='bx bxl-facebook-square ico-modal' onclick="iconclickRedes('{{icono.name}}') " data-dismiss="modal"></i>
-        <i class='bx-instagram ico-modal' onclick="iconclickRedes('{{icono.name}}') " data-dismiss="modal"></i>
-          
       
-
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- ------------------------- -->
-
-
-
-      <button type="button" data-toggle="modal" data-target="#ModalRedesAdd"
-        class="btn btn-primary btn-nuevo">Añadir</button>
 
 
 
       <table class="table" id="tablaT">
         <thead class="" id="table-head">
           <tr>
-            <th></th>
-            <th>ID</th>
-            <th>Noticia</th>
-            <th>Enlace</th>
-        
-            <th>Estado</th>
-            <th colspan="3">Acciones</th>
+            
+            <th class="w-5">ID</th>
+            <th class="w-25">Red social</th>
+         
+        <th class="w-25">Descripción</th>
+        <th class="w-40">Enlace</th>
+
+            
+            <th class="w-25">Actualizar</th>
             <!-- <th>Eliminar</th>
              <th>Guardar</th> 
             <th>Nuevo</th> -->
@@ -141,45 +53,38 @@
 
 
 
-          {% for enlace in media %}
+          {% for noti in noticia %}
 
-          <form action="{% url 'update' enlace.id %}" method="post" class="post-form" id="FormUpdate{{enlace.id}}">
+          <form action="{% url 'updateNoticias' noti.id %}" method="post" class="post-form" id="FormUpdateN{{noti.id}}">
             {% csrf_token %}
 
-            <tr class="item-main contenidoMenu" id="contenidoMenu{{enlace.id}}">
-              <td onclick="showHideRow('{{enlace.linkP1}}');"><i class='bx bx-list-ul icon-flecha icon-item'
-                  id="{{enlace.linkP1}}"></i></td>
-              <td> <input type="text" name="{{form.id.name}}" id="" class="text-id form-control txt-general "
-                  value="" readonly></td>
+            <tr class="item-main contenidoMenu " id="contenidoMenu{{noti.id}}">
+              
+              <td> <input type="text" name="{{form.id.name}}" id="" class="text-id form-control txt-general"
+                  value="{{noti.id}}" readonly></td>
                  
-              <td><input type="text" name="{{form.name.name}}" id="" class="form-control txt-general "
-                  value="TEMA"></td>
+              <td><input type="text" name="{{form.name.name}}" id="" class="form-control txt-general"
+                  value="{{noti.name}}" readonly>
+                
+                
+                </td>
               
-              <td><input type="text" name="" id="" class="form-control txt-general "
-                  value="" readonly></td>
-              
-              
-           
-              <td>
-                <div class="form-check form-switch">
-                  {% if enlace.state %}
-                  <input class="form-check-input" name="{{form.state.name}}" type="checkbox" id="flexSwitchCheckChecked"
-                    checked>
-                  {% else %}
-                  <input class="form-check-input" name="{{form.state.name}}" type="checkbox"
-                    id="flexSwitchCheckChecked">
-                  {% endif %}
-                </div>
+            
+                  <td>
+                    
+
+                 
+                   {{noti.description}}
+            
               </td>
-              <!-- onclick="javascript:document.getElementById(`FormUpdate`).submit();
-                return false;"  -->
-              <td> <a id="link2Update{{enlace.id}}" href="" class="Button"><i
-                    class='bx bxs-save icon-item icon-update' id=""></i></i></a></td>
-              <td> <a id="linkUpdate{{enlace.id}}" href="#"  class="modal-action modal-close waves-effect waves-green btn-flat "><i
-                    class='bx bxs-trash icon-item icon-delete' id=""></i></a></td>
-              <!-- <td> <a href=""><i class='bx bx-save' ></i></a></td> -->
-              <td> <a href="" data-toggle="modal" data-target="#ModalMenu"><i
-                    class='bx bxs-add-to-queue icon-item icon-nuevo'></i></a></td>
+              
+           <td class="w-100"><input type="text" name="enlace" id="" class="form-control txt-general "
+                  value="{{noti.enlace}}" ></td>
+       
+              <td> <a id="notiUpdate{{noti.id}}" href="" class="Button"  onclick="confirmarUpdate(`FormUpdateN{{noti.id}}`); return false;"><i
+                    class='bx bxs-save icon-item icon-update' id=""></i></a></td>
+           
+          
             </tr>
           </form>
      
@@ -203,16 +108,19 @@
  
 
 
-{% block javascript %}
+
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     
 
 
    <script src='{% static "./js/tabla-admin.js" %}'></script>
+   <script src='{% static "./js/validaciones.js" %}'></script>
    
-    {% endblock javascript %}
 
 
 

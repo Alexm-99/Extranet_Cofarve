@@ -1,0 +1,22 @@
+    [
+      {
+        "model": "blog.Noticias",
+        "pk": 1,
+        "fields": {
+          "name": "FACEBOOK",
+          "description": "En la parte de enlace ira la página de facebook a mostrar",
+          "enlace": ""
+        }
+      },
+      
+      {
+        "model": "blog.Noticias",
+        "pk": 2,
+        "fields": {
+          "name": "YOUTUBE",
+          "description": "En la parte del enlace irá la url del video a mostrar desde youtube",
+          "enlace": ""
+        }
+      }
+      
+    ]

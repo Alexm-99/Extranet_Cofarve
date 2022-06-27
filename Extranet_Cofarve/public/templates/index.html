@@ -184,7 +184,7 @@
      
     {% for tema in tema %}
     
-    <div class="card">  <h5 class="card-header">{{tema.name}} </h5> 
+    <div class="card">  <h5 class="card-header fw-bolder"> {{tema.name}} </h5> 
       <div class="card-body text-dark">
      <p class="card-text">
       {{tema.description}}
@@ -204,36 +204,46 @@
   <div class="noticias ">
     <h3 class="th3">Nuestras Redes</h3>
 
+   
+   
+    <div class="notiRedes carousel-inner">
+     
+  
 
-    <div class="notiRedes">
-      <div class="fb-page cj" data-tabs="timeline"
-        data-href="https://www.facebook.com/https://www.facebook.com/Compa%C3%B1%C3%ADa-Farmac%C3%A9utica-Vera-SA-103427571481906/"
-        data-width="500" data-height="300" data-hide-cover="true" data-hide-cta="true" data-small-header="true">
+    <!-- Carousel -->
+    <div id="demo2" class="carousel slide" data-bs-ride="carousel">
+
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">  
+
+        <button type="button" id="b1" data-bs-target="#demo2" data-bs-slide-to="0" class="active"></button>
+        <button type="button" id="b2" data-bs-target="#demo2" data-bs-slide-to="1" class="active"></button>
+      
+        
       </div>
 
-
-      <div class="youtu cj">
-
+   
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner">
+        <div class="fb-page cj carousel-item active" data-tabs="timeline"
+        data-href="{{facebook.enlace}}"
+        data-width="500" data-height="315" data-hide-cover="true" data-hide-cta="true" data-small-header="true">
       </div>
-    </div>
+     
 
-
-
-
-    <div class="indicador">
-      <a href="#">
-        <div class="indicador1">
-
-        </div>
-      </a>
-      <a href="#">
-        <div class="indicador2">
-
+        <div class="youtu cj carousel-item">
+          <iframe width="100%" height="300px;" src="https://www.youtube.com/embed/{{youtube.enlace}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
 
-      </a>
+     </div>
+    
+    </div>
+  </div>
+  <!-- fin carrusel -->
+
 
     </div>
+
   </div>
   <!-- fin noticias -->
 </div>
