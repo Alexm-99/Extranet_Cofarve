@@ -1,0 +1,82 @@
+[
+  {
+    "model": "blog.stockicon",
+    "pk": 1,
+    "fields": {
+      "name": "bx bx-menu",
+      "description": "Icono para menu"
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 2,
+    "fields": {
+      "name": "bx bxs-lock",
+      "description": "Icono de un candado"
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 3,
+    "fields": {
+      "name": "bx bxs-group",
+      "description": "Icono de grupo de persona"
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 4,
+    "fields": {
+      "name": "bx bxs-cart",
+      "description": "Icono de carrito de compras"
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 5,
+    "fields": {
+      "name": "bx bx-store",
+      "description": "Icono de tienda "
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 6,
+    "fields": {
+      "name": "bx bx-credit-card-front",
+      "description": "Icono de carrito"
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 7,
+    "fields": {
+      "name": "bx bx-laptop",
+      "description": "Icono de una computadora portatil"
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 8,
+    "fields": {
+      "name": "fa fa-user",
+      "description": "Icono de texto para información"
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 9,
+    "fields": {
+      "name": "fa fa-envelope",
+      "description": "Icono de texto"
+    }
+  },
+  {
+    "model": "blog.stockicon",
+    "pk": 10,
+    "fields": {
+      "name": "bx bxs-calendar",
+      "description": "Icono de calendario"
+    }
+  }
+]
