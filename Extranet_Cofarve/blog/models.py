@@ -53,7 +53,7 @@ class RedeSociales(models.Model):
 class TemasImportantes(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
+    description = models.CharField(max_length=300)
     #enlace = models.CharField(max_length=300)
 
 

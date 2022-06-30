@@ -21,8 +21,8 @@ function validarT() {
 
   var img = new Image();
   img.onload = function dimension() {
-    if (this.width.toFixed(0) != 1250&& this.height.toFixed(0) != 500) {
-      alert('Las medidas de imagenes deben ser: 1250 x 500');
+    if (this.width.toFixed(0) != 1300&& this.height.toFixed(0) != 500) {
+      alert('Las medidas de imagenes deben ser: 1300 x 500');
     } else {
     //   alert('Imagen correcta ');
     
