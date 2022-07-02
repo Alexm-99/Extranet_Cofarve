@@ -4,7 +4,7 @@
   - [Migración de modelos](#migración-de-modelos)
       - [comandos](#comandos)
   - [Actualización de datos en base de datos](#actualización-de-datos-en-base-de-datos)
-      - [comandos](#comandos-1)
+      - [comando](#comando)
   - [Creación de usuario](#creación-de-usuario)
 - [Interfaces de la aplicación](#interfaces-de-la-aplicación)
   - [Inicio de sesión](#inicio-de-sesión)
@@ -28,14 +28,8 @@ Estos comandos se aplican para exportar los modelos creados  a la base de datos 
 *Ruta de los datos: `./blog/fixtures/`*
 
 > Datos creados en archivos JSON "temas-noticias-icons"
-#### comandos	
-    python manage.py loaddata temas
----
-    python manage.py loaddata noticias
----
-
-    python manage.py loaddata icons
-
+#### comando	
+    python manage.py loaddata temas icons noticias
 
 Los datos en los archivos *json* son exportados a la base de datos con el fin de inicializar datos en el proyecto.
 ## Creación de usuario 
