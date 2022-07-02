@@ -1,5 +1,18 @@
   
-
+  **Tabla de Contenido**
+- [PASOS DE INSTALACIÓN](#pasos-de-instalación)
+  - [Migración de modelos](#migración-de-modelos)
+      - [comandos](#comandos)
+  - [Actualización de datos en base de datos](#actualización-de-datos-en-base-de-datos)
+      - [comandos](#comandos-1)
+  - [Creación de usuario](#creación-de-usuario)
+- [Interfaces de la aplicación](#interfaces-de-la-aplicación)
+  - [Inicio de sesión](#inicio-de-sesión)
+  - [Enlace](#enlace)
+  - [Galería](#galería)
+  - [Temas Importantes](#temas-importantes)
+  - [Redes Sociales](#redes-sociales)
+  - [Nuestras Noticias en Redes](#nuestras-noticias-en-redes)
 #  PASOS DE INSTALACIÓN
 
 ##  Migración de modelos
@@ -7,6 +20,7 @@
 *Ruta del modelo: `./blog/models.py`*
 #### comandos	
     python manage.py makemigrations
+---
     python manage.py migrate
 
 Estos comandos se aplican para exportar los modelos creados  a la base de datos y poder ejecutar de manera adecuada el sistema.
@@ -14,10 +28,14 @@ Estos comandos se aplican para exportar los modelos creados  a la base de datos 
 *Ruta de los datos: `./blog/fixtures/`*
 
 > Datos creados en archivos JSON "temas-noticias-icons"
-
+#### comandos	
     python manage.py loaddata temas
+---
     python manage.py loaddata noticias
+---
+
     python manage.py loaddata icons
+
 
 Los datos en los archivos *json* son exportados a la base de datos con el fin de inicializar datos en el proyecto.
 ## Creación de usuario 
