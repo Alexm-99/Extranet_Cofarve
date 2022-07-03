@@ -1,11 +1,17 @@
   <H1 align="center"> EXTRANET COFARVE </H1>
-  
+
+
    <p align="center">
-   <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
+   <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green/">
    </p>
 
-![ License](https://img.shields.io/github/license/Alexm-99/Extranet_Cofarve)
+![License](https://img.shields.io/github/license/Alexm-99/Extranet_Cofarve)
 
+<H2 align="left"> Autor </H2>
+
+
+[<img src="https://avatars.githubusercontent.com/u/56804056?v=4" style="border-radius:50%" width=115 ><br><sub> Alex Medranda</sub>](https://github.com/Alexm-99)
+ 
 
 [![medrandacode](https://img.shields.io/youtube/channel/subscribers/UCispOdkxxOE3S_0EfneQK0g?style=social)](https://www.youtube.com/channel/UCispOdkxxOE3S_0EfneQK0g) 
 
