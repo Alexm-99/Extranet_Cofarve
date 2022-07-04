@@ -18,13 +18,13 @@
 
 
   **Tabla de Contenido**
-- [PASOS DE INSTALACIÓN 🔧](#pasos-de-instalación-)
-  - [Requerimientos :clipboard:](#requerimientos-clipboard)
+- [PASOS DE INSTALACIÓN](#pasos-de-instalación)
+  - [Requerimientos](#requerimientos)
   - [Migración de modelos](#migración-de-modelos)
       - [comandos](#comandos)
   - [Actualización de datos en base de datos](#actualización-de-datos-en-base-de-datos)
       - [comando](#comando)
-  - [Creación de usuario :bust_in_silhouette:](#creación-de-usuario-bust_in_silhouette)
+  - [Creación de usuario](#creación-de-usuario)
 - [INTERFACES DE APLICACIÓN](#interfaces-de-aplicación)
   - [Inicio de sesión](#inicio-de-sesión)
   - [Enlace](#enlace)
@@ -32,8 +32,8 @@
   - [Temas Importantes](#temas-importantes)
   - [Redes Sociales](#redes-sociales)
   - [Nuestras Noticias en Redes](#nuestras-noticias-en-redes)
-#  PASOS DE INSTALACIÓN 🔧
-## Requerimientos :clipboard:
+#  PASOS DE INSTALACIÓN
+## Requerimientos
   `./requirements.txt`
 - Djando 4
 - mysqlclient
@@ -60,7 +60,7 @@ Estos comandos se aplican para exportar los modelos creados  a la base de datos 
     python manage.py loaddata temas icons noticias
 
 Los datos en los archivos *json* son exportados a la base de datos con el fin de inicializar datos en el proyecto.
-## Creación de usuario :bust_in_silhouette:
+## Creación de usuario
 
     python manage.py createsuperuser
 Al ejecutar este comando tendrás que llenar las credenciales de tu nuevo usuario, podrás crear los usuarios que requieras. 
@@ -74,8 +74,11 @@ Al ejecutar este comando tendrás que llenar las credenciales de tu nuevo usuari
 # INTERFACES DE APLICACIÓN
 
 ## Inicio de sesión 
+Se inicia sesión con las credenciales especificadas en [Creación de usuario](#creación-de-usuario)
 ![login](/imagenDoc/login.png)
 ## Enlace
+![Enlace](/imagenDoc/enlaceDetalle.png "Extranet Cofarve")
+
 
 ## Galería
 
