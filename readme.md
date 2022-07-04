@@ -26,6 +26,7 @@
       - [comando](#comando)
   - [Creación de usuario](#creación-de-usuario)
 - [INTERFACES DE APLICACIÓN](#interfaces-de-aplicación)
+  - [Extranet Cofarve](#extranet-cofarve)
   - [Inicio de sesión](#inicio-de-sesión)
   - [Enlace](#enlace)
   - [Galería](#galería)
@@ -72,11 +73,39 @@ Al ejecutar este comando tendrás que llenar las credenciales de tu nuevo usuari
 > Password:  *Una contraseña para el usuario*
 
 # INTERFACES DE APLICACIÓN
+## Extranet Cofarve
+>HTML: `./public/templates/index.html`
+>
+>CSS:`./public/static/css/Style.css` | `./public/static/css/StyleII.css`
+>
+>JS: `./public/static/js/index.js`  
 
+![extranet](/imagenDoc/Extranet1.png "Extranet Cofarve")
+
+![extranet](/imagenDoc/Extranet2.png "Extranet Cofarve")
 ## Inicio de sesión 
+>HTML: `./public/templates/registration/login.html`
+>
+>CSS:`./public/static/css/registration/login.css`
+>
+>JS: `Sin archivo js` 
+
+
 Se inicia sesión con las credenciales especificadas en [Creación de usuario](#creación-de-usuario)
+
+
 ![login](/imagenDoc/login.png)
 ## Enlace
+
+>HTML: `./public/templates/admin.html`
+>
+>CSS:`./public/static/css/StyleAdmin.css`
+>
+>JS: `./public/static/js/admin1.js`  
+>     `./public/static/js/admin.js` 
+
+Apartado de Enlace, se aplica la configuración de los menús y submenús, aplicaremos los diferentes tipos de enlaces, cada menú contiene diferentes submenus.
+
 ![Enlace](/imagenDoc/enlaceDetalle.png "Extranet Cofarve")
 
 
