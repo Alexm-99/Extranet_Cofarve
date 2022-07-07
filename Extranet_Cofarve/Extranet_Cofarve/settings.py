@@ -75,17 +75,6 @@ WSGI_APPLICATION = 'Extranet_Cofarve.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#  'default': {
-#  'ENGINE': 'django.db.backends.mysql',
-#  'NAME': 'bdExtranet',
-#  'USER': 'root',
-#  'PASSWORD': 'C0farv3-2021base',
-#  'HOST': '10.26.0.245',
-#  'PORT': '3306',
- 
-#  }
-# }
 
 
 
