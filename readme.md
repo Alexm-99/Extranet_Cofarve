@@ -33,6 +33,8 @@
   - [Temas Importantes](#temas-importantes)
   - [Redes Sociales](#redes-sociales)
   - [Nuestras Noticias en Redes](#nuestras-noticias-en-redes)
+    - [__Tomar enlace de Facebok__](#tomar-enlace-de-facebok)
+    - [__Tomar enlace de YouTube__](#tomar-enlace-de-youtube)
 #  PASOS DE INSTALACIÓN
 ## Requerimientos
   `./requirements.txt`
@@ -103,6 +105,7 @@ Se inicia sesión con las credenciales especificadas en [Creación de usuario](#
 >
 >JS: `./public/static/js/admin1.js`  
 >     `./public/static/js/admin.js` 
+>      `./public/static/js/validaciones.js` 
 
 Apartado de Enlace, se aplica la configuración de los menús y submenús, aplicaremos los diferentes tipos de enlaces, cada menú contiene diferentes submenus.
 
@@ -110,9 +113,57 @@ Apartado de Enlace, se aplica la configuración de los menús y submenús, aplic
 
 
 ## Galería
+>HTML: `./public/templates/Galeria.html`
+>
+>CSS:`./public/static/css/GaleriaStyle.css`
+>
+>JS: `./public/static/js/Galeria.js`  
+ 
 
+Apartado de Galeria, se aplica la configuración de la galeria en el index de la aplicación.
+![Enlace](/imagenDoc/Galeria.png "Extranet Cofarve")
+***
+Este apartado es para añadir una nueva imagen.
+
+![Enlace](/imagenDoc/AddGaleria.png "Extranet Cofarve")
 ##  Temas Importantes
+>HTML: `./public/templates/temas.html`
+>
+>CSS:`./public/static/css/styleII.css`
+>
+>JS: `./public/static/js/validaciones.js`  
+ 
 
+Apartado de Temas, se aplica la configuración de temas de relavancia.
+
+![Enlace](/imagenDoc/Temas.png "Extranet Cofarve")
+***
 ## Redes Sociales
+Apartado de Redes Sociales, se aplica la configuración de las redes en la extranet, es parecia a la configuración de enlaces.
+Cuenta con 16 iconos de diferentes redes sociales.
 
+![Enlace](/imagenDoc/redes.png "Extranet Cofarve")
+***
 ## Nuestras Noticias en Redes
+Apartado de noticias en redes, se aplica la configuración de las noticias en facebook y youtube en la extranet.
+
+
+![Enlace](/imagenDoc/noticias.png "Extranet Cofarve")
+
+
+
+### __Tomar enlace de Facebok__
+
+![Enlace](/imagenDoc/url_facebook.png "Extranet Cofarve")
+***
+### __Tomar enlace de YouTube__
+Selecciona el botón Compartir
+
+![Enlace](/imagenDoc/yt1.png "Extranet Cofarve")
+
+Luego seleccionamos solo la parte final del video
+
+![Enlace](/imagenDoc/yt2.png "Extranet Cofarve")
+***
+
+![Enlace](/imagenDoc/noti2.png "Extranet Cofarve")
